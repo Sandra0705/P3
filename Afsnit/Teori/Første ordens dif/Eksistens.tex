@@ -1,0 +1,15 @@
+\subsection{Eksistens af løsninger}
+Eksistens og entydighedssætningen \cite{"Projekt_introduktion"}
+
+\begin{thmx} \textbf{Eksistens og entydighedssætningen} %Ny sætning
+\newline
+    Antag, at $\Omega \subseteq \R^2$ er en åben ikke-tom delmængde og $f:\Omega \rightarrow \R$ en kontinuert funktion. Antag at der findes $L>0$ således, at
+%    
+    \begin{align} \label{Eksistens_og_entydighed}
+        |f(t,x_1) - f(t,x_2)| \leq L|x_1 - x_2| \quad \textit{for alle} \quad (t,x_1) , (t,x_2) \in \Omega
+    \end{align}
+%
+    Antag at $(t_0, x_0) \in \Omega$. Så findes et $\delta > 0$ og en entydig bestemt kontinuert differentiabel funktion $g:(t_0 - \delta, t_0 + \delta) \rightarrow \R$, således at $g'(t) = f(t, g(t)), t\in(t_0-\delta, t_0 + \delta)$, og således at $g(t_0)=x_0$.
+\end{thmx}
+
+Betyder at hvis højresiden $f$ har tilstrækkeligt gode egenskaber, så eksisterer der en entydigt bestemt løsning på et lille tidsinterval.

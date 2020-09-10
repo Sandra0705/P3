@@ -1,0 +1,36 @@
+\input{preamble.tex}
+
+\begin{document} 
+\hbadness=99999
+\vbadness=99999
+\input{structure/structure}
+
+%Indsæt her jeres dokumenter. Lav mapper under afsnit, som har jeres kapitelnavne, og indsæt herunder disse mapper jeres .tex dokumenter
+
+\chapter{Indledning}
+    \input{Afsnit/Indledning/Indledning_main}
+    
+\chapter{Differentialligninger}
+    \input{Afsnit/Teori/Første ordens dif/første_ordens_main}
+    \input{Afsnit/Teori/Anden ordens dif/anden_ordens_main}
+    
+\chapter{Stabilitet}
+    \input{Afsnit/Teori/Stabilitet/stabilitet_main}
+
+\chapter{Problemløsning}
+    \input{Afsnit/Problemløsning/Problemløsning_main}
+
+\chapter{Diskussion}
+    \input{Afsnit/Diskussion/Diskussion_main}
+    
+\chapter{Konklusion}
+    \input{Afsnit/Konklusion/Konklusion_main}
+
+\chapter{Perspektivering}
+    \input{Afsnit/Perspektivering/Perspektivering_main}
+
+
+
+\bibliography{Litteratur.bib}
+
+\end{document}

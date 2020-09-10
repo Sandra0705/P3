@@ -1,0 +1,33 @@
+\subsection{Separable differentialligninger}
+En separabel differentialligning er enhver ligning, der kan udtrykkes på formen $\frac{dx}{dt}=g(t)p(x)$, og som kan løses ved integration.
+
+\begin{defn}\textbf{Separabel differentialligning}\label{Separable_differentialligning_defn}\cite[s.92]{"AICNDE"}
+\newline
+En \textit{separabel differentialligning} er en differentialligning af formen
+\begin{align}\label{eq:Separable_differentialligning_eks}
+    \frac{dx}{dt} = g(t)p(x)
+\end{align}
+
+
+
+kan blive udtrykt ved en funktion $g(t)$, der kun afhænger af t, mutiplicerert med en funktion $p(x)$, der kun afhænger af x, således at $f(t,x)=g(t)p(x)$, så vil differentialligningen \ref{eq:Separable_differentialligning_eks} blive kaldt \textbf{separable}.
+\end{defn}
+
+Ud fra \autoref{Separable_differentialligning_defn} er en første ordens differentialligning separabel hvis og kun hvis den kan skrives på formen $\frac{dx}{dt}=g(t)p(x)$, hvor $g$ og $p$ er kendte funktioner. Højresiden er et produkt af en funktion $g(t)$ kontinuert på et interval $I$, $y\in I$ og en funktion $p(x)$, der er kontinuert på et åbent interval $J$, $x\in J$.
+
+\begin{eks} \textbf{} %Nyt eksempel
+\newline
+Lad $\frac{dx}{dt}-t^3x^2=t^3$ være en første ordens differentialligning.
+Først løses ligning med henblik på at bestemme den afledede.
+\begin{align}
+    \frac{dx}{dt}-t^3x^2&=t^3\nonumber\\
+    &\Updownarrow\nonumber\\
+    \frac{dx}{dt}&=t^3x^2+t^3\nonumber\\
+    &\Updownarrow\nonumber\\
+    \frac{dx}{dt}&=t^3(x^2+1) \label{eq:separabel_eks}
+\end{align}
+Den afledede i ligning \eqref{eq:separabel_eks} er separabel, med $g(t)=t^3$ og $p(x)=x^2+1$, og differentialligningen kan skrives på formen
+    $$\frac{dx}{dt}=g(t)p(x)$$
+\end{eks} 
+
+Separable differentialligninger løses ved separere ligningen hvorefter begge sider integreres. 

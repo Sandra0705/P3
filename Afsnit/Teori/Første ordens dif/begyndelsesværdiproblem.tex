@@ -1,0 +1,39 @@
+\subsubsection{Begyndelsesværdiproblem}
+
+Dette afsnit er baseret på \cite{"Moller"}
+
+% Et begyndelsesværdiproblem har to betingelser:
+% \begin{itemize}
+%     \item En første ordens differentialligning $\frac{dy}{dx}=f(x,y)$.
+%     \item Begyndelsesbetingelse på formen $y(a)=b$.
+% \end{itemize}
+
+% Løsning af begyndelsesværdiproblem:
+
+\begin{defn}\textbf{} %Ny definition
+\newline
+Lad $D_f \subseteq \R \times \R^n, f: D_f \rightarrow \R^n$ og $(t_0, x_0) \in D_f$. Så er begyndelsesværdi-problemet givet ved 
+\begin{align*}
+    \frac{dx}{dt} = f(t, x), \quad x(t_0) = x_0
+\end{align*}
+Hvor $x(t_0) = x_0$ betegner begyndelsesbetingelsen
+\end{defn}
+
+\begin{eks} \textbf{} %Nyt eksempel
+\newline
+Lad differentialligningen $\frac{dx}{dt} = -2x(t)+1$ og begyndelsesværdiproblemet $x(0)=2$ være givet. 
+
+Dette er en inhomogen første ordens differentialligning med konstante koefficienter. Derfor kan den generelle løsning bestemmes ud fra \eqref{eq:løsning_til_inhomo_første_ordens}.
+%
+\begin{align*}
+    x(t) = ce^{-2t} + \frac{1}{2}
+\end{align*}
+Herefter bestemmes c ved at indsætte begyndelsesbetingelsen $x(0) = 2$
+%
+\begin{align*}
+    2 = ce^{-2\cdot0} - \frac{1}{2} = c - \frac{1}{2} \implies c = \frac{5}{2}
+\end{align*}
+%
+Den partikulære løsning til $\frac{dx}{dt} = -2x(t)+1$ er $x(t)=\frac{5}{2}e^{-2t} + \frac{1}{2}$ for begyndelsesbetingelsen $x(0)=2$.
+\end{eks}
+
