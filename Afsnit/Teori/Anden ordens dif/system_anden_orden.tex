@@ -1,0 +1,47 @@
+
+
+En anden ordens differentialligning kan også udtrykkes som et system af første ordens differentialligninger. Dette kaldes for \textit{reduktion af orden}.
+
+Først betragtes en anden ordens differentialligning. 
+\begin{align}\label{eq:anden_ordens_diff}
+    \frac{d^2x}{dt^2}= a_1(t)\frac{dx}{dt}+a_0(t)x + b(t)
+\end{align}
+%
+Ud fra denne defineres følgende funktioner.
+%
+\begin{align*}
+    x_1&=x\\
+    x_2 &= \frac{dx}{dt}
+\end{align*}
+%
+Ved brug af ovenstående funktioner omskrives \eqref{eq:anden_ordens_diff} til følgende system af første ordens differentialligninger.
+%
+\begin{align*}
+    \frac{dx_1}{dt} &= x_2\\
+    \frac{dx_2}{dt} &= a_1(t)x_2 + a_0(t)x_1 + b(t)
+\end{align*}
+%
+Dette kan også udtrykkes som et matricevektor-produkt.
+%
+\begin{align*}
+    \begin{bmatrix}
+        \frac{dx_1}{dt}\\
+        \frac{dx_2}{dt}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    0 & 1\\
+    a_0 & a_1
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1(t)\\
+        x_2(t)
+    \end{bmatrix}
+    + 
+    \begin{bmatrix}
+        0\\
+        b(t)
+    \end{bmatrix}
+\end{align*}
+
+Hermed er en anden ordens differentialligning omskrevet til et system af første ordens differentialligninger og kan derfor løses ved \autoref{sæt:løsning_til_inhomogen_system}.

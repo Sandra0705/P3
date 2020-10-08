@@ -3,58 +3,60 @@ Dette afsnit er baseret på \cite[s. 15-16]{"ODE"}.
 
 Den generelle løsning til en lineær første ordens differentialligning kan bestemmes med følgende sætning. 
 
+\begin{minipage}\textwidth
 \begin{thmx} \textbf{Generel løsning til en lineær første orden differentialligning} %Ny sætning
 \newline
-Lad $a(t), b(t)$ være kontinuerte funktioner og lad $\frac{dx}{dt}:\R \xrightarrow{} \R$. 
+Lad $a(t)$ og $b(t)$ være kontinuerte funktioner og lad $x:I \xrightarrow{} \R$. 
 Da vil den lineære differentialligning
 \begin{align}
-    \frac{dx}{dt}+a(t)x=+b(t)
+    \frac{dx}{dt}=a(t)x+b(t)
 \end{align}
 have den generelle løsning,
-\begin{align}
-    x(t)=ce^{-A(t)} + e^{-A(t)} \int e^{A(t)}b(t) \ dt
+\begin{align}\label{eq:generel_løsning_til_1.ordens_med_variable_koefficienter}
+    x(t)=ce^{A(t)} + e^{A(t)} \int e^{-A(t)}b(t) \ dt
 \end{align}
-hvor $A(t)=\int a(t) \ dt$ og $c \in \R$.
-
+hvor $\displaystyle A(t)=\int a(t) \ dt$ og $c \in \R$.
 \end{thmx}
+\end{minipage}
 %
 \begin{bev} \textbf{} %Nyt bevis
 \newline
-
 Lad en lineær første ordens differentialligning være givet ved følgende
 \begin{align}
-    \frac{dx}{dt} + a(t)x &= b(t) \nonumber\\
-    \intertext{Det vides at $a(t)$ er kontinuert, og der må derfor findes en stamfunktion $A(t)$. Der ganges med $e^{A(t)}$ på begge sider af lighedstegnet}
-    \left(\frac{dx}{dt} + a(t)x\right) \cdot e^{A(t)} &= b(t)\cdot e^{A(t)} \nonumber\\
-    \intertext{$e^{A(t)}$ bliver nu ganget ind i parenteserne}
-    \frac{dx}{dt}\cdot e^{A(t)} + a(t)x\cdot e^{A(t)}&=b(t)\cdot e^{A(t)} \label{panser_produkt} \\
-    \intertext{Da \eqref{panser_produkt} er på formen $\frac{df}\cdot{dt}g(t) + f(t)\frac{dg}\cdot{dt}$ anvendes produktreglen}
-    \frac{d}{dt}(e^{A(t)} \cdot x) &= b(t)\cdot e^{A(t)} \nonumber\\
+    \frac{dx}{dt} &= a(t)x + b(t) \nonumber\\
+    \intertext{Det vides, at $a(t)$ er kontinuert, og der må derfor findes en stamfunktion $A(t)$. Der multipliceres med $e^{-A(t)}$ på begge sider af lighedstegnet}
+    \frac{dx}{dt}  \cdot e^{-A(t)} &=\left(a(t)x + b(t)\right)\cdot e^{-A(t)} \nonumber\\
+    \intertext{$e^{-A(t)}$ bliver nu multipliceret ind i parenteserne}
+    \frac{dx}{dt}\cdot e^{-A(t)} &= a(t)x\cdot e^{-A(t)} + b(t)\cdot e^{-A(t)}\nonumber \\
+    \intertext{$a(t)x\cdot e^{-A(t)}$ subtraheres på begge sider}
+    \frac{dx}{dt}\cdot e^{-A(t)} - a(t)x\cdot e^{-A(t)} &= b(t)\cdot e^{-A(t)} \label{panser_produkt}\\
+    \intertext{Da \eqref{panser_produkt} er på formen $\frac{df}{dt}g(t) + f(t)\frac{dg}{dt}$, anvendes produktreglen for differentiation} 
+    \frac{d}{dt}(e^{-A(t)} \cdot x) &= b(t)\cdot e^{-A(t)} \nonumber\\
     \intertext{Der integreres på begge sider af lighedstegnet}
-    \int \frac{d}{dt}(e^{A(t)} \cdot x )\ dt &= \int b(t) \  \cdot e^{A(t)} \ dt \nonumber \\
-    \intertext{På venstresiden af udtrykket udligner differentiation og integration hinanden. Da højresiden også integreres dannes der et konstantled c.}
-    e^{A(t)} \cdot x &= \int b(t) \cdot e^{A(t)} \ dt + c \nonumber \\
-    \intertext{Både højresiden og venstresiden ganges med $e^{-A(t)}$ for at isolere $x$}
-    x &= e^{-A(t)} \cdot \left(\int e^{A(t)} \cdot b(t) \ dt + c\right) \nonumber\\
-    \intertext{$e^{-A(t)}$ ganges ind i parantesen}
-    x &= ce^{-A(t)} +e^{-A(t)} \cdot \int e^{A(t)} \cdot b(t) \ dt \nonumber
+    \int \frac{d}{dt}(e^{-A(t)} \cdot x )\ dt &= \int b(t) \  \cdot e^{-A(t)} \ dt \nonumber \\
+    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der et konstantled på begge sider af lighedstegnet. De konstante led samles på højresiden og betegnes med $c$.}
+    e^{-A(t)} \cdot x &= \int b(t) \cdot e^{-A(t)} \ dt + c \nonumber \\
+    \intertext{Både højresiden og venstresiden multipliceres med $e^{A(t)}$ for at isolere $x$.}
+    x(t) &= e^{A(t)} \cdot \left(\int e^{-A(t)} \cdot b(t) \ dt + c\right) \nonumber\\
+    \intertext{$e^{A(t)}$ multipliceres ind i parentesen}
+    x(t) &= ce^{A(t)} +e^{A(t)} \cdot \int e^{-A(t)} \cdot b(t) \ dt \nonumber
 \end{align}
 \end{bev}
-Differentialligningnen kaldes for homogen hvis $b(t) = 0$ og hvis $b(t) \neq 0$ kaldes den for en inhomogen differentialligning. 
+Differentialligningnen kaldes for homogen, hvis $b(t) = 0$, og hvis $b(t) \neq 0$ kaldes den for en inhomogen differentialligning. 
 
 For en lineær første ordens differentialligning med konstante koefficienter
 \begin{align}\label{eq:første_ordens_differential_ligning_med_konstante_koefficienter}
-    \frac{dx}{dt}+ax=b \text{ for } a,b \in \R
+    \frac{dx}{dt}=ax+b \text{ for } a,b \in \R
 \end{align}
-vil den generelle løsning kunne udtrykkes ved
+vil den generelle løsning, ud fra \eqref{eq:generel_løsning_til_1.ordens_med_variable_koefficienter}, kunne udtrykkes ved
 \begin{align} \label{eq:løsning_til_inhomo_første_ordens}
-    x(t)=ce^{-at}+\frac{b}{a}
+    x(t)=ce^{ta}+\frac{b}{a}
 \end{align}
-Hvis $b=0$, kan den generelle løsning kunne reduceres til 
+Hvis $b=0$, kan den generelle løsning reduceres til 
 \begin{align}\label{eq:løsning_til_homo_første_ordens}
-    x(t) = ce^{-at}
+    x(t) = ce^{ta}
 \end{align}
 
-Disse er de generelle løsninger til en første ordens differentialligning. Hertil findes der uendeligt mange partikulære løsninger, som kan bestemmes ud fra begyndelsesværdiproblemet. 
+Disse er de generelle løsninger til en første ordens differentialligning. Hertil findes der uendeligt mange partikulære løsninger, som kan bestemmes ud fra \textit{begyndelsesværdiproblemet}. 
 
 

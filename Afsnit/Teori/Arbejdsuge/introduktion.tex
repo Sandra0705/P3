@@ -1,0 +1,64 @@
+\subsection[Introduktion til \texorpdfstring{$e^{tA}$}{exp(tA)}]{Introduktion til \bm{$e^{tA}$}}
+
+I det forrige kapitel blev autonome lineære differentialligninger, samt tilhørende løsninger gennemgået. Dette skal kunne generaliseres til autonome lineære systemer, hvor der indgår $n$ autonome lineære differentialligninger. Dette kan udtrykkes som
+%
+\begin{align} \label{eq:begyndelsesværdiproblem_basic}
+    \frac{d\textbf{x}}{dt}=A\textbf{x}, \quad \textbf{x}(t_0)=\textbf{x}_0
+\end{align}
+%
+hvor $A \in \R^{n \times n}$ og $\textbf{x}: I \to \R^n$. Den entydigt bestemte løsning vil da være $\textbf{x}(t)=e^{(t-t_0)A}\textbf{x}_0$. For at dette er gældende, skal der for ethvert $A$ kunne defineres en matrice $e^{tA}$, som giver løsningen til $\eqref{eq:begyndelsesværdiproblem_basic}$.
+
+Dette vil blive gjort ved at anvende \autoref{sæt:eksistens_og_entydighed}. Lad $A \in \R^{n \times n}$, og lad $\Phi(t)$ betegne en løsning til \eqref{eq:begyndelsesværdiproblem_basic}. Begyndelsesværdiproblemet kan da opstilles som
+%
+\begin{align}
+  \frac{d\Phi(t)}{dt}=A\Phi(t), \quad \Phi(t_0)=I 
+\end{align}
+%
+hvor $\Phi(t)$ er en differentiabel funktion med værdier i $\R^{n \times n}$. Eftersom $\Phi(t)$ er en reel matrice, kan den også udtrykkes som følgende
+\begin{align*}
+    \Phi(t)=[\mathbf{s}_1(t), \mathbf{s}_2(t), \cdots, \mathbf{s}_2(t)]
+\end{align*}
+%
+hvor $s_j$ betegner den $j$'te søjle, $j=1, 2, \cdots, n$. Differentialligningen i begyndelsesværdiproblemet kan omskrives til
+\begin{align}
+    \frac{d}{dt}[\mathbf{s_1}(t), \mathbf{s_2}(t), \cdots, \mathbf{s_n}(t)]=A[\mathbf{s_1}(t), \mathbf{s_2}(t), \cdots, \mathbf{s_n}(t)] \label{eq:omskrivning_begyndelsesværdiproblem}
+\end{align}
+%
+Begyndelsesværdiproblemet er ud fra \eqref{eq:omskrivning_begyndelsesværdiproblem} ækvivalent med systemet
+\begin{align*}
+    \frac{d \mathbf{s}_1}{dt}&=A\mathbf{s}_1, \quad \mathbf{s}_1(0)=\mathbf{e}_1\\
+    \frac{d \mathbf{s}_2}{dt}&=A\mathbf{s}_2, \quad \mathbf{s}_2(0)=\mathbf{e}_2\\
+    &\vdots \quad\quad\quad\quad\quad\quad \vdots\\
+    \frac{d \mathbf{s}_n}{dt}&=A\mathbf{s}_n, \quad \mathbf{s}_n(0)=\mathbf{e}_n
+\end{align*}
+%
+hvor begyndelsesbetingelsen $s_j(0)$ er givet ved enhedsvektorerne i $\R^n$, hvilket er ensbetydende med $I=[\textbf{e}_1, \textbf{e}_2, \cdots, \textbf{e}_n]$.
+
+Herefter ønskes det at vise, at $\Phi(t)$ er en entydig løsning til \eqref{eq:begyndelsesværdiproblem_basic}. Dette gøres ved at anvende Lipschitz-betingelsen fra \autoref{sæt:eksistens_og_entydighed}.
+
+Lad derfor $\Omega \subseteq \R \times \R^{n \times n}$ være en åben og ikke-tom delmængde, og $f: \Omega \to \R^{n \times n}$. Lad $\Phi$ og $\Tilde{\Phi}$ være to løsninger til \eqref{eq:begyndelsesværdiproblem_basic}, samt $f(t,\Phi)=A\Phi$ og $f(t,\Tilde{\Phi})=A\Tilde{\Phi}$.
+
+Ud fra \autoref{sæt:eksistens_og_entydighed} kan Lipschitz-betingelsen opskrives for :
+\begin{align*}
+    \norm{f(t,\Phi)-f(t,\Tilde{\Phi})}_F &\leq L\norm{\Phi-\Tilde{\Phi}}_F \\
+    \norm{A\Phi-A\Tilde{\Phi}}_F &=  \\
+    \norm{A(\Phi-\Tilde{\Phi})}_F &=
+\intertext{Jævnfør \autoref{sæt:frobenius_egenskab_2} kan ovenstående ulighed og udtrykkes som}
+    \norm{A}_F\norm{\Phi-\Tilde{\Phi}}_F &\leq L\norm{\Phi-\Tilde{\Phi}}_F
+\end{align*}
+Af ovenstående bemærkes det, at Lipschitz-betingelsen er opfyldt for $L = \norm{A}_F$, hvoraf der eksisterer en entydig løsning til \eqref{eq:begyndelsesværdiproblem_basic}.
+
+Denne entydige løsning vil fremadrettet betegnes $\E(t)$.
+
+\begin{defn}\textbf{Løsning til et autonomt lineært system af differentialligninger}
+\newline
+Lad $A \in \R^{n \times n}$, og lad $\E: I \to \R^{n \times n}$. Da er $\E(t)$ den entydige løsning til begyndelsesværdiproblemet
+%
+\begin{align}
+    \frac{d\E(t)}{dt}=A\E(t), \quad \E(0)=I \label{eq:løsning_e(t)=Ae(t)}
+\end{align}
+%
+for alle $t \in I$.
+\end{defn}
+
+

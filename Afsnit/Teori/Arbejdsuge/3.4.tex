@@ -1,0 +1,111 @@
+\subsection{Opgave 3.4}
+\begin{minipage}\textwidth
+\begin{thmx} \textbf{} \label{sæt:begyndelsesværdiproblemet_for_phi}%Ny sætning
+\newline
+Lad $s\in \R$, $D_f \subseteq \R \times \R^{n\times n}$ og $F: D_f \to \R^{n\times n}$. Der gælder for begyndelsesværdiproblemet
+\begin{align}\label{eq:begyndelsesværdiproblemet_for_phi}
+    \frac{d\Phi}{dt}= A\Phi, \quad \Phi(0) = \E(s)
+\end{align}
+at det har den entydig bestemte løsning
+\begin{align}
+    \Phi(t) = \E(t)\E(s) = \E(t+s)
+\end{align}
+\end{thmx}
+\end{minipage}
+
+\begin{bev}\textbf{}\\
+Først vil det blive bevist, at $\Psi_1 = \E(t)\E(s)$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+
+$\Psi_1$ indsættes i \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+\begin{align}\label{eq:e(t)e(s)_indsat_som_løsning}
+    \frac{d\left(\E(t)\E(s)\right)}{dt}=A\E(t)\E(s), \quad \E(0)\E(s)=\E(s)
+\end{align}
+
+Begyndelsesbetingelsen verificeres ved brug af \textbf{REF}.
+\begin{align*}
+    \E(0)\E(s)&=\E(s)\\
+    &\Updownarrow\\
+    I\E(s)&=E(s)\\
+    &\Updownarrow\\
+    \E(s)&=\E(s)
+\end{align*}
+
+Det vises, at $\Psi_1$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}. Da $\E(s)$ ikke er afhængig af $t$, forbliver den konstant under differentiation med hensyn til $t$ og kan derfor rykkes udenfor parentesen i \eqref{eq:e(t)e(s)_indsat_som_løsning}. 
+%
+\begin{align*}
+    \frac{d\left(\E(t)\E(s)\right)}{dt}&=\frac{d\E(t)}{dt}\E(s)
+    \intertext{Det vides fra \textbf{REF til den Anders skriver}, at udtrykket kan omskrives til}
+    \frac{d\E(t)}{dt}\E(s)&=A\E(t)\E(s)
+\end{align*}
+
+Hermed er det bevist, at $\Psi_1$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+
+Dernæst vil det blive bevist, at $\Psi_2(t)=\E(t+s)$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+
+$\Psi_2$ indsættes i \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+%
+\begin{align}
+    \frac{d\E(t+s)}{dt} = A\E(t+s), \quad \E(0+s)= \E(s)
+\end{align}
+
+Begyndelsesbetingelsen verificeres.
+%
+\begin{align*}
+    \E(0+s)&=\E(s)\\
+    &\Updownarrow\\
+    \E(s)&=\E(s)
+\end{align*}
+
+Det vises, at $\Psi_2$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}. Lad $\Tilde{t}=t+s$. 
+\begin{align*}
+    \frac{d\E(t+s)}{dt} &= \frac{d\E(\Tilde{t})}{dt}
+    \intertext{Kædereglen for differentiation anvendes, da $\Tilde{t}$ er en funktion af $t$. \textbf{Den Anders skriver anvendes}}
+    \frac{d\E(\Tilde{t})}{dt} &= A\E(\Tilde{t})\cdot\frac{d\Tilde{t}}{dt} \\
+    \intertext{$t+s$ bliver substitueret ind igen.}
+    \frac{d\E(t+s)}{dt} &= A\E(t+s)\cdot\frac{d(t+s)}{dt} \\
+    \intertext{Ved at differentiere det sidste led fås}
+    A\E(t+s)\cdot \frac{d(t+s)}{dt}&= A\E(t+s) \cdot 1\\
+    &= A\E(t+s)
+\end{align*}
+
+Hermed er det bevist, at $\Psi_2$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+
+Det vides ud fra \textbf{den opgave Anders laver og egentlig entydighedssætningen}, at $\frac{d\Phi}{dt}$ har er entydig løsning, og der må det gælde for løsningerne, at
+\begin{align*}
+    \E(t)\E(s) = \E(t+s)
+\end{align*}
+\end{bev}
+
+\begin{minipage}\textwidth
+\begin{kor} \textbf{} \label{kor:egenskaber_til_begyndelsesværdiproblemet_for_phi}%Nyt korollar
+\newline
+Hvis $\E(t)\E(s) = \E(t+s)$, gælder
+\\
+\begin{enumerate}
+    \item $\E(t)\E(s)=\E(s)\E(t)$ for alle $t,s\in \R$
+    \item $\E(t)$ er invertibel for alle $t\in \R$
+    \item $\E(t)^{-1}= \E(-t)$ for alle $t\in \R$
+\end{enumerate}
+\end{kor}
+\end{minipage}
+
+\begin{bev}\textbf{} %Nyt bevis
+\newline
+\textbf{Punkt 1:}\\
+Fra \autoref{sæt:begyndelsesværdiproblemet_for_phi}, gælder
+\begin{align*}
+    \E(t)\E(s)&=\E(t+s)\\
+    \intertext{Da $t$ og $s$ er reelle tal, er $(t+s)=(s+t)$.}
+    \E(t+s)&=\E(s+t)\\
+    &=\E(s)\E(t)
+\end{align*}
+Altså er $\E(t)\E(s)=\E(s)\E(t)$.
+
+\textbf{Punkt 2 og 3:}\\
+Lad $s=-t$, så gælder der, at
+\begin{align*}
+    \E(t)\E(-t) = \E(t+(-t)) = \E(0) = I\\
+    \E(-t)\E(t) = \E((-t)+t) = \E(0) = I
+\end{align*}
+Da $\E(t)\E(-t) = \E(-t)\E(t) = I$ gælder det, at $\E(t)$ er invertibel for alle $t\in \R$, og herudfra er det også bevist, at $E(t)^{-1} = \E(-t)$.
+\end{bev}

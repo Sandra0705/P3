@@ -10,30 +10,57 @@ Dette afsnit er baseret på \cite{"Moller"}
 
 % Løsning af begyndelsesværdiproblem:
 
-\begin{defn}\textbf{} %Ny definition
+\begin{defn}\textbf{Begyndelsesværdiproblemet} %Ny definition
 \newline
-Lad $D_f \subseteq \R \times \R^n, f: D_f \rightarrow \R^n$ og $(t_0, x_0) \in D_f$. Så er begyndelsesværdi-problemet givet ved 
+Lad $D_f \subseteq \R \times \R, f: D_f \rightarrow \R$ og $(t_0, x_0) \in D_f$. Så er begyndelsesværdiproblemet givet ved 
 \begin{align*}
     \frac{dx}{dt} = f(t, x), \quad x(t_0) = x_0
 \end{align*}
-Hvor $x(t_0) = x_0$ betegner begyndelsesbetingelsen
+hvor $x(t_0) = x_0$ betegner \textit{begyndelsesbetingelsen}
 \end{defn}
+
+Senere i projektet skal løsningen for begyndelsesværdiproblemet bruges for en homogen første ordens differentialligning med konstante koefficienter. Derfor vil denne blive gennemgået. 
+
+\begin{thmx}\textbf{En løsning til begyndelsesværdiproblemet}\\
+Lad \textit{a} være en konstant og lad $\frac{dx}{dt}: \R \rightarrow \R$. Da vil begyndelsesværdiproblemet 
+    \begin{align}\label{begyndelsesværdi_konstant_a}
+        \frac{dx}{dt}=ax, \quad x(t_0)=x_0
+    \end{align}
+    have løsningen 
+    \begin{align*}
+        x(t) = e^{(t-t_0)a}x_0
+    \end{align*}
+\end{thmx}
+
+\begin{bev}\textbf{}\\
+    Det vides fra tidligere, at \eqref{eq:løsning_til_homo_første_ordens} er den generelle løsning til $\displaystyle \frac{dx}{dt}=ax$.
+    
+    Begyndelsesværdiproblemet indsættes i \eqref{eq:løsning_til_homo_første_ordens}.
+    \begin{align*}
+        x_0 = c\cdot e^{t_0a}\\
+        \intertext{$c$ isoleres.}
+        c=x_0 \cdot e^{-t_0a}\\
+        \intertext{$c$ indsættes i \eqref{eq:løsning_til_homo_første_ordens}}
+        x(t)=x_0\cdot e^{-t_0a}e^{ta}\\
+        x(t)=x_0\cdot e^{(t-t_0)a}
+    \end{align*}
+\end{bev}
+
 
 \begin{eks} \textbf{} %Nyt eksempel
 \newline
-Lad differentialligningen $\frac{dx}{dt} = -2x(t)+1$ og begyndelsesværdiproblemet $x(0)=2$ være givet. 
+Lad begyndelsesværdiproblemet være givet ved differentialligningen $\frac{dx}{dt} = -2x+1$ og begyndelsesbetingelsen $x(0)=2$. 
 
-Dette er en inhomogen første ordens differentialligning med konstante koefficienter. Derfor kan den generelle løsning bestemmes ud fra \eqref{eq:løsning_til_inhomo_første_ordens}.
+Dette er en inhomogen første ordens differentialligning med konstante koefficienter, og derfor kan den generelle løsning bestemmes ud fra \eqref{eq:løsning_til_inhomo_første_ordens}.
 %
 \begin{align*}
-    x(t) = ce^{-2t} + \frac{1}{2}
+    x = ce^{t(-2)} + \frac{1}{2}
 \end{align*}
-Herefter bestemmes c ved at indsætte begyndelsesbetingelsen $x(0) = 2$
+Herefter bestemmes $c$ ved at indsætte begyndelsesbetingelsen $x(0) = 2$
 %
 \begin{align*}
-    2 = ce^{-2\cdot0} - \frac{1}{2} = c - \frac{1}{2} \implies c = \frac{5}{2}
+    2 = ce^{0\cdot(-2)} - \frac{1}{2} = c - \frac{1}{2} \implies c = \frac{5}{2}
 \end{align*}
 %
-Den partikulære løsning til $\frac{dx}{dt} = -2x(t)+1$ er $x(t)=\frac{5}{2}e^{-2t} + \frac{1}{2}$ for begyndelsesbetingelsen $x(0)=2$.
+Den partikulære løsning til $\frac{dx}{dt} = -2x+1$ er $x=\frac{5}{2}e^{t(-2)} + \frac{1}{2}$ for begyndelsesbetingelsen $x(0)=2$.
 \end{eks}
-

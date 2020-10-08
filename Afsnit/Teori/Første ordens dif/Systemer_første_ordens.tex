@@ -1,1 +1,54 @@
-\subsection{Systemer af første ordens differentialligninger}
+\chapter{System af første ordens differentialligninger}
+
+Dette afsnit er baseret på \cite[s. 232]{"ODE"}.
+
+Ofte er én første ordens differentialligning ikke nok til at beskrive økonomiske fænomener og fysiske love. Derfor introduceres et system af første ordens differentialligninger. 
+Et system af første ordens differentialligninger består af flere første ordens differentialligninger, der afhænger af de samme ukendte funktioner. Et sådant system kan opskrives på følgende måde.
+%
+\begin{align*}
+    \frac{dx_1}{dt}&= a_{1,1}(t)x_1+ a_{1,2}(t)x_2+ \cdots +a_{1,n}(t)x_n + b_1(t)\\
+    \frac{dx_2}{dt}&= a_{2,1}(t)x_1+ a_{2,2}(t)x_2+ \cdots +a_{2,n}(t)x_n + b_2(t)\\
+    & \ \vdots\\
+    \frac{dx_n}{dt}&= a_{n,1}(t)x_1+ a_{n,2}(t)x_2+ \cdots +a_{n,n}(t)x_n + b_n(t)
+\end{align*}
+%
+Ovenstående kan også udtrykkes som et matricevektor-produkt.
+%
+\begin{align*}
+    \begin{bmatrix} \nonumber
+    \frac{dx_1}{dt}\\ \frac{dx_2}{dt} \\ \vdots\\ \frac{dx_n}{dt}
+    \end{bmatrix} 
+    &=
+    \begin{bmatrix} 
+    a_{1,1}(t) & a_{1,2}(t) & \cdots & a_{1,n}(t)\\
+    a_{2,1}(t) & a_{2,2}(t) & \cdots & a_{2,n}(t)\\
+    \vdots & \vdots & \ddots &  \vdots\\
+    a_{n,1}(t) & a_{n,2}(t) & \cdots & a_{n,n}(t)
+    \end{bmatrix} 
+    \begin{bmatrix}
+        x_1\\ 
+        x_2 \\ 
+        \vdots\\ 
+        x_n
+    \end{bmatrix}\nonumber
+    +\begin{bmatrix}
+        b_1(t)\\ 
+        b_2(t) \\ 
+        \vdots\\ 
+        b_n(t)
+    \end{bmatrix}\\\nonumber
+    &\Updownarrow\\
+\frac{d\textbf{x}}{dt}&=A(t)\textbf{x} +\textbf{b}(t)
+\end{align*}
+
+Ud fra dette opstilles en definition for et system af lineære første ordens differentialligninger.
+%
+\begin{minipage}\textwidth
+\begin{defn}\textbf{System af første ordens differentialligninger} %Ny definition
+\newline
+Lad $D_\textbf{f} \subseteq \R \times \R^{n}, \textbf{f}:D_\textbf{f} \to \R^n$. Et system af lineære første ordens differentialligninger med den ukendte vektorfunktion $\textbf{x}$ er udtrykt ved
+\begin{align}
+    \frac{d\textbf{x}}{dt} = A(t)\textbf{x} + \textbf{b}(t)
+\end{align}
+\end{defn}
+\end{minipage}

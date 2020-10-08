@@ -1,9 +1,60 @@
-\subsection{Lineær}
-\begin{defn}\textbf{Lineær første ordens differntial ligninger}\label{Def_Lineær_Første_Orndens_Differential_Ligninger}
- \newline
- En første ordens sædvanelig differential ligning på et ukendt y-plan er
- \begin{align}
-     y'(t) = f(t,y(t)),
- \end{align}
- hvor \textit{f} er givet og \textit{y'} = \frac{dy}{dt}
+\subsection{Linearitet for differentialligninger}
+Dette afsnit er baseret på \cite{"Linaere_foerste_ordens"}. \\
+
+Inden \emph{lineære differentialligninger} introduceres, skal linearitet for disse defineres.
+\newline
+Hvis der findes en vilkårlig differentialligning
+\begin{equation*}
+    f(x)=q(t), \quad t \in I
+\end{equation*}
+hvor $q : I \rightarrow \R$ er en funktion, der afhænger af $t$, og $x : I \rightarrow \R$ er den ukendte funktion. $f : C^n(\R) \rightarrow C^0(\R)$ er en lineær afbildning fra definitionsmængden $C^n(\R)$ til værdimængden $C^0(\R)$, hvor $n \geq 0$ betegner differentialligningens orden. Når $f$ er en lineær afbildning, vil differentialligningen være lineær. \\
+
+\begin{minipage}\textwidth
+\begin{defn}\textbf{Lineære differentialligninger}
+\newline
+En differentialligning $f(x) = q(t)$ er lineær, hvis funktionens venstreside $f(x)$ opfylder begge linearitetsbetingelser:
+\begin{itemize}
+    \item[1.] $f(x_1+x_2)=f(x_1)+f(x_2)$
+    \item[2.]$f(c\cdot x) = c \cdot f(x)$,
+\end{itemize}
+altså hvis $f : C^n(\R) \rightarrow C^0(\R)$ er en lineær afbildning, hvor $n$ angiver differentialligningens orden. $x, x_1, x_2$ er løsninger til differentialligningen, og $c \in \R$ er en skalar.
 \end{defn}
+\end{minipage}
+
+
+
+
+% \begin{thmx}\textbf{Løsningsstruktur for lineære differentialligninger}
+% \newline
+% Den lineære differentialligning
+% \begin{equation*}
+%     f\left(x(t)\right)=q(t), \quad t \in I
+% \end{equation*}
+% kaldes \textit{inhomogen}, når $q(t) \neq 0$. Tilsvarende vil differentialligningen være \textit{homogen}, når $q(t)=0$.
+% \newline
+% \textit{Den fuldstændige løsningmængde} $L_{inhomogen}$ til den inhomogene differentialligningen har formen
+% \begin{equation*}
+%     L_{inhomogen} = x_p(t)+L_{homogen},
+% \end{equation*}
+% hvor $x_p(t)$ er en \textit{partikulær løsning} til den inhomogene differentialligning, og $L_{homogene}$  er den fuldstændige løsning til den tilsvarende homogene differentialligning.
+% \end{thmx}
+% \begin{bev}
+% ja det gælder
+% \end{bev}
+% \begin{eks}
+% Eksempel på homogen
+% \end{eks}
+
+
+% \begin{defn}\textbf{Lineær første ordens differentialligninger}\label{Def_Lineær_Første_Orndens_Differential_Ligninger}
+%  \newline
+%  En første ordens sædvanlig differential ligning på et ukendt y-plan er
+%  \begin{align}\label{Eq:Lineær_Første_Ordens_Differential_Ligninger1}
+%      y'(t) = f(t,y(t)),
+%  \end{align}
+%  hvor \textit{f} er givet og \textit{y'} = $\frac{dy}{dt}$. Ligningen \eqref{Eq:Lineær_Første_Ordens_Differential_Ligninger} er lineær hvis \textit{f} er linear ved sit andet argument
+% \begin{align}\label{Eq:Lineær_Første_Ordens_Differential_Ligninger2}
+%     y´= a(t)y + b(t).
+% \end{align}
+% Den lineære ligning har konstante koefficiener, hvis både \textit{a} og \textit{b} er konstanter. Ellers har den lineære ligning variable koefficienter.
+% \end{defn}

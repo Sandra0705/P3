@@ -26,6 +26,7 @@
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 \usepackage{mdframed}
+\usepackage{multicol}
 \usepackage{enumitem}
 \usepackage[a4paper]{geometry}
 \usepackage{a4wide}
@@ -51,6 +52,7 @@
 
 %matricer 
 \usepackage{blkarray}
+
 %Fikser underfull og overfull
 \hbadness=10001
 \vbadness=10001
@@ -59,6 +61,67 @@
 \bibliographystyle{Formalia/vancouver}
 \setcitestyle{square}
 \usepackage[nottoc,numbib]{tocbibind}
+
+%Symbolregister
+\usepackage[intoc, danish]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Symbolregister}
+\setlength{\columnsep}{1cm}
+\setlength{\nomitemsep}{-1pt}
+
+\makeatletter
+\newif\if@nomlist
+
+\newcommand*\nomlist{%
+  \@nomlisttrue
+  \list{}{%
+    \labelwidth\nom@tempdim
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \itemsep\nomitemsep
+    \let\makelabel\nomlabel}}
+
+\renewcommand*\thenomenclature{%
+  \@ifundefined{chapter}%
+    {\section*{\nomname}\if@intoc\addcontentsline{toc}{section}{\nomname}\fi}%
+    {\chapter*{\nomname}\if@intoc\addcontentsline{toc}{chapter}{\nomname}\fi}%
+  \nompreamble
+  \@nomlistfalse
+}
+\renewcommand\nomgroup[1]{%
+  \if@nomlist\endlist\end{multicols}\fi
+  \ifx#1A\relax
+    \def\nomgroupname{Indledning}%
+    \else
+    \ifx#1B\relax
+    \def\nomgroupname{Introduktion}%
+    \else
+    \ifx#1C\relax
+      \def\nomgroupname{Differentialligninger}%
+    \else
+    \ifx#1D\relax
+      \def\nomgroupname{Beregning af $\bm{e^{tA}}$}%
+    \else
+    \ifx#1E\relax
+      \def\nomgroupname{Stabilitet}%
+    \else
+    \ifx#1F\relax
+      \def\nomgroupname{Problemløsning}%
+    \else
+       \def\nomgroupname{Diverse}%
+      \fi
+      \fi
+      \fi
+      \fi
+    \fi
+  \fi
+  \begin{multicols}{2}[\raggedcolumns\noindent\large\textbf{\textsf{\nomgroupname}}]
+  \nomlist
+}
+\renewcommand*\nompreamble{}
+\renewcommand*\nompostamble{\end{multicols}}
+\makeatother
+
 
 %Gør indholdsfortegnelse og bibliografi dansk
 \addto\captionsdanish{
@@ -211,6 +274,8 @@
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\m}{\cdot}
 
+\newcommand{\I}{I} % :))
+
 \def\partautorefname{Del}
 \def\chapterautorefname{Kapitel}
 \def\sectionautorefname{Afsnit}
@@ -220,7 +285,7 @@
 \def\algorithmautorefname{Algoritme}
 \def\lstinputlistingautorefname{Korollar}
 \def\itemautorefname{Sætning}
-
+\def\equationautorefname{Ligning}
 
 
 \def\env@matrix{\hskip -\arraycolsep
@@ -250,3 +315,6 @@
 \usepackage{emptypage}
 
 \raggedbottom
+
+\def\hmath$#1${\texorpdfstring{{\rmfamily\textit{#1}}}{#1}}
+

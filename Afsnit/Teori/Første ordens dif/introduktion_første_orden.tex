@@ -1,10 +1,25 @@
 \section{Introduktion til differentialligninger}
+Først defineres henholdsvis Leibniz' og Lagranges notation for differentialkvotienter. Disse er de to notationer, som vil blive anvendt i dette projekt.
 
-\begin{defn} \textbf{}\\
-En n'te ordens differentialligning kan udtrykkes som følgende
+\begin{defn}\textbf{Leibniz' notation}
+\newline
+Lad $t \in \I$ og $x:I \to \R$. Da vil differentialkvotienten til $x$ være givet ved
+%
+\begin{align*}
+    \frac{dx}{dt}=\lim_{t \to \infty}\frac{\Delta x}{\Delta t}
+\end{align*}
+
+\end{defn}
+Lagranges notation er en anden måde at udtrykke differentialkvotienter på. Dette betyder, at $\frac{dx}{dt}=x'(t)=x'$, hvilket kan genereliseres til $n$'te afledede ved $\frac{d^nx}{dt^n}=x^{(n)}(t)=x^{(n)}$.
+
+I dette projekt tages der udgangspunkt i Leibniz' notation. Der vil dog forekomme undtagelser, hvor Lagranges notation vil blive anvendt, men dette skift i notation vil blive noteret i den tilhørende tekst.
+
+Ud fra Leibniz' notation defineres en $n$'te differentialligning.
+
+\begin{defn}\label{def:generel_differentialligning} \textbf{}\\
+Lad $t \in I$ og $x:I \to \R$. En $n$'te ordens differentialligning kan da udtrykkes som følgende
 %
 \begin{align*}
     \frac{d^nx}{dt^n}=f\left(t, x, \frac{dx}{dt},\cdots, \frac{d^{n-1}x}{dt^{n-1}}\right )
 \end{align*}
-
 \end{defn}

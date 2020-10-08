@@ -1,0 +1,111 @@
+\section{Løsning til system}
+Ud fra løsningen til begyndelsesværdiproblemet for autonome lineære differentialligninger, vil der nu opstilles løsninger for autonome lineære systemer. 
+
+\begin{minipage}\textwidth
+\begin{thmx} \textbf{Løsning til homogen} %Ny sætning
+\newline
+Lad $A \in \R^{n \times n}$, $t_0 \in \R$ og $\textbf{x}_0 \in \R^n$. Heraf gælder  begyndelsesværdiproblemet for det homogene autonome lineære system 
+\begin{align}\label{eq:homogen_lineart_system}
+    \frac{d\textbf{x}}{dt} = A\textbf{x}, \quad \mathbf{x}(t_0) = \mathbf{x}_0 
+\end{align}
+har løsningen 
+\begin{align}\label{eq:løsning_til_homogen_lineart_system}
+    \textbf{x}(t) = e^{(t-t_0)A}\textbf{x}_0
+\end{align}
+\end{thmx}
+\end{minipage}
+
+\begin{bev}\textbf{}\\
+Det vil blive bevist, at \eqref{eq:løsning_til_homogen_lineart_system} er en løsning til \eqref{eq:homogen_lineart_system}
+%
+    \begin{align*}
+    \textbf{x}(t) &= e^{(t-t_0)A}\textbf{x}_0
+    \intertext{$\textbf{x}(t)$ differentieres}
+    \frac{d\textbf{x}}{dt} &= Ae^{(t-t_0)A}\textbf{x}_0
+    \intertext{$\textbf{x}$ indsættes i udtrykket, da $\textbf{x}(t)=e^{(t-t_0)A}\textbf{x}_0$}
+    \frac{d\textbf{x}}{dt} &= A\textbf{x}
+    \end{align*}
+\end{bev}
+
+Ved brug af ovenstående resultat, kan løsningen til begyndelsesværdiproblemet for et inhomogent system også betemmes. 
+
+\begin{minipage}\textwidth
+\begin{thmx} \textbf{Løsning til inhomogen} \label{sæt:løsning_til_inhomogen_system}%Ny sætning
+\newline
+Lad $A \in \R^{n \times n}$, $t_0 \in \R$ og $\textbf{x}_0 \in \R^n$. Lad derudover $b(t): \R \rightarrow \R^n$ være en given kontinuert funktion. Heraf gælder det begyndelsesværdiproblemet for det inhomogene lineære system 
+\begin{align}\label{eq:inhomogen_lineart_system}
+    \frac{d\textbf{x}}{dt} = A\textbf{x}+b(t), \quad \mathbf{x}(t_0) = \mathbf{x}_0 
+\end{align}
+har den entydigt bestemte løsning 
+\begin{align}\label{eq:løsning_til_inhomogen_lineart_system}
+    \textbf{x}(t) = e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{(t-s)A}\textbf{b}(s) ds
+\end{align}
+\end{thmx}
+\end{minipage}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+Først vil det blive bevist, at løsningen opfylder kravene for eksistens- og entydighedssætningen, \autoref{sæt:eksistens_og_entydighed}. 
+
+Det er defineret, at $Ax(t)$ og $b(t)$ er kontinuerte funktioner, da de er lineære. Det vides, at for
+$\displaystyle \frac{d\textbf{x}}{dt}=\textbf{f}(t,\textbf{x})$ gælder det, at $D_f \subseteq \R \times \R^n$ er en ikke-tom delmængde og $f: D_f \to \R^n$. Da funktionerne er defineret på $\R \times \R^{n}$ er det et åbent interval. Funktionen opfylder altså kravene for  \autoref{sæt:eksistens_og_entydighed}.
+
+To løsninger $\textbf{y}_1$ og $\textbf{y}_2$ indsættes i \eqref{eq:Eksistens_og_entydighed}.
+%
+\begin{align*}
+    \norm{f(t, \textbf{y}_1)-f(t, \textbf{y}_2)}
+    &=\norm{A\textbf{y}_1+b(t)-(A\textbf{y}_2+b(t))}\\
+    \intertext{Højresiden reduceres.}
+    \norm{f(t, \textbf{y}_1)-f(t, \textbf{y}_2)}&=\norm{A(\textbf{y}_1-\textbf{y}_2)}\\
+    \intertext{\autoref{sæt:frobenius_egenskab_1} bruges.}
+    \norm{A(\textbf{y}_1-\textbf{y}_2)}&\leq\norm A _F \norm{\textbf{y}_1-\textbf{y}_2}\\
+    &\Updownarrow\\
+    \norm{f(t, \textbf{y}_1)-f(t, \textbf{y}_2)}&\leq \norm A _F \norm{\textbf{y}_1-\textbf{y}_2}
+\end{align*}
+Det er nu bevist ud fra \eqref{eq:Eksistens_og_entydighed}, at \eqref{eq:inhomogen_lineart_system} har en entydig løsning.
+
+Den entydige løsning vil nu blive bestemt.
+%
+\begin{align}\label{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}
+    \frac{d\textbf{x}}{dt} &= A\textbf{x} + \textbf{b}(t) \nonumber
+    \intertext{Der subtraheres med $A\textbf{x}$ på begge sider af lighedstegnet.}
+    \frac{d\textbf{x}}{dt}-A\mathbf{x}&=\mathbf{b}(t)\nonumber\\
+    \intertext{Der multipliceres med $e^{-tA}$ på begge sider af lighedstegnet.}
+    e^{-tA}\left(\frac{d\textbf{x}}{dt}-A\mathbf{x}\right) &= e^{-tA}\mathbf{b}(t)\nonumber\\
+    &\Updownarrow\nonumber\\
+    e^{-tA}\frac{d\textbf{x}}{dt}-e^{-tA}A\mathbf{x}&=e^{-tA}\mathbf{b}(t)\nonumber\\
+    \intertext{Da ovenstående er på formen $\frac{df}{dt}g(t) + f(t)\frac{dg}{dt}$ anvendes produktreglen for differentiation.}
+    \frac{d}{dt}\left(e^{-tA}\mathbf{x}\right)&=e^{-tA}\mathbf{b}(t) \nonumber\\
+    \intertext{Begge sider af udtrykket integreres.}
+    \int \frac{d}{dt}\left(e^{-tA}\mathbf{x}\right) dt&= \int
+    e^{-tA}\mathbf{b}(t) dt\nonumber\\
+    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der et konstantled på begge sider af lighedstegnet. De konstante led samles på højresiden og betegnes med $c$.}
+    e^{-tA}\mathbf{x} &= \int e^{-tA}\mathbf{b}(t) dt + c\nonumber\\
+    \intertext{Der multipliceres med $e^{tA}$ på begge sider af lighedstegnet for at isolere \textbf{x}}
+    \mathbf{x}(t) &= e^{tA}c + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt
+\end{align}
+
+Begyndelsesbetingelsen, $\textbf{x}(t_0)=\textbf{x}_0$, indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}, og $c$ isoleres.
+\begin{align*}
+    \mathbf{x}_0 &= e^{t_0A}c + e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
+    e^{t_0A}c &= \textbf{x}_0 - e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
+    c &= e^{-t_0A}\textbf{x}_0 - \int e^{-t_0A}\mathbf{b}(t_0) dt
+    \intertext{Udtrykket for $c$ indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}.}
+    \textbf{x}(t) &= e^{tA} \left( e^{-t_0A}\textbf{x}_0 - \int e^{-t_0A}\mathbf{b}(t_0) dt \right) + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt
+    \intertext{$e^{tA}$ multipliceres ind i parentesen.}
+    \textbf{x}(t) &= e^{tA}e^{-t_0A}\textbf{x}_0 - e^{tA} \cdot \int e^{-t_0A}\mathbf{b}(t_0) dt + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt\\
+    \intertext{\textbf{Regnereglen for $e^{noget}$ bruges til at sætte dem sammen} og $e^{tA}$ faktoriseres ud.}
+    \textbf{x}(t) &= e^{tA-t_0A}\textbf{x}_0 + e^{tA} \cdot \left( \int e^{-tA}\mathbf{b}(t) dt -  \int e^{-t_0A}\mathbf{b}(t_0) dt \right)
+    \intertext{De ubestemte integraler omskrives til det bestemte integral fra $t_0$ til $t$ af $s$}
+    \textbf{x}(t) &= e^{(t-t_0)A}\textbf{x}_0+ e^{tA} \int_{t_0}^t e^{-sA}\mathbf{b}(s) ds\\
+    \intertext{$e^{tA}$ multipliceres ind i integralet og \textbf{REGNEREGLEN} bruges igen.}
+    &= e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{tA} e^{-sA}\mathbf{b}(s) ds\\
+    \textbf{x}(t) &= e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{tA-sA}\mathbf{b}(s) ds\\
+    &= e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{(t-s)A}\mathbf{b}(s) ds
+\end{align*}
+Dermed er det bevist, at \eqref{eq:løsning_til_inhomogen_lineart_system} er den entydigt bestemte løsning til \eqref{eq:inhomogen_lineart_system}.
+
+\end{bev}
+
+
+
