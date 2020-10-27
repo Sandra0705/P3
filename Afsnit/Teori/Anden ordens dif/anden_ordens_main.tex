@@ -1,17 +1,17 @@
 \section{Anden ordens differentialligninger som system}
 
-I dette afsnit vil differentialligninger af anden orden blive introduceret. For en anden ordens differentialligning gælder det, at ordenen af den højeste afledede er én. En anden ordens differentialligning er defineret ved følgende. 
-\begin{defn}\textbf{Anden ordens differentialligning} %Ny definition
-\newline
-En anden orden differentialligning med de ukendte funktioner $x, \frac{dx}{dt}$ er 
+I dette afsnit vil differentialligninger af anden orden blive introduceret. En \textit{anden ordens differentialligning} er defineret ud fra \autoref{def:generel_differentialligning}, hvor $n=2$, hvilket kan udtrykkes som
 \begin{align*}
     \frac{d^2x}{dt^2} = f\left(t, x, \frac{dx}{dt}\right)
 \end{align*}
-hvor $f$ er givet. En anden ordens differentialligning kan skrives på formen
+En lineær anden ordens differentialligning er defineret ved følgende. 
+\begin{defn}\textbf{Lineær anden ordens differentialligning} %Ny definition
+\newline
+Lad $D_f \subseteq \R \times \R^2$ være en åben ikke-tom delmængde, og $f\in C^2(D_f, \R)$. En lineær anden ordens differentialligning med de ukendte funktioner $x$ og $\frac{dx}{dt}$ er udtrykt ved
 \begin{align*}
     \frac{d^2x}{dt^2}=a_1(t)\frac{dx}{dt}+a_0(t)x + b(t)
 \end{align*}
-Den lineære differentialligning har konstante koefficienter, hvis $a_1(t)=a_1$, $a_0(t)=a_0$ og $b(t)=b$. Ellers har den lineære differentialligning variable koefficienter.
+hvor $a_1(t), a_0(t), b(t) \in C^0(\R,\R)$. Den lineære differentialligning har konstante koefficienter, hvis $a_1(t)=a_1$, $a_0(t)=a_0$ og $b(t)=b$. Ellers har den lineære differentialligning variable koefficienter.
 \end{defn}
 
 \input{Afsnit/Teori/Anden ordens dif/system_anden_orden}

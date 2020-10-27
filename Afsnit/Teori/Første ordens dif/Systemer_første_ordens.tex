@@ -2,8 +2,7 @@
 
 Dette afsnit er baseret på \cite[s. 232]{"ODE"}.
 
-Ofte er én første ordens differentialligning ikke nok til at beskrive økonomiske fænomener og fysiske love. Derfor introduceres et system af første ordens differentialligninger. 
-Et system af første ordens differentialligninger består af flere første ordens differentialligninger, der afhænger af de samme ukendte funktioner. Et sådant system kan opskrives på følgende måde.
+Det kan forekomme, at flere første ordens differentialligninger afhænger af de samme ukendte funktioner. I sådanne tilfælde kan differentialligningerne udtrykkes som et system. Et system af første ordens differentialligninger kan udtrykkes på følgende måde.
 %
 \begin{align*}
     \frac{dx_1}{dt}&= a_{1,1}(t)x_1+ a_{1,2}(t)x_2+ \cdots +a_{1,n}(t)x_n + b_1(t)\\
@@ -38,17 +37,21 @@ Ovenstående kan også udtrykkes som et matricevektor-produkt.
         b_n(t)
     \end{bmatrix}\\\nonumber
     &\Updownarrow\\
-\frac{d\textbf{x}}{dt}&=A(t)\textbf{x} +\textbf{b}(t)
+\frac{d\textbf{x}}{dt}&=A(t)\textbf{x} +\textbf{b}(t)\\
+\intertext{Altså kan et system af differentialligninger generelt udtrykkes på formen}
+\frac{d\textbf{x}}{dt}&=\textbf{f}(t,\textbf{x})
 \end{align*}
 
 Ud fra dette opstilles en definition for et system af lineære første ordens differentialligninger.
 %
 \begin{minipage}\textwidth
-\begin{defn}\textbf{System af første ordens differentialligninger} %Ny definition
+\begin{defn}\label{def:system_af_første_ordens_differentialligninger}\textbf{System af første ordens differentialligninger} %Ny definition
 \newline
-Lad $D_\textbf{f} \subseteq \R \times \R^{n}, \textbf{f}:D_\textbf{f} \to \R^n$. Et system af lineære første ordens differentialligninger med den ukendte vektorfunktion $\textbf{x}$ er udtrykt ved
+Lad $D_f \subseteq \R \times \R^n$ være en åben ikke-tom delmængde, og $\textbf{f}\in C^1(D_f, \R^n)$. Lad $A(t) \in C^0(\R, \R^{n \times n})$ og $\textbf{b}(t) \in C^0(\R, \R^n)$. Et system af lineære første ordens differentialligninger med den ukendte vektorfunktion $\textbf{x}$ er udtrykt ved
 \begin{align}
     \frac{d\textbf{x}}{dt} = A(t)\textbf{x} + \textbf{b}(t)
 \end{align}
 \end{defn}
 \end{minipage}
+
+Fra og med \autoref{def:system_af_første_ordens_differentialligninger} vil $A(t)$ betegne en matricefunktion. 

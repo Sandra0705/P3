@@ -1,0 +1,98 @@
+Der vil nu blive opstillet et resultat om udtrykket for $e^{tA}$ for $tr(A) \neq 0$. Dette vil gøres ved brug af tidligere resultater.
+
+\begin{thmx} \textbf{} %Ny sætning
+\newline
+Lad $A\in \R^{2\times 2}$, og lad $B = A - \frac{1}{2}(tr(A))I$. Så gælder det, at
+\begin{enumerate}
+    \item Hvis $A$ har én egenværdi, så er $$e^{tA}=e^{t\lambda}(I_2+tB)$$
+    \item Hvis $A$ har to forskellige reelle egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}cosh\left(t\sqrt{-det(B)}\right)I+\frac{sinh\left(t\sqrt{-det(B)}\right)}{\sqrt{-det(B)}}B$$
+    \item Hvis $A$ har et par af kompleks konjugerede egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}cos\left(t\sqrt{det(B)}\right)I+\frac{sin\left(t\sqrt{det(B)}\right)}{\sqrt{det(B)}}B$$
+\end{enumerate}
+\end{thmx}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+Lad $A\in \R^{2\times 2}$, og lad $B = A - \frac{1}{2}(tr(A))I_2$. 
+
+Først opstilles $e^{tA}$ ved brug af $B$.
+Fra \autoref{sæt:eta_med_trace} kan $e^{tA}$ udtrykkes som $$e^{tA} = e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2}tr(A)\right)I_2}$$ $B$ indsættes i udtrykket.
+    \begin{align}
+        e^{tA} &= e^{t\left(\frac{1}{2}{tr}(A)\right)}e^{tB} \label{eq:eta_indsat_B}
+     \end{align}
+     %
+Det karakteristiske polynomium opstilles ud fra \textbf{Ref putzers.}
+%
+\begin{align}
+    p_A(z) &= (-1)^2(z-\lambda_1)(z-\lambda_2)\nonumber \\
+    &= z^2 - (\lambda_1+\lambda_2)z + \lambda_1 \lambda_2\nonumber
+\intertext{Fra \eqref{eq:det_karakteristiske_polynomium_udtrykt_ved_sporet} ses det, at $tr(A)=\lambda_1+\lambda_2$, og $det(A)=\lambda_1\lambda_2$. $tr(A)=\lambda_1+\lambda_2$ indsættes i \eqref{eq:eta_indsat_B}.}
+     e^{tA} &= e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)}e^{tB} \label{Den_vi_skal_bruge_til_at_bevise_6.0.1}
+\end{align}
+
+Dernæst bestemmes et udtryk for determinanten af $B$. 
+%Egenværdierne for $B$ kan opskrives ud fra \autoref{sæt:egenværdier_og_spor}, da \autoref{sæt:tr(a-led)=0} viser, at matricen opfylder kravene til \autoref{sæt:egenværdier_og_spor}. 
+%
+\begin{align*}
+    det(B) &= det(A)-det\left(\frac{1}{2}tr(A)I_2\right) \nonumber \\
+    &= det(A) - \left(\frac{1}{2}tr(A)\right)\cdot\left(\frac{1}{2}tr(A)\right) - 0\cdot0 \\
+    &=det(A)-\frac{1}{4}\left(tr(A)\right)^2
+\intertext{Herefter kan egenværdierne $\lambda_1$ og $\lambda_2$ indsættes ovenstående udtryk.}
+    det(A)-\frac{1}{4}\left(tr(A)\right)^2 &=\lambda_1\lambda_2 - \frac{1}{4} \left(\lambda_1 + \lambda_2\right) 
+\end{align*}
+
+\begin{itemize}
+    \item [] \textbf{Bevis for punkt 1}\\
+    Antag, at $A$ har kun én egenværdi, $\lambda_1,\lambda_2\in\R$, hvor $\lambda_1 = \lambda_2$.
+    
+    $det(B)$ bestemmes.
+    \begin{align*}
+    det(B) &= \lambda^2-\frac{1}{4}\left(2\lambda\right)^2 \\
+        &= \lambda^2-\lambda^2 \\
+        &= 0
+    \intertext{Da $\lambda_1=\lambda_2$, gælder følgende for \eqref{Den_vi_skal_bruge_til_at_bevise_6.0.1}}
+    e^{tA} &= e^{t\lambda}e^{tB}
+    \intertext{Udtrykket for $e^{tB}$, \autoref{e^tA_udtrykt_når_trA=0}, for $det(B)=0$ indsættes.}
+    e^{tA} &= e^{t\lambda}(I_2+tB)
+    \end{align*}
+    Altså er det bevist, at $e^{tA} = e^{t\lambda}(I_2+tB)$, når $A$ har én egenværdi. 
+    %
+     \item[] \textbf{Bevis for punkt 2}\\
+     Antag, at $A$ har to forskellige reelle egenværdier, $\lambda_1\neq\lambda_2\in\R$.
+     
+    $det(B)$ bestemmes.
+    \begin{align*}
+        det(B) &= \lambda_1\lambda_2-\frac{1}{4}(\lambda_1+\lambda_2)^2 \\
+        %&= \lambda_1\lambda_2-\frac{1}{4}(\lambda_1^2+\lambda_2^2+2\lambda_1\lambda_2) \\
+        &= \lambda_1\lambda_2-\frac{1}{4}\lambda_1^2-\frac{1}{4}\lambda_2^2-\frac{1}{2}\lambda_1\lambda_2 \\
+        &= -\frac{1}{4}\lambda_1^2-\frac{1}{4}\lambda_2^2 + \frac{1}{2}\lambda_1\lambda_2 \\
+        &= -\left(\frac{1}{2}\lambda_1-\frac{1}{2}\lambda_2\right)^2
+    \end{align*}
+    Da $\lambda_1 \neq \lambda_2$ medfører det, at $det(B)<0$.
+    
+    Udtrykket for $e^{tB}$, \autoref{e^tA_udtrykt_når_trA=0}, for $det(B)<0$ indsættes i \eqref{Den_vi_skal_bruge_til_at_bevise_6.0.1}
+    \begin{align*}
+     e^{tA} = e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)}\left( \cosh\left(t\sqrt{-det(B)}\right)I_2+\frac{\sinh\left(t\sqrt{-det(B)}\right)}{\sqrt{-det(B)}}B\right)
+    \end{align*}
+    Altså er det bevist, at $e^{tA}=e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)}\left( \cosh\left(t\sqrt{-det(B)}\right)I_2+\frac{\sinh\left(t\sqrt{-det(B)}\right)}{\sqrt{-det(B)}}B  \right)$, når $A$ har to forskellige reelle egenværdier. 
+    %
+    \item [] \textbf{Bevis for punkt 3}\\
+    Antag, at $A$ har et par af kompleks konjugerede egenværdier, $\lambda_1\neq\lambda_2\in\C\backslash\R$. Egenværdierne udtrykkes som $\lambda_1 = a+bi$ og $\lambda_2 = a - bi$.
+     
+    $det(B)$ bestemmes. 
+    \begin{align*}
+        det(B) &=\left(\left(a+bi\right)\left(a-bi\right)\right) - \frac{1}{4}\left((a+bi)+(a-bi)\right)^2\\
+        &= a^2+b^2-\frac{1}{4}4a^2 \\
+        %&= a^2+b^2-\frac{1}{4}\left(2a\right)^2 \\
+        %&= a^2+b^2-\frac{1}{4}4a^2 \\
+        &= b^2
+    \end{align*} 
+    %
+    Da $\lambda_1,\lambda_2\in \C\backslash\R$, vil $b^2>0$, hvoraf $det(B)>0$.
+    %
+    \begin{align*}
+     \intertext{Udtrykket for $e^{tB}$, \autoref{e^tA_udtrykt_når_trA=0}, for $det(B)>0$ indsættes i \eqref{Den_vi_skal_bruge_til_at_bevise_6.0.1}}
+     e^{tA} &= e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A
+     \end{align*}
+    Altså er det bevist, at $e^{tA} = e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A$, når $A$ har to komplekst konjugerede egenværdier. 
+\end{itemize}
+\end{bev}

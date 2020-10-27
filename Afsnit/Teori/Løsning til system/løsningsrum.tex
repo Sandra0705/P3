@@ -1,0 +1,118 @@
+\section{Løsningsrum}
+
+$C^1(\R,\R^n)$ betegner mængden af alle kontinuerte differentiable funktioner af første orden, hvorom det gælder, at $\textbf{f}: \R \to \R^n$. Deraf er $C^1(\R,\R^n)$ et vektorrum over de reelle tal. 
+
+\begin{defn}\textbf{}\label{def:løsningsrum}
+\newline
+Lad $A \in \R^{n \times n}$. Løsningsrummmet for $\displaystyle\frac{d\textbf{x}}{dt}=A\textbf{x}$ er givet ved 
+%
+\begin{align}
+    \mathcal{N}_A = \left\{\textbf{x} \in C^1(\R, \R^n)\ \bigg|\  \frac{d\textbf{x}}{dt}=A\textbf{x}\right\}
+\end{align}
+%
+\end{defn}
+%
+Ud fra \autoref{def:løsningsrum} er $\mathcal{N}_A$ en delmængde af $C^1(\R,\R^n)$.  
+%
+\begin{thmx}\textbf{}
+\newline
+Løsningsrummet $\mathcal{N}_A$ er et underrum af $C^1(\R,\R^n)$.
+\end{thmx}
+%
+\begin{bev}\textbf{}
+\newline
+Hvis $\mathcal{N}_A$ er et underrum af $C^1(\R,\R^n)$, skal det gælde, at $\mathcal{N}_A$ er lukket under addition og skalarmultiplikation, samt at delmængden indeholder nulvektoren.
+
+\textbf{Lukket under addition} \\
+Lad $f,g \in \mathcal{N}_A$. Da gælder 
+%
+\begin{align*}
+    \frac{d\left(\textbf{f}+\textbf{g}\right)(t)}{dt} &= A\left(\left(\textbf{f}+\textbf{g}\right)(t)\right)
+\intertext{Eftersom $\textbf{f},\textbf{g}$ er elementer af vektorrummet $ C^1(\R,\R^n)$, gælder det, at $(\textbf{f}+\textbf{g})(t) = \textbf{f}(t)+\textbf{g}(t)$.}
+    \frac{d\left(\textbf{f}(t)+\textbf{g}(t)\right)}{dt} &= A\left(\textbf{f}(t)+\textbf{g}(t)\right)
+\intertext{Udtrykket udvides.}
+    \frac{d\textbf{f}(t)}{dt}+\frac{d\textbf{g}(t)}{dt} &= A\textbf{f}(t)+A\textbf{g}(t)
+\end{align*}
+Da $A\left(\left(\textbf{f}+\textbf{g}\right)(t)\right)=A\textbf{f}(t)+A\textbf{g}(t)$ er $\mathcal{N}_A$ lukket under addition.
+
+\textbf{Lukket under skalarmultiplikation}\\
+Lad $c \in \R$ være en skalar, og lad $\textbf{f} \in \mathcal{N}_A$. Da gælder følgende.
+%
+\begin{align*}
+    \frac{d(c\textbf{f})(t)}{dt} &= A(c\textbf{f})(t)
+\intertext{Eftersom $c$ forholder sig konstant under differentiation med hensyn til $t$, kan $c$ isoleres.}
+    c\frac{d\textbf{f}(t)}{dt} &= c\left(A\textbf{f}(t)\right)
+\end{align*}
+Da $(c\textbf{f})(t) = c\left(\textbf{f}(t)\right)$, er det bevist, at $\mathcal{N}_A$ er lukket under skalarmultiplikation.
+
+\textbf{Nulvektoren er indeholdt i $\mathcal{N}_A$} \\
+Da $C^1(\R,\R^n)$ er et vektorrum, gælder det, at $\textbf{0} \in C^1(\R,\R^n)$. Dernæst skal det vises, at nulvektoren opfylder betingelsen for $\mathcal{N}_A$.
+\begin{align*}
+    \frac{d\textbf{0}}{dt} &= A\textbf{0} \\
+    \textbf{0} &= \textbf{0}
+\end{align*}
+Da nulvektoren opfylder betingelsen for $\mathcal{N}_A$, er $\textbf{0} \in \mathcal{N}_A$.
+
+Det er hermed bevist, at $\mathcal{N}_A$ er et underrum af $C^1(\R,\R^n)$.
+\end{bev}
+
+Søjlerne $\textbf{s}_1,\textbf{s}_2,\cdots,\textbf{s}_n$ i $e^{tA}$ har følgende egenskaber.
+%Dernæst skal det vises, at søjlerne i $e^{tA}$, $\textbf{s}_1,\textbf{s}_2,\cdots,\textbf{s}_n$, udgør en basis for $\mathcal{N}_A$, samt dimension af $\mathcal{N}_A$ er lig $n$.
+
+\begin{thmx}\textbf{Egenskaber for søjlerne i $\bm{e^{tA}}$}\label{sæt:egenskab_for_søjler_i_eta}
+\newline
+Lad $A\in\R^{n\times n}$ og $\textbf{s}_j$ være søjler i $e^{tA}$ for $j = 1,2,\cdots,n$.  Da udgør $\textbf{s}_1,\textbf{s}_2, \cdots , \textbf{s}_n$ en basis for $\mathcal{N}_A$, og $dim(\mathcal{N}_A) = n$
+
+\end{thmx}
+%
+\begin{bev}\textbf{} \\
+Hvis $\textbf{s}_1,\textbf{s}_2, \cdots , \textbf{s}_n$ er en basis for $\mathcal{N}_A$, skal søjlerne være lineært uafhængige i $\mathcal{N}_A$, samt udspænde hele $\mathcal{N}_A$. Først vises det, at søjlerne er indeholdt i $\mathcal{N}_A$.
+
+Det vides fra \autoref{def:løsning_autonomt_system}, at $e^{tA}$ er differentiabel, hvilket betyder, at $\textbf{s}_1,\textbf{s}_2,\cdots,\textbf{s}_n$ er differentiable. Dette betyder, at $\textbf{s}_j\in C^1(\R,\R^n)$ for $j=1,2,\cdots,n$.
+
+Ud fra \autoref{def:løsning_autonomt_system} kan $e^{tA}$ differentieres med hensyn til $t$ på følgende måde.
+\begin{align*}
+    \frac{de^{tA}}{dt} &= Ae^{tA} \\
+    &\Updownarrow \\
+    \begin{bmatrix} \displaystyle\frac{d\textbf{s}_1}{dt} & \displaystyle\frac{d\textbf{s}_2}{dt} & \cdots & \displaystyle\frac{d\textbf{s}_n}{dt} \end{bmatrix}
+    &= A \begin{bmatrix} \textbf{s}_1 & \textbf{s}_2 & \cdots & \textbf{s}_n \end{bmatrix} \\
+    &= \begin{bmatrix} A\textbf{s}_1 & A\textbf{s}_2 & \cdots & A\textbf{s}_n \end{bmatrix}
+\intertext{Ud fra ovenstående gælder følgende.}
+    \displaystyle\frac{d\textbf{s}_j}{dt} &= A\textbf{s}_j, \quad \text{for } j = 1,2,\cdots,n
+\end{align*}
+Derfor er $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots, n$.
+
+Dernæst skal det vises, at søjlerne er lineært uafhængige i $\mathcal{N}_A$.
+
+Det vides fra \autoref{sæt:egenskaber_for_eta}, at $e^{tA}$ er invertibel for alle $t\in I$. Derfor er søjlerne i $e^{tA}$ lineært uafhængige i $\R^n$ for alle $t\in I$. Da $\mathcal{N}_A \subseteq \R^n$ og $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots,n$, vil søjlerne også være lineært uafhængige i $\mathcal{N}_A$. 
+
+Herefter vises det, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)=\mathcal{N}_A$. \\
+For at dette er gældende, skal 
+\begin{enumerate}
+    \item span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$
+    \item $\mathcal{N}_A\subseteq \text{span}(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$
+\end{enumerate}
+
+\begin{itemize}
+\item [] \textbf{Bevis for punkt 1}\\
+Først vises, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$. \\
+Det vides, at $\mathcal{N}_A$ er et underrum, samt at $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots,n$. Da $\mathcal{N}_A$ er lukket under addition og multiplikation, må enhver linearkombination af søjlerne ligge i $\mathcal{N}_A$. Det må derfor gælde, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) \subseteq \mathcal{N}_A$.
+
+\item [] \textbf{Bevis for punkt 2}\\
+Dernæst vises det, at $\mathcal{N}_A \subseteq \text{span}(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$. \\
+Følgende begyndelsesværdiproblem opstilles ud fra \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger}, hvor det gælder, at $t_0=0$.
+\begin{align*}
+    \frac{d\textbf{x}}{dt} &= A\textbf{x}, \quad \textbf{x}(0) = \textbf{x}_0
+\intertext{Ovenstående har dermed den entydige løsning}
+    \textbf{x} &= e^{tA}\textbf{x}_0 \\
+    &= \begin{bmatrix} \textbf{s}_1 & \textbf{s}_2 & \cdots & \textbf{s}_n \end{bmatrix}\textbf{x}_0 \\
+    &= \textbf{s}_1 x_{0_1} + \textbf{s}_2 x_{0_2} + \cdots + \textbf{s}_nx_{0_n}
+\end{align*}
+Ud fra ovenstående bemærkes det, at en vilkårlig vektor $\textbf{x} \in \mathcal{N}_A$ kan opskrives som en linearkombination af $\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n$. Dermed må det gælde, at $\mathcal{N}_A \subseteq \text{span}(\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n)$.
+
+Det er hermed vist, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$.
+
+Eftersom $\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n$ er lineært uafhængige i $\mathcal{N}_A$, samt span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$, udgør span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$ en basis for $\mathcal{N}_A$. Da basen har længden $n$, vil $dim (\mathcal{N}_A) = n$. 
+\end{itemize}
+Dermed er \autoref{sæt:egenskab_for_søjler_i_eta} bevist.
+\end{bev}

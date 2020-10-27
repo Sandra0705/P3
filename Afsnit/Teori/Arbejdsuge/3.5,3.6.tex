@@ -1,46 +1,52 @@
-\subsection{Sætning 3.5 og opgave 3.6}
-\textbf{Vi sætter $\E(t) = e^tA$}
-\begin{thmx} \textbf{Egenskaber for} $\bm{e^{tA}}$\\
-For $A\in\R^{n\times n}$ har $e^{tA}$ følgende egenskaber. 
+%$\E(t) = e^{tA}$ defineres til at være løsning til \autoref{eq:begyndelsesværdiproblemet_for_phi}
+
+$e^{tA}$ defineres til at være den entydige løsning, $\E(t)$, til begyndelsesværdiproblemet \eqref{eq:løsning_e(t)=Ae(t)}. For $e^{tA}$ gælder følgende egenskaber.
+
+
+%Hvis $\E(t) = e^{tA}$, så gælder følgende egenskaber.
+\begin{thmx} \textbf{Egenskaber for} \label{sæt:egenskaber_for_eta} $\bm{e^{tA}}$\\
+Lad $A\in\R^{n\times n}$, så har $e^{tA}$ følgende egenskaber. 
     \begin{enumerate}
-        \item Der gælder at $\frac{d}{dt}e^{tA} = Ae^{tA}$
-        \item Der gælder at $e^{0A} = I$
+        \item For alle $t\in \R$ gælder $\frac{d}{dt}e^{tA} = Ae^{tA}$
+        \item Der gælder, at $e^{0A} = I_n$
         \item For alle $s,t\in \R$ gælder $e^{(s+t)A} = e^{sA} e^{tA}$
         \item For alle $t\in\R$ er $e^{tA}$ invertibel, og $(e^{tA})^{-1} = e^{-tA}$
     \end{enumerate}
 \end{thmx}
-\textbf{Sætningen gælder ud fra ovenstående}
 
-\begin{kor}\textbf{Titel}\label{AB_kommuterer_kor}
+Da $e^{tA}$ er defineret til at være $\E(t)$ forekommer ovenstående egenskaber ud fra \autoref{def:løsning_autonomt_system}, \autoref{sæt:begyndelsesværdiproblemet_for_phi} og \autoref{kor:egenskaber_til_begyndelsesværdiproblemet_for_phi}. Yderligere gælder følgende korollar for $e^{tA}$.
+
+\begin{kor}\textbf{}\label{AB_kommuterer_kor}
 \newline
-    Hvis $A, B \in \R^{n\times n}$ kommuterer, dvs. $AB=BA$. Så gælder, at $e^{tA}B=Be^{tA}$ for alle $t \in \R$.
+    Hvis $A, B \in \R^{n\times n}$ kommuterer, altså $AB=BA$, så gælder det, at $e^{tA}B=Be^{tA}$ for alle $t \in \R$.
 \end{kor}
-
-\begin{bev}
-    \begin{enumerate}\textbf{} \newline
-        \item Det antages først, at $B=A$. Fra \autoref{kor:egenskaber_til_begyndelsesværdiproblemet_for_phi} vides det, at $e^{sA}e^{tA} = e^{tA}e^{sA}$. Særtilfældet hvor $A=B$ kan vises som følgende
-    %    
-        \begin{align*}
-            e^{sA}e^{tA} &= e^{tA}e^{sA}\\ % .
-            \intertext{Der differentieres med hensyn til $s$.}
-            Ae^{sA}e^{tA} &= e^{tA}Ae^{sA}\\ % .
-            \intertext{Lad $s=0$}
-            Ae^{0A}e^{tA} &= e^{tA}Ae^{0A}\\
-            Ae^{tA} &= e^{tA}A
-            \intertext{hvilket beviser særtilfældet $A=B$.}
-        \end{align*}
-     %   
-        \item Antag derimod, at der eksisterer et vilkårligt $B\in\R^{n\times n}$, som opfylder $AB = BA$.
+%
+\begin{bev} \textbf{}
+\newline
+Det antages først, at $B=A$. Fra \autoref{kor:egenskaber_til_begyndelsesværdiproblemet_for_phi} vides det, at $e^{sA}e^{tA} = e^{tA}e^{sA}$. Særtilfældet, hvor $B=A$, kan udtrykkes som følgende
+%    
+\begin{align*}
+    e^{sA}e^{tA} &= e^{tA}e^{sA}\\
+\intertext{Ovenstående differentieres med hensyn til $s$.}
+    Ae^{sA}e^{tA} &= e^{tA}Ae^{sA}\\ 
+\intertext{Lad $s=0$.}
+    Ae^{0A}e^{tA} &= e^{tA}Ae^{0A}\\
+    &\Updownarrow\\
+    Ae^{tA} &= e^{tA}A
+\intertext{Altså er særtilfældet, $B=A$, bevist.}
+\end{align*}
+%   
+Antag derimod, at der eksisterer et vilkårligt $B\in\R^{n\times n}$, som opfylder $AB = BA$.
     %
-        \begin{align*}
-            \intertext{Lad $\Psi_1 = e^{tA}B$ og lad $\Psi_2 = Be^{tA}$ det skal vises, at $\Psi_1$ og $\Psi_2$ løser samme differentialligning med samme begyndelsesbetingelse. Først differentieres $\Psi_1$ og $\Psi_2$}
-            \frac{d\Psi_1}{dt} = A e^{tA} B, &\qquad \quad \frac{d\Psi_2}{dt} = BA e^{tA} \\
-            \intertext{Ved at indsætte $\Psi_1$ og $\Psi_2$ fås}
-            \frac{d\Psi_1}{dt} = A \Psi_1, &\qquad \quad \frac{d\Psi_2}{dt} = A\Psi_2 
-            \intertext{Derved er det vist, at $\Psi_1$ og $\Psi_2$ løser samme differentialligning. Begyndelsesbetingelsesn bestemmed ved at sætte $t=0$ for $\Psi_1$ og $\Psi_2$}
-            \Psi_1(0) = e^{0A} B, &\qquad \quad \Psi_2(0) = B e^{0A} \\ 
-            \Psi_1(0) = B, &\qquad \quad \Psi_2(0) = B \\
-            \intertext{Det er derved vist, at $\Psi_1$ og $\Psi_2$ er løsninger til samme begyndelsesværdiproblem. Ud fra eksistens og entydighedsætningen, \autoref{sæt:eksistens_og_entydighed}, må $\Psi_1$ = $\Psi_2$}
-        \end{align*} 
-    \end{enumerate}
+\begin{align*}
+\intertext{Lad $\Psi_1 = e^{tA}B$ og $\Psi_2 = Be^{tA}$. Det skal vises, at $\Psi_1$ og $\Psi_2$ løser samme begyndelsesværdiproblem. Først differentieres $\Psi_1$ og $\Psi_2$ med hensyn til $t$}
+    \frac{d\Psi_1}{dt} = A e^{tA} B, &\qquad \quad \frac{d\Psi_2}{dt} = BA e^{tA} \\
+\intertext{Da $AB$ kommuterer, kan $\Psi_1$ og $\Psi_2$ indsættes, hvilket giver følgende udtryk.}
+    \frac{d\Psi_1}{dt} = A \Psi_1, &\qquad\quad\frac{d\Psi_2}{dt} = A\Psi_2 
+\intertext{Derved er det vist, at $\Psi_1$ og $\Psi_2$ løser samme differentialligning. Begyndelsesbetingelsen bestemmes ved at sætte $t=0$ for $\Psi_1$ og $\Psi_2$}
+    \Psi_1(0) &= e^{0A} B = B\\
+    \Psi_2(0) &= B e^{0A} = B
+\end{align*} 
+Det er derved vist, at $\Psi_1$ og $\Psi_2$ er løsninger til samme begyndelsesværdiproblem. Ud fra eksistens- og entydighedssætningen (se \autoref{sæt:eksistens_og_entydighed}), må $\Psi_1$ = $\Psi_2$, hvorved \autoref{AB_kommuterer_kor} er bevist.
 \end{bev}
+

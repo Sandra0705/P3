@@ -1,8 +1,10 @@
-\subsection{Opgave 3.4}
+\subsection[Egenskaber for \texorpdfstring{$e^{tA}$}{exp(tA)}]{Egenskaber for \bm{$e^{tA}$}}
+
+
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{} \label{sæt:begyndelsesværdiproblemet_for_phi}%Ny sætning
 \newline
-Lad $s\in \R$, $D_f \subseteq \R \times \R^{n\times n}$ og $F: D_f \to \R^{n\times n}$. Der gælder for begyndelsesværdiproblemet
+Lad $s\in \R$, $D_F \subseteq \R^{n\times n}$ være en åben ikke-tom delmængde og $F \in C^1(D_F,\R^{n\times n})$. Lad $A \in \R^{n \times n}$, $t\in I$ og $\Phi: I \to \R^{n \times n}$. Der gælder for begyndelsesværdiproblemet
 \begin{align}\label{eq:begyndelsesværdiproblemet_for_phi}
     \frac{d\Phi}{dt}= A\Phi, \quad \Phi(0) = \E(s)
 \end{align}
@@ -14,84 +16,88 @@ at det har den entydig bestemte løsning
 \end{minipage}
 
 \begin{bev}\textbf{}\\
-Først vil det blive bevist, at $\Psi_1 = \E(t)\E(s)$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+Lad $\Psi_1 = \E(t)\E(s)$. Det vil blive bevist, at $\Psi_1$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
 
-$\Psi_1$ indsættes i \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+$\Psi_1$ differentieres med hensyn til $t$.
+%
+%$\Psi_1$ indsættes i \eqref{eq:begyndelsesværdiproblemet_for_phi}.
 \begin{align}\label{eq:e(t)e(s)_indsat_som_løsning}
-    \frac{d\left(\E(t)\E(s)\right)}{dt}=A\E(t)\E(s), \quad \E(0)\E(s)=\E(s)
+    \frac{d\Psi_1}{dt} = 
+    \frac{d\left(\E(t)\E(s)\right)}{dt}
 \end{align}
-
-Begyndelsesbetingelsen verificeres ved brug af \textbf{REF}.
-\begin{align*}
-    \E(0)\E(s)&=\E(s)\\
-    &\Updownarrow\\
-    I\E(s)&=E(s)\\
-    &\Updownarrow\\
-    \E(s)&=\E(s)
-\end{align*}
-
-Det vises, at $\Psi_1$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}. Da $\E(s)$ ikke er afhængig af $t$, forbliver den konstant under differentiation med hensyn til $t$ og kan derfor rykkes udenfor parentesen i \eqref{eq:e(t)e(s)_indsat_som_løsning}. 
+%
+Da $\E(s)$ ikke er afhængig af $t$, forbliver den konstant under differentiation med hensyn til $t$, og kan derfor rykkes udenfor parentesen i \eqref{eq:e(t)e(s)_indsat_som_løsning}. 
 %
 \begin{align*}
     \frac{d\left(\E(t)\E(s)\right)}{dt}&=\frac{d\E(t)}{dt}\E(s)
-    \intertext{Det vides fra \textbf{REF til den Anders skriver}, at udtrykket kan omskrives til}
+    \intertext{Det vides fra \autoref{def:løsning_autonomt_system}, at udtrykket kan omskrives til}
     \frac{d\E(t)}{dt}\E(s)&=A\E(t)\E(s)
 \end{align*}
 
-Hermed er det bevist, at $\Psi_1$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+Herefter verificeres begyndelsesbetingelsen ved brug af \eqref{eq:løsning_e(t)=Ae(t)}.
+% \begin{align*}
+%     \E(0)\E(s)&=\E(s)\\
+%     &\Updownarrow\\
+%     I\E(s)&=\E(s)\\
+%     &\Updownarrow\\
+%     \E(s)&=\E(s)
+% \end{align*}
+\begin{align*}
+    \E(s) &= \E(0)\E(s)\\
+        &=I_n\E(s)\\
+        &=\E(s)
+\end{align*}
+Altså er begyndelsesbetingelsen opfyldt. \\
+Hermed er det bevist, at $\Psi_1$ er en løsning til  \eqref{eq:begyndelsesværdiproblemet_for_phi}.
 
-Dernæst vil det blive bevist, at $\Psi_2(t)=\E(t+s)$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+Lad $\Psi_2 = \E(t+s)$. Det vil blive bevist, at $\Psi_2$ også er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
 
-$\Psi_2$ indsættes i \eqref{eq:begyndelsesværdiproblemet_for_phi}.
-%
-\begin{align}
-    \frac{d\E(t+s)}{dt} = A\E(t+s), \quad \E(0+s)= \E(s)
-\end{align}
+%Dernæst vil det blive bevist, at $\Psi_2(t)=\E(t+s)$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
+
+$\Psi_2$ differentieres med hensyn til $t$. Lad $\Tilde{t}=t+s$. 
+\begin{align*}
+    \frac{d\E(t+s)}{dt} &= \frac{d\E(\Tilde{t})}{dt}
+    \intertext{Kædereglen for differentiation anvendes, da $\Tilde{t}$ er en funktion af $t$. Ud fra \autoref{def:løsning_autonomt_system} kan ovenstående udskrives som}
+    \frac{d\E(\Tilde{t})}{dt} &= A\E(\Tilde{t})\cdot\frac{d\Tilde{t}}{dt} \\
+    %\intertext{$t+s$ bliver substitueret ind %igen.}
+    %\frac{d\E(t+s)}{dt} &= %A\E(t+s)\cdot\frac{d(t+s)}{dt} \\
+    \intertext{$t+s$ bliver substitueret ind igen og ved at differentiere det sidste led fås}
+    \frac{d\E(t+s)}{dt} &= A\E(t+s)\cdot \frac{d(t+s)}{dt}\\
+    &= A\E(t+s) \cdot 1\\
+    &= A\E(t+s)
+\end{align*}
 
 Begyndelsesbetingelsen verificeres.
 %
 \begin{align*}
-    \E(0+s)&=\E(s)\\
-    &\Updownarrow\\
-    \E(s)&=\E(s)
+    \E(s) &= \E(0+s)\\
+          &= \E(s)
 \end{align*}
-
-Det vises, at $\Psi_2$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}. Lad $\Tilde{t}=t+s$. 
-\begin{align*}
-    \frac{d\E(t+s)}{dt} &= \frac{d\E(\Tilde{t})}{dt}
-    \intertext{Kædereglen for differentiation anvendes, da $\Tilde{t}$ er en funktion af $t$. \textbf{Den Anders skriver anvendes}}
-    \frac{d\E(\Tilde{t})}{dt} &= A\E(\Tilde{t})\cdot\frac{d\Tilde{t}}{dt} \\
-    \intertext{$t+s$ bliver substitueret ind igen.}
-    \frac{d\E(t+s)}{dt} &= A\E(t+s)\cdot\frac{d(t+s)}{dt} \\
-    \intertext{Ved at differentiere det sidste led fås}
-    A\E(t+s)\cdot \frac{d(t+s)}{dt}&= A\E(t+s) \cdot 1\\
-    &= A\E(t+s)
-\end{align*}
+%
+Altså er begyndelsesbetingelsen opfyldt. 
 
 Hermed er det bevist, at $\Psi_2$ er en løsning til \eqref{eq:begyndelsesværdiproblemet_for_phi}.
 
-Det vides ud fra \textbf{den opgave Anders laver og egentlig entydighedssætningen}, at $\frac{d\Phi}{dt}$ har er entydig løsning, og der må det gælde for løsningerne, at
+Det vides ud fra \autoref{Afsnit:4.3}, at $\frac{d\Phi}{dt}$ har en entydig bestemt løsning, og derfor må det gælde for løsningen, at 
 \begin{align*}
-    \E(t)\E(s) = \E(t+s)
+    \Phi(t) = \E(t)\E(s) = \E(t+s)
 \end{align*}
 \end{bev}
 
-\begin{minipage}\textwidth
 \begin{kor} \textbf{} \label{kor:egenskaber_til_begyndelsesværdiproblemet_for_phi}%Nyt korollar
 \newline
-Hvis $\E(t)\E(s) = \E(t+s)$, gælder
-\\
+Hvis $\E(t)\E(s) = \E(t+s)$, så gælder følgende
 \begin{enumerate}
     \item $\E(t)\E(s)=\E(s)\E(t)$ for alle $t,s\in \R$
     \item $\E(t)$ er invertibel for alle $t\in \R$
     \item $\E(t)^{-1}= \E(-t)$ for alle $t\in \R$
 \end{enumerate}
 \end{kor}
-\end{minipage}
 
 \begin{bev}\textbf{} %Nyt bevis
 \newline
-\textbf{Punkt 1:}\\
+\begin{itemize}
+\item [] \textbf{Bevis for punkt 1.}\\
 Fra \autoref{sæt:begyndelsesværdiproblemet_for_phi}, gælder
 \begin{align*}
     \E(t)\E(s)&=\E(t+s)\\
@@ -100,12 +106,12 @@ Fra \autoref{sæt:begyndelsesværdiproblemet_for_phi}, gælder
     &=\E(s)\E(t)
 \end{align*}
 Altså er $\E(t)\E(s)=\E(s)\E(t)$.
-
-\textbf{Punkt 2 og 3:}\\
+\item [] \textbf{Bevis for punkt 2 og 3.}\\
 Lad $s=-t$, så gælder der, at
 \begin{align*}
-    \E(t)\E(-t) = \E(t+(-t)) = \E(0) = I\\
-    \E(-t)\E(t) = \E((-t)+t) = \E(0) = I
+    \E(t)\E(-t) = \E\left(t+(-t)\right) = \E(0) = I_n\\
+    \E(-t)\E(t) = \E\left((-t)+t\right) = \E(0) = I_n
 \end{align*}
-Da $\E(t)\E(-t) = \E(-t)\E(t) = I$ gælder det, at $\E(t)$ er invertibel for alle $t\in \R$, og herudfra er det også bevist, at $E(t)^{-1} = \E(-t)$.
+Da $\E(t)\E(-t) = \E(-t)\E(t) = I_n$, gælder det, at $\E(t)$ er invertibel for alle $t\in \R$, og herudfra er det også bevist, at $\E(t)^{-1} = \E(-t)$.
+\end{itemize}
 \end{bev}

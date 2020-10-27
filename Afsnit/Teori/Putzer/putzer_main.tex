@@ -1,0 +1,167 @@
+Til at beregne $e^{tA}$ kan \textit{Putzers algoritme} anvendes.  
+%I et tidligere projekt blev der redegjort for, hvordan det var muligt at beregne eksponenter af matricer ved brug af \textit{diagonalisering}. For matricer, der ikke er diagonalisérbare, kan \textit{Putzers algoritme} anvendes til at beregne $e^{tA}$. 
+\textit{Cayley Hamilton} (\autoref{lem:Cayley_Hamilton_Sætning}) vil blive brugt til beviset af Putzers algoritme. 
+\begin{lem}\textbf{Cayley Hamilton}\label{lem:Cayley_Hamilton_Sætning}\\
+Lad $A \in \R^{n\times n}$ være en matrice med det karakteristiske polynomium $p_A(\lambda)$. Så gælder, at $p_A(A) = 0$.
+\end{lem}
+
+Putzers algoritme er en metode, hvorved det er muligt at beregne $e^{tA}$ ved brug af egenværdierne for matricen $A$. Putzers algoritme opstilles som følgende sætning.
+
+\begin{thmx}\textbf{Putzers algoritme}\label{sæt:putzers_algoritme}\\
+Lad $A \in \R^{n \times n}$ være en matrice med egenværdier $\lambda_1, \lambda_2, \cdots, \lambda_n$. Så gælder det, at
+%
+% Lad $\lambda_1, \lambda_2, \cdots, \lambda_n$ være egenværdierne til matricen $A$, så gælder
+\begin{align}\label{eq:Putzer_algoritme}
+    e^{tA} = \sum_{k=0}^{n-1}r_{k+1}(t)P_k
+\end{align}
+%
+hvor
+\begin{align}\label{eq:putzers_algoritme_P}
+    P_0 = I_n, \quad P_k = \prod_{i=1}^k (A-\lambda_i I)
+\end{align}
+% og hvor 
+% \begin{align*}
+%     r_1'(t) &= \lambda_1 r(t)\\
+%     r_k'(t) &= \lambda_k r_k(t) + r_{k-1}(t)
+% \end{align*}
+Vektorfunktionen, $\textbf{r}(t)$,  med indgangene $r_k(t)$ for $k=1, 2, \cdots, n$ er den fuldstændige løsning til følgende begyndelsesværdiproblem
+%
+\begin{align} \label{eq:putzers_algoritme_r(t)_begyndelsesværdiproblem}
+    \textbf{r}'(t) = 
+    \begin{bmatrix} 
+        \lambda_1   &   0   & 0 & \cdots & 0\\
+        1   & \lambda_2 & 0 & \cdots & 0\\
+        0 & 1 & \lambda_3 & \cdots & 0\\
+        \vdots & \vdots & \vdots & \ddots & \vdots\\
+        0 & \cdots & 0 & 1 & \lambda_n
+    \end{bmatrix}  \textbf{r} , \quad  \textbf{r}(0) = \begin{bmatrix} 1 \\ 0\\ 0\\ \vdots\\ 0 \end{bmatrix}
+\end{align} 
+\end{thmx}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+    Lad $\displaystyle \Psi = \sum_{k=0}^{n-1}r_{k+1}(t)P_k$. Det skal bevises, at $\Psi$ er løsning til samme begyndelsesværdiproblem som $e^{tA}$. 
+    Hvis $\Psi$ opfylder samme begyndelsesværdiproblem som $e^{tA}$, kan det ud fra eksistens- og entydighedssætningen (\autoref{sæt:eksistens_og_entydighed}) konkluderes, at \eqref{eq:Putzer_algoritme} er sand. 
+    Begyndelsesværdiproblemet er givet ved
+\begin{align*}
+     \frac{d\E}{dt} &= A \E, \quad \E(0) = I_n
+    %
+    \intertext{Lad $\textbf{r}'(t)$ være givet som i \eqref{eq:putzers_algoritme_r(t)_begyndelsesværdiproblem}, så kan vektoren $\textbf{r}'(t)$ omskrives til et system af differentialligninger, hvor}
+    %
+        r_1'(t) &= \lambda_1 r_1(t)\\
+        r_k'(t) &= r_{k-1}(t) + \lambda_k r_k(t), \quad 2\leq k \leq n
+    %
+    \intertext{Lad $P_0$ være identitetsmatricen, og lad $P_k$ være et udsnit af det karakteristiske polynomium for $A$ således, at } 
+    %
+        P_0 &= I_n\\
+        P_k &= (A-\lambda_k I_n) P_{k-1}, k=1,2,\cdots, n\\
+        %P_n = 0
+    \intertext{Det gælder, at $P_n = 0$, da}
+    %
+         P_n &= \prod_{i=1}^n(A -\lambda_i I_n)\\
+            &= (A-\lambda_1 I_n)(A-\lambda_2 I_n)\cdots (A-\lambda_n I_n)\\
+        \intertext{Ovenstående er det karakteristiske polynomium i faktoriseret form, $p_A(A)$. Ud fra Cayley Hamilton (\autoref{lem:Cayley_Hamilton_Sætning}) gælder det, at $p_A(A)=0$. Derfor fås}
+    %
+           P_n &=  p_A(A)= 0
+    \end{align*}
+    %
+    Hvis $\Psi(t)$ er er løsning til samme begyndelsesværdiproblem som $e^{tA}$, må der gælde, at $\Psi'(t)-A\Psi(t)$ skal være lig nulmatricen, \textit{O}. Dette vises ved at indsætte summerne for $\Psi(t)$ og $\Psi'(t)$ og reducere som følgende
+    %
+    \begin{align*}
+        \Psi'(t) - A\Psi(t) &= \sum_{k=0}^{n-1} r'_{k+1}(t)P_k-A \sum_{k=0}^{n-1}r_{k+1}(t) P_k
+    \intertext{Det første led i første sum trækkes ud. Det bemærkes, at $r'_1(t) = \lambda_1 r_1(t)$, og $r'_k(t)=r_{k-1}(t) + \lambda_k r_k(t)$ anvendes.}
+         \Psi'(t) - A\Psi(t) &= \lambda_1 r_1(t)P_0 + \sum_{k=1}^{n-1} \left(r_{k}(t)+\lambda_{k+1} r_{k+1}(t)\right)P_k-A \sum_{k=0}^{n-1}r_{k+1}(t) P_k\\
+    \intertext{$A$ multipliceres ind i summen og udtrykket omskrives som følgende}
+         \Psi'(t) - A\Psi(t) &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} \left(r_{k}(t)+\lambda_{k+1} r_{k+1}(t)\right)P_k 
+         - \sum_{k=0}^{n-1}r_{k+1}(t) A P_k\\
+         &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} \left(r_{k}(t)+\lambda_{k+1} r_{k+1}(t)\right)P_k \\
+         &\phantom{=} - \sum_{k=0}^{n-1}r_{k+1}(t) (A-\lambda_{k+1}I_n + \lambda_{k+1}I_n) P_k\\
+         &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} \left(r_{k}(t)+\lambda_{k+1} r_{k+1}(t)\right)P_k \\
+         &\phantom{=}- \sum_{k=0}^{n-1}r_{k+1}(t)\left( (A-\lambda_{k+1}I_n)P_k + \lambda_{k+1} P_k\right)\\
+    \intertext{Det bemærkes, at $P_{k+1} = (A-\lambda_{k+1}I_n)P_k$.}
+           \Psi'(t) - A\Psi(t) &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} \left(r_{k}(t)+\lambda_{k+1} r_{k+1}(t)\right)P_k - \sum_{k=0}^{n-1}r_{k+1}(t)\left( P_{k+1} + \lambda_{k+1} P_k\right)\\
+           &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} r_{k}(t)P_k + \lambda_{k+1} r_{k+1}(t)P_k \\
+           &\phantom{=}- \sum_{k=0}^{n-1}r_{k+1}(t)P_{k+1} + r_{k+1}(t)\lambda_{k+1} P_k
+    \intertext{Hele udtrykket reduceres ved at opdele summerne.}
+        \Psi'(t) - A\Psi(t) &= \lambda_1 r_1(t)I_n + \sum_{k=1}^{n-1} r_{k}(t)P_k + \sum_{k=1}^{n-1}\lambda_{k+1} r_{k+1}(t)P_k - \sum_{k=0}^{n-1}r_{k+1}(t)P_{k+1} \\
+        &\phantom{=}- \sum_{k=0}^{n-1}r_{k+1}(t)\lambda_{k+1} P_k\\
+       &= \sum_{k=1}^{n-1} r_{k}(t)P_k + \sum_{k=1}^{n-1}\lambda_{k+1} r_{k+1}(t)P_k - \sum_{k=0}^{n-1}r_{k+1}(t)P_{k+1} - \sum_{k=1}^{n-1}r_{k+1}(t)\lambda_{k+1} P_k\\
+        &= \sum_{k=1}^{n-1} r_{k}(t)P_k - \sum_{k=0}^{n-1}r_{k+1}(t)P_{k+1} \\
+        &= -r_n(t) P_n
+    \end{align*}
+   Da $P_n = 0$, fås
+        $$\Psi'(t) - A\Psi(t) = 0$$
+
+Jævnfør ovenstående må det gælde, at $\Psi(t)$ er løsning til samme differentialligning som $e^{tA}$. $\Psi(t)$ har også samme begyndelsesbetingelse som $e^{tA}$, eftersom $\displaystyle \Psi(0) = \sum_{k=0}^{n-1}r_{k+1}(0) P_k = I_n$.
+
+Derved opfylder $\Psi(t)$ og $e^{tA}$ samme begyndelsesværdiproblem, og dermed er \autoref{sæt:putzers_algoritme} bevist.
+\end{bev}
+
+\begin{eks} \textbf{} %Nyt eksempel
+\newline
+    Lad $A$ være en $2\times 2$ matrice givet ved
+    $$A =   \begin{bmatrix}
+                1 & 2\\
+                0 & 1
+            \end{bmatrix} $$
+    %
+    Da $A$ er en øvre trekantsmatrice, er egenværdierne til $A$ givet ved $\lambda_1 = 1, \lambda_2 = 1$
+    
+    \autoref{sæt:putzers_algoritme} anvendes til at udregne $e^{tA}$. Først bestemmes $r_1(t)$ og $r_2(t)$ ved brug af \autoref{sæt:generel_løsning_første_ordens_diff}, så
+    %
+    \begin{align*}
+        r_1(t) &= e^{t\cdot \lambda_1} = e^t\\
+        r_2(t) &= e^{t\lambda_2} \int_0^t e^{-s\lambda_2} r_1(s) ds\\
+               &= e^t \int_0^t e^{-s} e^s ds\\
+               &= e^t \int_0^t 1 ds\\
+               &= e^t \begin{bmatrix}s \end{bmatrix}_0^t = e^t (t-0) = t e^t
+    \end{align*}
+    Herefter bestemmes $P_0$ og $P_1$.
+    \begin{align*}
+        P_0 &= I_2 = \begin{bmatrix}
+                        1 & 0\\
+                        0 & 1
+                    \end{bmatrix}\\
+    %
+        P_1 &= (A - \lambda_1 I_2) 
+        = \begin{bmatrix}
+            1 & 2\\
+            0 & 1
+          \end{bmatrix}
+        -1 \begin{bmatrix}
+            1 & 0\\
+            0 & 1
+          \end{bmatrix}
+        = \begin{bmatrix}
+            0 & 2\\
+            0 & 0
+          \end{bmatrix}
+    \end{align*}
+    %
+
+    Ved brug af \eqref{eq:Putzer_algoritme} fås
+    \begin{align*}
+        e^{tA}  &= \sum_{k=0}^{1}r_{k+1}(t) P_k \\
+                &= r_1(t)P_0 + r_2(t)P_1\\
+                &= e^t  \begin{bmatrix}
+                            1 & 0\\
+                            0 & 1
+                        \end{bmatrix} 
+                 +te^t  \begin{bmatrix}
+                            0 & 2\\
+                            0 & 0
+                        \end{bmatrix}\\
+                &=      \begin{bmatrix}
+                            e^t & 0\\
+                            0 & e^t
+                        \end{bmatrix}
+                    +   \begin{bmatrix}
+                            0 & 2te^t\\
+                            0 & 0
+                        \end{bmatrix}\\
+                &=  \begin{bmatrix}
+                        e^t & 2te^t\\
+                        0   & e^t
+                    \end{bmatrix}
+    \end{align*}    
+\end{eks}

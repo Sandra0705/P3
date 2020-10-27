@@ -4,9 +4,9 @@ Dette afsnit er baseret på \cite[s. 15-16]{"ODE"}.
 Den generelle løsning til en lineær første ordens differentialligning kan bestemmes med følgende sætning. 
 
 \begin{minipage}\textwidth
-\begin{thmx} \textbf{Generel løsning til en lineær første orden differentialligning} %Ny sætning
+\begin{thmx} \textbf{Generel løsning til en lineær første orden differentialligning}\label{sæt:generel_løsning_første_ordens_diff} %Ny sætning
 \newline
-Lad $a(t)$ og $b(t)$ være kontinuerte funktioner og lad $x:I \xrightarrow{} \R$. 
+Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde og $f \in C^1(D_f,\R)$. Lad $a(t), b(t) \in C^0(\R)$.
 Da vil den lineære differentialligning
 \begin{align}
     \frac{dx}{dt}=a(t)x+b(t)
@@ -34,7 +34,7 @@ Lad en lineær første ordens differentialligning være givet ved følgende
     \frac{d}{dt}(e^{-A(t)} \cdot x) &= b(t)\cdot e^{-A(t)} \nonumber\\
     \intertext{Der integreres på begge sider af lighedstegnet}
     \int \frac{d}{dt}(e^{-A(t)} \cdot x )\ dt &= \int b(t) \  \cdot e^{-A(t)} \ dt \nonumber \\
-    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der et konstantled på begge sider af lighedstegnet. De konstante led samles på højresiden og betegnes med $c$.}
+    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der et konstantled på begge sider af lighedstegnet. De konstante led samles på højresiden og betegnes $c$.}
     e^{-A(t)} \cdot x &= \int b(t) \cdot e^{-A(t)} \ dt + c \nonumber \\
     \intertext{Både højresiden og venstresiden multipliceres med $e^{A(t)}$ for at isolere $x$.}
     x(t) &= e^{A(t)} \cdot \left(\int e^{-A(t)} \cdot b(t) \ dt + c\right) \nonumber\\

@@ -3,15 +3,15 @@
 
 \begin{thmx} \textbf{Eksistens og entydighedssætningen} \label{sæt:eksistens_og_entydighed}%Ny sætning
 \newline
-    Antag, at $D_f \subseteq \R\times \R^n$ er en åben ikke-tom delmængde og $f:D_f \rightarrow \R^n$ en kontinuert funktion. Antag at der findes $L>0$ således, at
+    Antag, at $D_f \subseteq \R \times \R^n$ er en åben ikke-tom delmængde, $f: D_f \to \R^n$ en kontinuert funktion. Antag, at der findes $L>0$ således, at
 %    
     \begin{align} \label{eq:Eksistens_og_entydighed}
-        \|\textbf{f}(t,\textbf{x}) -  \textbf{f}(t,\mathbf{\Tilde{x}})\| \leq L\|\textbf{x} - \mathbf{\tilde{x}}\| \quad \textit{for alle} \quad (t,\textbf{x}) , (t,\mathbf{\tilde{x}}) \in \Omega
+        \|\textbf{f}(t,\textbf{x}) -  \textbf{f}(t,\mathbf{\Tilde{x}})\| \leq L\|\textbf{x} - \mathbf{\tilde{x}}\| \quad \textit{for alle} \quad (t,\textbf{x}) , (t,\mathbf{\tilde{x}}) \in D_f
     \end{align}
 %
-    Antag at $(t_0, \textbf{x}_0) \in \Omega$. Så findes et $\delta > 0$ og en entydig bestemt kontinuert differentiabel funktion $\textbf{g}:(t_0 - \delta, t_0 + \delta) \rightarrow \R^n$ således, at $\textbf{g}'(t) = \textbf{f}(t, \textbf{g}(t)), \  t\in(t_0-\delta, t_0 + \delta)$, og således at $\textbf{g}(t_0)=\textbf{x}_0$.
+    Antag, at $(t_0, \textbf{x}_0) \in D_f$. Så findes et $\delta > 0$ og en entydig bestemt kontinuert differentiabel funktion $\textbf{g}:(t_0 - \delta, t_0 + \delta) \rightarrow \R^n$ således, at $\textbf{g}'(t) = \textbf{f}(t, \textbf{g}(t)), \  t\in(t_0-\delta, t_0 + \delta)$, og således at $\textbf{g}(t_0)=\textbf{x}_0$.
 \end{thmx}
-Hvis \eqref{eq:Eksistens_og_entydighed} er opfyldt, gælder det, at der eksisterer en entydigt bestemt løsning.
+Hvor \eqref{eq:Eksistens_og_entydighed} kaldes Lipschitz-betingelsen, og hvis denne er opfyldt eksisterer der en entydigt bestemt løsning.
 
 Ovenstående sætning vil ikke blive bevist i dette projekt, da det er udover projektets faglige mål.
 

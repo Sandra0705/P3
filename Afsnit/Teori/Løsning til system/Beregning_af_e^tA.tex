@@ -1,0 +1,172 @@
+\section{djlkhlkjhlkhjgkjhgkgfkjhgæiejfo}
+For en matrice i $\R^{2\times 2}$ er det muligt at bestemme udtrykket for $e^{tA}$ ved brug af egenværdierne og \textit{sporet} af matricen $A$. Udledningen af denne vil blive præsenteret i dette afsnit. Sporet er defineret som følgende 
+
+\begin{minipage}\textwidth
+\begin{defn}\textbf{}\label{def:spor} %Ny definition
+\newline
+Lad $A \in \R^{n\times n}$. Sporet af $A$ er defineret som 
+\begin{align*}
+    tr(A) = \sum_{i=1}^na_{ii}
+\end{align*}
+\end{defn}
+\end{minipage}
+%
+Til nogle af de følgende resultater skal det karakteristiske polynomium anvendes. Det karakteristiske polynomium omskrives ved brug af sporet og determinanten. 
+%
+\begin{align}
+    p_A(\lambda) &= det(A-\lambda I) \nonumber\\
+    &=(a_{11}-\lambda)(a_{22}-\lambda)-(a_{12}\cdot a_{21}) \nonumber\\
+    &=(a_{11}\cdot a_{22})-(a_{11}\cdot \lambda)-(a_{22}\cdot \lambda) + \lambda^2 - (a_{12}\cdot a_{21})\nonumber\\
+    &=\lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}\cdot a_{22} - a_{12}\cdot a_{21})\nonumber\\
+    &= \lambda^2 - \left(tr(A)\right)\lambda + det(A) \label{eq:det_karakteristiske_polynomium_udtrykt_ved_sporet}
+\intertext{Bemærk, at $\lambda$ er egenværdi til $A$, hvis $p_A(\lambda)=0$.}\nonumber
+\end{align}
+
+\begin{thmx} \textbf{Egenværdier for \textit{A} når $\bm{tr(A)=0}$} \label{sæt:egenværdier_og_spor}%Ny sætning
+\newline
+Lad $A\in \R^{2 \times 2}$ og $tr(A)=0$. Så gælder følgende for egenværdierne af $A$
+\begin{enumerate}
+    \item 0 er den eneste egenværdi med algebraisk multiplicitet 2, hvis $det(A)=0$
+    \item Egenværdierne er givet ved $\pm\sqrt{-det(A)}$, hvis $det(A)<0$
+    \item Egenværdierne er givet ved $\pm i\sqrt{det(A)}$, hvis $det(A)>0$
+\end{enumerate}
+\end{thmx}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+Lad $A\in \R^{2 \times 2}$, og lad $tr(A)=0$. Da $tr(A)=0$, kan \eqref{eq:det_karakteristiske_polynomium_udtrykt_ved_sporet} udtrykkes som 
+\begin{align} \label{eq:lambda^2+det(A)}
+    \lambda^2+det(A)=0 \Leftrightarrow \lambda^2=-det(A)
+\end{align}
+\begin{itemize}
+    \item [] \textbf{Bevis for punkt 1.}\\
+    $det(A)=0$ indsættes i \eqref{eq:lambda^2+det(A)}.
+    \begin{align*}
+        \lambda^2&=-det(A)\\
+        &=0
+    \end{align*}
+    Da $\lambda^2=0$, medfører det, at $\lambda_1=0$ og $\lambda_2=0$. Altså er 0 den eneste egenværdi med algebraisk multiplicitet 2. 
+    \item [] \textbf{Bevis for punkt 2.}\\
+    For $det(A) < 0$ gælder det, at 
+    \begin{align*}
+        \lambda^2 &= -det(A)\\
+        &\Updownarrow\\
+        \lambda &= \pm \sqrt{-det(A)}
+    \end{align*}
+    Denne omskrivning er mulig, da $det(A)<0 \Leftrightarrow -det(A)>0$. Altså gælder det for egenværdierne af $A$, at de er givet ved $\pm \sqrt{-det(A)}$, når $det(A)<0$.
+    \item [] \textbf{Bevis for punkt 3.}\\
+    For $det(A) > 0$ gælder det, at
+    \begin{align*}
+        \lambda^2 &= -det(A)\\
+        &\Updownarrow\\
+        \lambda &= \pm \sqrt{-det(A)}\\
+        &= \pm\sqrt{-1}\sqrt{det(A)}\\
+        &= \pm i\sqrt{det(A)}
+    \end{align*}
+    Altså gælder det for egenværdierne af $A$, at de er givet ved $\pm i\sqrt{det(A)}$, når $det(A)>0$.
+\end{itemize}
+\end{bev}
+
+\autoref{sæt:egenværdier_og_spor} og Putzers algoritme vil nu blive anvendt til at bestemme udtrykket for $e^{tA}$.
+
+\begin{thmx} \textbf{} \label{e^tA_udtrykt_når_trA=0}%Ny sætning
+\newline
+Lad $A\in \R^{2 \times 2}$ og $tr(A)=0$. Så gælder det, at hvis
+\begin{enumerate}
+    \item $det(A)=0$, så er $e^{tA}=I_2+tA$
+    \item $det(A)<0$, så er $e^{tA}=cosh\left(t\sqrt{-det(A)}\right)I_2+\frac{sinh\left(t\sqrt{-det(A)}\right)}{\sqrt{-det(A)}}A$
+    \item $det(A)>0$, så er $e^{tA}=cos\left(t\sqrt{det(A)}\right)I_2+\frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A$
+\end{enumerate}
+\end{thmx}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+I hvert punkt i dette bevis vil Putzers algoritme (\autoref{sæt:putzers_algoritme}) blive anvendt.
+\begin{itemize}
+    \item [] \textbf{Bevis for punkt 1.}\\
+    For $det(A) = 0$ vides det fra \autoref{sæt:egenværdier_og_spor}, at egenværdierne af $A$ er 0 med multiplicitet 2. Altså
+    \begin{align*}
+        \lambda_1 = 0, \qquad \lambda_2 = 0
+    \end{align*}
+    Putzers algoritme anvendes til at bestemme udtrykket for $e^{tA}$. Først vil $r_1(t)$ og $r_2(t)$ blive beregnet.
+    \begin{align*}
+        r_1(t) &= e^{t\cdot \lambda_1} = e^{t \cdot 0} = 1\\
+        r_2(t) &= e^{t\cdot \lambda_2} \cdot \int_0^te^{-s\cdot \lambda_2}r_1(s) ds = e^{t \cdot 0}\cdot \int_0^te^{-s\cdot 0}1 ds = 1\cdot \int_0^t1\cdot1 ds = t
+    \intertext{Herefter vil $P_0$ og $P_1$ blive bestemt.}
+        P_0 &= I_2\\
+        P_1 &= (A-\lambda_1I_2) = (A - 0I_2) = A
+    \intertext{Til sidst vil udtrykket for $e^{tA}$ blive bestemt.}
+        e^{tA} &= \sum_{k=0}^1r_{k+1}(t)P_k = r_1 P_0 + r_2 P_1 = 1 I_2 + t A = I_2 + tA
+    \end{align*}
+    Altså gælder det, at $e^{tA} = I_2 + tA$ for $det(A)=0$.
+    \item [] \textbf{Bevis for punkt 2.}\\
+    For $det(A) < 0$ vides det fra \autoref{sæt:egenværdier_og_spor}, at egenværdierne af $A$ er givet ved $\pm \sqrt{-det(A)}$. Altså
+    \begin{align*}
+        \lambda_1 = \sqrt{-det(A)}, \qquad \lambda_2 = -\sqrt{-det(A)}
+    \end{align*}
+    Putzers algoritme anvendes til at bestemme udtrykket for $e^{tA}$. Først vil $r_1(t)$ og $r_2(t)$ blive bestemt.
+    \begin{align*}
+        r_1(t) &= e^{t\cdot \lambda_1} = e^{t \cdot \sqrt{-det(A)}}\\
+        r_2(t) &=e^{t\cdot \lambda_2} \cdot \int_0^te^{-s\cdot \lambda_2}r_1(s) ds\\
+        &=e^{t\cdot \left(-\sqrt{-det(A)}\right)} \cdot \int_0^te^{-s\cdot \left(-\sqrt{-det(A)}\right)}e^{s \cdot \sqrt{-det(A)}} ds
+        \intertext{\autoref{sæt:egenskaber_for_eta} punkt 3 anvendes, og udtrykket integreres.}
+        r_2(t)&= e^{-t\cdot \sqrt{-det(A)}}\cdot \int_0^te^{2s \cdot \sqrt{-det(A)}} ds\\
+        &= e^{-t\cdot \sqrt{-det(A)}}\cdot \left[\frac{1}{2\cdot\sqrt{-det(A)}} \cdot e^{2s\cdot \sqrt{-det(A)}}\right]_0^t\\
+        &= e^{-t\cdot \sqrt{-det(A)}}\cdot \left(\frac{1}{2\cdot\sqrt{-det(A)}}\cdot e^{2t\cdot \sqrt{-det(A)}} - \frac{1}{2\cdot\sqrt{-det(A)}}\right)\\
+        &= \frac{1}{2 \cdot \sqrt{-det(A)}}\cdot e^{t\cdot\sqrt{-det(A)}} - \frac{1}{2 \cdot \sqrt{-det(A)}}\cdot e^{-t\cdot\sqrt{-det(A)}}\\
+        &=\frac{e^{t\cdot\sqrt{-det(A)}}-e^{-t\cdot\sqrt{-det(A)}}}{2 \sqrt{-det(A)}}
+        \intertext{Ved at anvende \autoref{bilag:cos_og_sin} fås følgende}
+        r_2(t)&=\frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}
+        \intertext{Herefter vil $P_0$ og $P_1$ blive bestemt.}
+        P_0 &= I_2\\
+        P_1 &= (A-\lambda_1I_2) = \left(A - \sqrt{-det(A)}I_2\right) 
+        \intertext{Til sidst vil udtrykket for $e^{tA}$ blive bestemt.}
+        e^{tA} &= \sum_{k=0}^1r_{k+1}(t)P_k = r_1P_0 + r_2P_1 \\
+        &= e^{t \cdot \sqrt{-det(A)}}I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}\left(A - \sqrt{-det(A)}I_2\right)  \\
+        &= e^{t \cdot \sqrt{-det(A)}}I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}} A - {sinh\left(t\cdot \sqrt{-det(A)}\right)}I_2\\
+        \intertext{Regnereglerne for hyperbolsk cosinus og sinus anvendes, se \autoref{bilag:cos_og_sin}}
+        &= e^{t \cdot \sqrt{-det(A)}}  I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}A - \frac{e^{t\cdot\sqrt{-det(A)}}-e^{-t\cdot\sqrt{-det(A)}}}{2} I_2\\
+        &= \left(e^{t \cdot \sqrt{-det(A)}} - \frac{e^{t\cdot\sqrt{-det(A)}}}{2} + \frac{e^{-t\cdot\sqrt{-det(A)}}}{2} \right) I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}A\\
+        &= \frac{e^{t \cdot \sqrt{-det(A)}}+e^{-t \cdot \sqrt{-det(A)}}}{2}I_2+ \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}A\\
+        &= cosh\left(t\cdot \sqrt{-det(A)}\right) I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}} A
+    \end{align*}
+    Altså gælder det, at $e^{tA} = cosh\left(t\cdot \sqrt{-det(A)}\right) I_2 + \frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}A$ for $det(A)<0$.
+    \item [] \textbf{Bevis for punkt 3.}\\    
+    For $det(A)>0$ vides det fra \autoref{sæt:egenværdier_og_spor}, at egenværdierne af $A$ er givet ved $\pm i\sqrt{det(A)}$. Altså
+    \begin{align*}
+        \lambda_1=i\sqrt{det(A)},\qquad \lambda_2=-i\sqrt{det(A)}
+    \end{align*}   
+    Putzers algoritme anvendes til at bestemme udtrykket for $e^{tA}$. Først vil $r_1(t)$ og $r_2(t)$ blive beregnet.
+    \begin{align*}
+        r_1(t) &= e^{t\cdot \lambda_1} = e^{t \cdot i\sqrt{det(A)}} \\
+        r_2(t) &= e^{t\cdot \lambda_2} \cdot \int_0^te^{-s\cdot \lambda_2}r_1(s) ds\\
+        &= e^{t\cdot -i\sqrt{det(A)}} \cdot \int_0^te^{-s\cdot \left(-i\sqrt{det(A)}\right)} e^{s \cdot i\sqrt{det(A)}} ds\\
+        \intertext{\autoref{sæt:egenskaber_for_eta} punkt 3 anvendes, og udtrykket integreres.}
+         r_2(t)&=e^{t\cdot -i\sqrt{det(A)}}\int_0^s e^{2si\cdot \sqrt{det(A)}}\\
+         &=e^{-t\cdot i\sqrt{det(A)}}\cdot \left[\frac{1}{2\cdot i\sqrt{det(A)}}e^{2s\cdot i\sqrt{det(A)}}\right]^t_0\\
+         &= e^{-t\cdot i\sqrt{det(A)}}\cdot \left(\frac{1}{2\cdot i\sqrt{det(A)}}\cdot e^{2t\cdot i\sqrt{det(A)}} - \frac{1}{2\cdot i\sqrt{det(A)}}\right)\\
+         &= \frac{1}{2 \cdot i\sqrt{det(A)}}\cdot e^{t\cdot i\sqrt{det(A)}} - \frac{1}{2 \cdot i\sqrt{det(A)}}\cdot e^{-t\cdot i\sqrt{det(A)}}\\
+         &=\frac{1}{\sqrt{det(A)}} \cdot \frac{e^{t\cdot i\sqrt{det(A)}}-e^{-t\cdot i\sqrt{det(A)}}}{2\cdot i}
+         \intertext{Ved at anvende \autoref{bilag:cos_og_sin} fås følgende}
+         r_2(t)&=\frac{1}{\sqrt{det(A)}} \cdot sin\left(t\sqrt{det(A)}\right)\\
+         &= \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}
+          \intertext{Herefter vil $P_0$ og $P_1$ blive bestemt.}
+        P_0 &= I_2\\
+        P_1 &= (A-\lambda_1 I_2) = \left(A - \left(i\sqrt{det(A)}\right)I_2\right) 
+        \intertext{Tilsidst vil udtrykket for $e^{tA}$ blive bestemt.}
+        e^{tA} &= \sum_{k=0}^1r_{k+1}(t)P_k = r_1 P_0 + r_2 P_1 \\
+        &= e^{t\cdot i\sqrt{det(A)}} I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}} \left(A - \left(i\sqrt{det(A)}\right) I_2\right)\\
+        &= e^{t\cdot i\sqrt{det(A)}}I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}} A - sin\left(t\sqrt{det(A)}\right) i I_2\\
+        \intertext{Regnereglerne for cosinus og sinus anvendes, \eqref{eq:sin_og_cos}}.
+        e^{tA}&= e^{t\cdot i\sqrt{det(A)}}I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A - \left(\frac{e^{t\cdot i\sqrt{det(A)}}-e^{-t\cdot i\sqrt{det(A)}}}{2\cdot i}\right) iI_2\\
+        &= e^{t\cdot i\sqrt{det(A)}}I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A - \frac{1}{2}\left({e^{t\cdot i\sqrt{det(A)}}-e^{-t\cdot i\sqrt{det(A)}}}\right)I_2\\
+        &= \left(e^{t\cdot i\sqrt{det(A)}} - \frac{1}{2}e^{t\cdot i \sqrt{det(A)}} + \frac{1}{2}e^{-t\cdot i \sqrt{det(A)}}\right) I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}} A\\
+        &= \frac{e^{t\cdot i\sqrt{det(A)}} - e^{-t\cdot i\sqrt{det(A)}}}{2} I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}} A\\
+        &= cos\left(t\sqrt{det(A)}\right) I_2 + \frac{sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}} A
+    \end{align*}
+    Altså gælder det, at $e^{tA} = cos\left(t\cdot \sqrt{det(A)}\right) I_2+ \frac{sin\left(t\cdot \sqrt{det(A)}\right)}{\sqrt{det(A)}} A$ for $det(A)>0$.
+\end{itemize}
+\end{bev}
+
+Selvom egenværdierne i \autoref{e^tA_udtrykt_når_trA=0} punkt 3 er komplekse, så er udtrykket for $e^{tA}$ i punkt 3 reelt. For en reel matrice, $A$, gælder der, at $e^{tA}$ er en reel matrice. Udtrykkene for $e^{tA}$ fra \autoref{e^tA_udtrykt_når_trA=0} gælder, når $tr(A)=0$. Der vil nu blive gennemgået nogle resultater, der bruges til udledningen af udtrykket for $e^{tA}$, når $tr(A) \neq 0$. 
+

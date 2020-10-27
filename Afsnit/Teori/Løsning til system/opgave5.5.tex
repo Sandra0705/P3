@@ -1,0 +1,46 @@
+For at bestemme udtrykket for $e^{tA}$ når $tr(A) \neq 0$, skal der kendes en matrice, hvorom det gælder, at sporet altid er lig nul. For denne matrice vil man ved brug af \autoref{sæt:egenværdier_og_spor} kunne bestemme egenværdierne til denne.
+
+\begin{thmx}\textbf{}\label{sæt:tr(a-led)=0}\\
+Lad $A\in \R^{2\times2}$. Det gælder, at 
+\begin{align*}
+    tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right) = 0
+\end{align*}
+\end{thmx}
+
+\begin{bev}\textbf{}\\
+$tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right)$ kan ifølge \autoref{def:spor} omskrives til følgende.
+\begin{align*}
+    tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right) &= tr\left(A-\frac{1}{2}\left(a_{11}+a_{22}\right)I_2\right) \\
+    &= \left(a_{11}-\left(\frac{1}{2}a_{11} + \frac{1}{2}a_{22}\right)I_{11}\right)+ \left(a_{22}-\left(\frac{1}{2}a_{11} + \frac{1}{2}a_{22}\right)I_{22}\right)\\
+    &=a_{11}-\frac{1}{2}a_{11}-\frac{1}{2}a_{22}+a_{22}-\frac{1}{2}a_{11}-\frac{1}{2}a_{22}\\
+    &=0
+\end{align*}
+Det er hermed bevist, at $tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right) = 0$.
+\end{bev}
+
+
+\begin{thmx}\textbf{} \label{sæt:eta_med_trace}
+\newline
+Lad $A \in \R^{2 \times 2}$. Da kan $e^{tA}$ opskrives som følgende
+%
+\begin{align*}
+    e^{tA} = e^{t\left(\frac{1}{2}tr(A)\right)}e^{t(A-\frac{1}{2}trA)I_2}
+\end{align*}
+\end{thmx}
+%
+\begin{bev}\textbf{}\\
+Det skal bevises, at højresiden kan reduceres til $e^{tA}$.
+%
+\begin{align*}
+    e^{tA} &= e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2} tr(A)\right)I_2} 
+\intertext{Der multipliceres ind i parenteserne jævnfør \autoref{sæt:egenskaber_for_eta}.}
+    e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2}tr(A)\right)I_2} &= e^{t\left(\frac{1}{2}tr(A)\right)}e^{tA}e^{\left(-t\frac{1}{2}tr(A)\right)I_2} 
+\intertext{$e^{\left(-t\frac{1}{2}tr(A)\right)I_2}$ udregnes jævnfør \autoref{sæt:regneregler_for_etcI}.}
+    e^{t\left(\frac{1}{2}tr(A)\right)}e^{tA}e^{\left(-t\frac{1}{2}tr(A)\right)I_2} &= e^{tA}\left(e^{t\left(\frac{1}{2}tr(A)\right)}e^{-t\left(\frac{1}{2}tr(A)\right)}\right)I_2\\
+    &= e^{tA}I_2 \\
+    &= e^{tA}
+\end{align*}
+%
+Dermed er det bevist, at $e^{tA} = e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2}tr(A)\right)I_2}$.
+\end{bev}
+

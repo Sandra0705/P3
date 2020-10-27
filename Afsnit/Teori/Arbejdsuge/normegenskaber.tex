@@ -1,8 +1,7 @@
 I dette kapitel vil termer, resultater og tilhørende egenskaber, som er centrale for gennemarbejdningen af de fremtidige kapitler blive gennemgået.
 
 \section{Indre produkt}
-Det \textit{euklidiske indre produkt} er en definition, som anvendes til at bevise resultater, som er brugbare til at analysere de valgte modeller.
-Det euklidiske indre produkt er defineret ved følgende.
+Det \textit{euklidiske indre produkt} anvendes til at bevise relevante resultater, såsom egenskaberne tilhørende norm, Cauchy-Schwarz' ulighed med mere. Det euklidiske indre produkt er defineret ved følgende.
 %
 \begin{defn}\textbf{Euklidisk indre produkt}\label{indre_produkt_Eurlidisk}
 \newline
@@ -25,7 +24,7 @@ Et indre produktrum har en række egenskaber.\\
 
 \begin{defn}\textbf{Indre produkt}\label{indre_produkt_defn}
     \newline
-    Et indre produkt på $V$ er en funktion ${\langle \cdot,\cdot \rangle}: V \times V \to \R$, der har følgende egenskaber:\\
+    Et indre produkt på et vektorrum $V \subseteq \R^n$ er en funktion ${\langle \cdot,\cdot \rangle}: V \times V \to \R$, der har følgende egenskaber:\\
     \begin{itemize}
         \item[1.]{\makebox[5.2cm]{${\langle \textbf{u},\textbf{v} \rangle} = {\langle \textbf{v},\textbf{u} \rangle}$ \hfill}} \quad (Symmetri)
          \item[2.]{\makebox[5.2cm]{${\langle \textbf{u} + \textbf{v},\textbf{w} \rangle}  = {\langle \textbf{u},\textbf{w} \rangle} + {\langle \textbf{v},\textbf{w} \rangle}$ \hfill}} \quad (Additivitet i første indgang)
@@ -35,8 +34,10 @@ Et indre produktrum har en række egenskaber.\\
     \end{itemize}
     hvor $c \in \R$.
 \end{defn}
+%I dette projekt opereres der kun i de reelle tal, reelle vektorer samt reelle matricer, 
 
-I dette projekt opereres der kun i $\R^{m \times n}$, og derfor er ovenstående definitioner simplificeret. Et indre produkt kan godt forekomme i et komplekst vektorrum, hvori det indre produkt kan afbilde hen i et komplekst vektorrum.
+%I dette projekt opereres der kun i $\R^{m \times n}$, og derfor er ovenstående definitioner simplificeret. 
+Et indre produkt kan godt forekomme i et komplekst vektorrum, hvori det indre produkt kan afbilde hen i et komplekst vektorrum. Det indre produkt over et komplekst vektorrum anvendes ikke i dette projekt, og derfor er ovenstående definition simplificeret over reelle vektorrum.
 
 \section{Norm}
 En \textit{norm} er defineret på følgende måde.
@@ -69,24 +70,27 @@ Uligheden vil være en lighed, hvis og kun hvis vektorerne \textbf{u} og \textbf
 \newline
 Først bevises det trivielle tilfælde, hvor $\textbf{u}=\textbf{0}$ eller $\textbf{v}=\textbf{0}$. Her vil både højre- og venstresiden i \eqref{eq:cauchy-schwarz_ulighed} være lig nul $0$, hvoraf uligheden er opfyldt.
 
-Dernæst bevises \autoref{sæt:cauchy-schwarz} for $\textbf{v}\neq\textbf{0}$. Lad $\textbf{v} \neq \textbf{0}$ og lad en ortogonal dekomposition (se bilag, \autoref{sæt:ortogonal_dekomposition}, side \pageref{sæt:ortogonal_dekomposition}) være givet ved
+Dernæst bevises Cauchy-Schwarz' ulighed (\autoref{sæt:cauchy-schwarz}) for $\textbf{v}\neq\textbf{0}$. Lad $\textbf{v} \neq \textbf{0}$ og lad en ortogonal dekomposition (se bilag, \autoref{sæt:ortogonal_dekomposition}, side \pageref{sæt:ortogonal_dekomposition}) være givet ved
 \begin{align*}
     \textbf{u}&=\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}+\textbf{w} \\
 \intertext{hvor $\textbf{w}$ er ortogonal på $\textbf{v}$. Ud fra Pythagoras' sætning (se bilag, \autoref{sæt:pythagoras_sætning}, side \pageref{sæt:pythagoras_sætning}) gælder følgende}
     \norm{\textbf{u}}^2
     &=\norm{\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}}^2+\norm{\textbf{w}}^2 \\
     &= \left\langle {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} , {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} \right\rangle + \norm{\textbf{w}}^2 \\
-\intertext{Ud fra symmetri og homogenitet i første indgang fra \autoref{indre_produkt_defn} til at isolere $\displaystyle\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}$ i det indre produkt, hvorefter udtrykket reduceres.}
-    \left\langle {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} , {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} \right\rangle + \norm{\textbf{w}}^2&=  \left(\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\right)^2\langle\textbf{v},\textbf{v}\rangle + \norm{\textbf{w}}^2\\
+\intertext{Symmetri og homogenitet i første indgang fra \autoref{indre_produkt_defn} anvendes til at isolere $\displaystyle\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}$, hvorefter udtrykket reduceres.}
+    \norm{\textbf{u}}^2 &=
+    \left\langle {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} , {\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\textbf{v}} \right\rangle + \norm{\textbf{w}}^2 \\
+    &=  \left(\frac{\langle\textbf{u},\textbf{v}\rangle}{\norm{\textbf{v}}^2}\right)^2\langle\textbf{v},\textbf{v}\rangle + \norm{\textbf{w}}^2\\
     &= {\frac{\langle\textbf{u},\textbf{v}\rangle{\langle\textbf{u},\textbf{v}\rangle}}{\norm{\textbf{v}}^4}\norm{\textbf{v}}^2} + \norm{\textbf{w}}^2 \\
     &= \frac{\abs{\langle\textbf{u},\textbf{v}\rangle}^2}{\norm{\textbf{v}}^2}+\norm{\textbf{w}}^2 \\
     &\geq \frac{\abs{\langle\textbf{u},\textbf{v}\rangle}^2}{\norm{\textbf{v}}^2}\\
 \intertext{Herefter multipliceres begge sider af uligheden med $\norm{\textbf{v}}^2$.}
-    \norm{\textbf{u}}^2\norm{\textbf{v}}^2 &\geq
+    \norm{\textbf{u}}^2 \norm{\textbf{v}}^2 &\geq
     \frac{\abs{\langle\textbf{u},\textbf{v}\rangle}^2}{\norm{\textbf{v}}^2}\norm{\textbf{v}}^2 \\
     &= \abs{\langle\textbf{u},\textbf{v}\rangle}^2
 \intertext{Ved at tage kvadratroden på begge sider fås}
     \sqrt{\norm{\textbf{u}}^2\norm{\textbf{v}}^2} &\geq \sqrt{\abs{\langle\textbf{u},\textbf{v}\rangle}^2}\\
+    &\Updownarrow \\
     \norm{\textbf{u}}\norm{\textbf{v}} &\geq \abs{\langle\textbf{u},\textbf{v}\rangle}
 \end{align*}
 Herved er den ønskede ulighed bevist. Det bemærkes ud fra \autoref{sæt:ortogonal_dekomposition}, at uligheden er en lighed, hvis og kun hvis $\textbf{w}=\textbf{0}$, da $\textbf{u} = c\textbf{v} + \textbf{0} = c\textbf{v}$.
@@ -95,19 +99,19 @@ I dette tilfælde vil $\textbf{u}$ og $\textbf{v}$ være lineært afhængige. De
 
 \begin{thmx}\textbf{Regneregler for norm}\label{sæt:norm2} %Ny definition
 \newline
-Lad $\mathbf{u}, \mathbf{v} \in \R^n$. En funktion $\|\cdot\|$ kaldes for en norm, hvis følgende betingelser er opfyldt:
+Lad $\mathbf{u}, \mathbf{v} \in \R^n$. En funktion $\norm{\cdot}: V \to \R$ kaldes for en norm, hvis følgende betingelser er opfyldt:
 \begin{enumerate}
-    \item $\|\mathbf{u}\|\geq 0$\\
-    \item $\|\mathbf{u}\|=0 \Leftrightarrow \mathbf{u=0}$\\
-    \item $\|c\mathbf{u}\|=|c| \|\mathbf{u}\|, \quad c\in \R$\\
+    \item $\|\mathbf{u}\|\geq 0$
+    \item $\|\mathbf{u}\|=0 \Leftrightarrow \mathbf{u=0}$
+    \item $\|c\mathbf{u}\|=|c| \|\mathbf{u}\|, \quad c\in \R$
     \item $\|\mathbf{u}+\mathbf{v}\|\leq \|\mathbf{u}\|+\|\mathbf{v}\|$
 \end{enumerate}
 \end{thmx}
-
+%
 \begin{bev} \textbf{} %Nyt bevis
 \newline
 Beviserne for \autoref{sæt:norm2} anvender egenskaberne for indre produkt, \autoref{indre_produkt_defn}.\\
-Lad $\mathbf{u}, \mathbf{v} \in \R^n$ være vektorer, samt lad $c\in \R$ være en vilkårlig skalar.
+Lad $\mathbf{u}, \mathbf{v} \in \R^n$, samt lad $c\in \R$ være en vilkårlig skalar.
 
 \begin{enumerate}
     \item[] \textbf{Bevis for punkt 1}.\\
@@ -115,42 +119,40 @@ Lad $\mathbf{u}, \mathbf{v} \in \R^n$ være vektorer, samt lad $c\in \R$ være e
         \begin{align*}
             \|\mathbf{u}\| = \sqrt{\sum^n_{k=1}|u_k|^2}
         \end{align*}
-        Summen af reelle kvadrerede ikke-negative tal giver et reelt ikke-negativ tal. Kvadratroden af dette ikke-negative tal giver et ikke-negativt tal, hvilket medfører, at normen, $\|\textbf{u}\|$, er et ikke-negativt tal.
+        Summen af reelle kvadrerede ikke-negative tal giver et reelt ikke-negativ tal. Kvadratroden af dette ikke-negative tal giver også et ikke-negativt tal, hvilket medfører, at normen, $\|\textbf{u}\|$, er et ikke-negativt tal. Altså
         \begin{align*}
             \| \mathbf{u} \| \geq 0
         \end{align*}
+        Ovenstående ulighed er kun en lighed i det specifikke tilfælde, hvor $\textbf{u} = \textbf{0}$. Dette bevises i næste punkt.
     \item[] \textbf{Bevis for punkt 2}.\\ 
-        Ud fra definitionen af norm, \autoref{def:norm}, skal alle elementer, $u_k$, i summen være nul for at højresiden i udtrykket giver 0. Da alle elementer $u_k$ er lig nul, skal $\textbf{u}$ være nulvektoren. 
-        
-       % Da normen af en vektor er summen af alle elementerne kvadreret, skal alle elementerne være lig 0 for at summen er lig 0.
-        Det betyder, at $\langle \textbf{v},\textbf{v} \rangle=0 \quad \Leftrightarrow \quad \mathbf{v}=0$ 
+        Ud fra definitionen af en norm, \autoref{def:norm}, skal alle elementer, $u_k$, i summen være nul for, at højresiden i udtrykket giver 0. Da alle elementer $u_k$ er lig nul, skal $\textbf{u}$ være nulvektoren. Altså gælder $$\norm{\textbf{u}}=0 \quad \Leftrightarrow \quad \mathbf{u}=\textbf{0}$$
    \item[] \textbf{Bevis for punkt 3}.\\
-        Da $c \in \R$ gælder der, at
+        Da $c \in \R$ gælder der, at 
         \begin{align*}
             \| c\mathbf{u}\|^2&=\langle c\textbf{u}, c\textbf{u} \rangle\\
             &= c\langle \textbf{u}, c\textbf{u} \rangle\\
             &= c\cdot c\langle \textbf{u},\textbf{u} \rangle\\
-            &= |c|^2\|\textbf{u}\|^2
+            &= c^2\|\textbf{u}\|^2
             \intertext{Ved at tage kvadratroden på begge sider fås}
            %\sqrt{ \| c\mathbf{u}\|^2}&= \sqrt{|c|^2\|\textbf{u}\|^2}\\
            \|c\textbf{u}\|&=|c|\|\textbf{u}\|
         \end{align*}
     \item[] \textbf{Bevis for punkt 4}.\\
-        Der gælder, at\\
+        Der gælder, at
         \begin{align*}
             \|\textbf{u}+\textbf{v}\|^2 &= \langle \textbf{u}+\textbf{v}, \textbf{u} + \textbf{v} \rangle\\
             &= \langle \textbf{u},\textbf{u} \rangle + \langle \textbf{v}, \textbf{v} \rangle + \langle \textbf{u}, \textbf{v} \rangle + \langle \textbf{v}, \textbf{u} \rangle\\
             &=\langle \textbf{u},\textbf{u} \rangle + \langle \textbf{v}, \textbf{v} \rangle + 2\langle \textbf{u}, \textbf{v} \rangle\\
             \intertext{Ved at tage absolutværdien af $\langle \textbf{u}, \textbf{v}\rangle$ fås følgende ulighed}
-             \|\textbf{u}+\textbf{v}\|^2 &\leq \|\textbf{u}\|^2+ \|\textbf{v}\|^2 + 2|\langle \textbf{u}, \textbf{v}\rangle|\\
+            \langle \textbf{u},\textbf{u} \rangle + \langle \textbf{v}, \textbf{v} \rangle + 2\langle \textbf{u}, \textbf{v} \rangle &\leq \|\textbf{u}\|^2+ \|\textbf{v}\|^2 + 2|\langle \textbf{u}, \textbf{v}\rangle|\\
             \intertext{Ud fra Cauchy-Schwarz' ulighed gælder følgende}
-             \|\textbf{u}+\textbf{v}\|^2 &\leq \|\textbf{u}\|^2+ \|\textbf{v}\|^2 + 2\|\textbf{u}\|\|\textbf{v}\|\\
+             \norm{\textbf{u}+ \textbf{v}}^2 &\leq \|\textbf{u}\|^2+ \|\textbf{v}\|^2 + 2|\langle \textbf{u}, \textbf{v}\rangle|\\ &\leq \|\textbf{u}\|^2+ \|\textbf{v}\|^2 + 2\|\textbf{u}\|\|\textbf{v}\|\\
             &=\left(\|\textbf{u}\|+\|\textbf{v}\|\right)^2\\
-            \intertext{Ved at tage kvadratroden på begge sider opnås trekantsuligheden}
-           %\sqrt{ \|\textbf{u}+\textbf{v}\|^2} &\leq \sqrt{\left(\|\textbf{u}\|+\|\textbf{v}\|\right)^2}\\
+            \intertext{Ved at tage kvadratroden på begge sider gælder følgende}
+           \sqrt{ \|\textbf{u}+\textbf{v}\|^2} &\leq \sqrt{\left(\|\textbf{u}\|+\|\textbf{v}\|\right)^2}\\
+           &\Updownarrow\\
            \|\textbf{u}+\textbf{v}\| &\leq \|\textbf{u}\|+\|\textbf{v}\|
         \end{align*}
-        
 \end{enumerate} 
 
 \end{bev}
@@ -158,70 +160,72 @@ Lad $\mathbf{u}, \mathbf{v} \in \R^n$ være vektorer, samt lad $c\in \R$ være e
 \section{Frobenius norm}
 Definitionen og sætningerne i dette afsnit er baseret på \cite{"Frobenius"}.
 
-På samme måde som normen til en vektor kan bestemmes, kan en norm til matricer også bestemmes. Denne norm kaldes for Frobenius normen eller Hilbert-Schmidt normen, og er defineret som følgende.
+I foregående afsnit blev normen af en vektor defineret. Ligeledes kan man definere en norm for matricer, som kaldes \textit{Frobenius normen}. Denne norm er defineret på følgende måde. 
 
-\begin{defn} \textbf{Frobenius normen}\\
+\begin{defn} \textbf{Frobenius normen}\vspace{4pt}\\
     Lad $A = \begin{bmatrix}
         a_{ij}
-    \end{bmatrix} \in \R^{n\times n}$. \textit{Frobenius normen} af $A$ er defineret ved
+    \end{bmatrix} \in \R^{n\times n}$. Frobenius normen af $A$ er defineret ved
     %
     \begin{align}
-      \norm{A}_F = \sqrt{ \sum_{i=1}^n \sum_{i=1}^n \abs{a_{ij}}^2 }
+      \norm{A}_F = \sqrt{ \sum_{i=1}^n \sum_{j=1}^n \abs{a_{ij}}^2 }
     \end{align}
 \end{defn}
 
-\autoref{sæt:frobenius_egenskab_1} og \autoref{sæt:frobenius_egenskab_2} er egenskaber tilhørende normer, som vil blive brugt fremadrettet i dette projekt. 
+\autoref{sæt:frobenius_egenskab_1} og \autoref{sæt:frobenius_egenskab_2} er egenskaber tilhørende normer, som vil blive benyttet fremadrettet i dette projekt. 
 
-\begin{thmx}\textbf{}\\
-\label{sæt:frobenius_egenskab_1}
-    Lad $A\in \R^{n\times n}$ og $\textbf{x}\in \R^n$. Det gælder, at
+\begin{thmx}\textbf{} \label{sæt:frobenius_egenskab_1}\\
+Lad $A\in \R^{n\times n}$ og $\textbf{x}\in \R^n$. Da gælder det, at
     \begin{align*}
         \norm{A\textbf{x}}\leq \norm{A}_F \norm{\textbf{x}}
     \end{align*}
 \end{thmx}
-
+a
 \begin{bev}\textbf{}\\
-$A$ defineres i dette bevis således, hvor søjlerne i $A$ betegnes som $\textbf{a}_k$ for $k=1, ..., n$.
+I dette bevis betegnes søjlerne i $A$ som $\textbf{a}_k$ for $k=1, ..., n$.
     \begin{align*}
         A &= \begin{bmatrix} \textbf{a}_1 & \textbf{a}_2 & \cdots & \textbf{a}_n \end{bmatrix}\\
-        \norm{Ax}&=\norm{\textbf{a}_1x_1+\textbf{a}_2x_2+\cdots + \textbf{a}_nx_n}\\
-        \intertext{Trekantsuligheden fra \autoref{sæt:norm2} benyttes.}
+        \norm{A\textbf{x}}&=\norm{\textbf{a}_1x_1+\textbf{a}_2x_2+\cdots + \textbf{a}_nx_n}\\
+    \intertext{Trekantsuligheden fra \autoref{sæt:norm2} benyttes.}
         \norm{\textbf{a}_1x_1+\textbf{a}_2x_2+\cdots + \textbf{a}_nx_n}&\leq \norm{\textbf{a}_1x_1}+\norm{\textbf{a}_2x_2}+\cdots + \norm{\textbf{a}_nx_n}
-        \intertext{\autoref{sæt:norm2} bruges til at flytte $x_k$ ud af normerne.}
+    \intertext{\autoref{sæt:norm2} bruges til at faktorisere $x_k$ ud af normerne.}
         \norm{\textbf{a}_1x_1}+\norm{\textbf{a}_2x_2}+\cdots + \norm{\textbf{a}_nx_n}&=\norm{\textbf{a}_1}\abs{x_1}+\norm{\textbf{a}_2}\abs{x_2}+\cdots +\norm{\textbf{a}_n}\abs{x_n}\\
-        \intertext{Dette kan omskrives til følgende sum.}
-        \norm{\textbf{a}_1}\abs{x_1}+\norm{\textbf{a}_2}\abs{x_2}+\cdots +\norm{\textbf{a}_n}\abs{x_n}&=\sum_{k=1}^n\norm{\textbf{a}_k}\abs{x_k}\\
-        \intertext{Dette kan omskrives til det indre produkt}
-        \sum_{k=1}^n\norm{\textbf{a}_k}\abs{x_k}&= \abs{\left\langle  \left( \ \norm{\textbf{a}_1}, \norm{\textbf{a}_2}, \cdots, \norm{\textbf{a}_n}\right)^T, \ \abs{\textbf{x}} \right\rangle}\\
-        \intertext{\autoref{sæt:cauchy-schwarz} benyttes.}
-        \abs{\left\langle  \left( \ \norm{\textbf{a}_1}, \norm{\textbf{a}_2}, \cdots, \norm{\textbf{a}_n}\right)^T, \ \abs{\textbf{x}} \right\rangle}&\leq \sqrt{\sum_{k=1}^n\norm{\textbf{a}_k}}\sqrt{\sum_{k=1}^n\abs{x_k}}\\
+        &=\sum_{k=1}^n\norm{\textbf{a}_k}\abs{x_k}\\
+    \intertext{Dette kan omskrives til det indre produkt. Det bemærkes, at $\abs{\textbf{x}}$ er ensbetydende med at tage absolutværdien af hver indgang i \textbf{x}.}
+        \sum_{k=1}^n\norm{\textbf{a}_k}\abs{x_k}&= \abs{\left\langle  \left[ \ \norm{\textbf{a}_1}, \norm{\textbf{a}_2}, \cdots, \norm{\textbf{a}_n}\right]^T, \ \abs{\textbf{x}} \right\rangle}\\
+    \intertext{Cauchy-Schwarz' ulighed (se \autoref{sæt:cauchy-schwarz}) benyttes.}
+        \abs{\left\langle  \left[ \ \norm{\textbf{a}_1}, \norm{\textbf{a}_2}, \cdots, \norm{\textbf{a}_n}\right]^T, \ \abs{\textbf{x}} \right\rangle}&\leq \sqrt{\sum_{k=1}^n\norm{\textbf{a}_k}^2}\sqrt{\sum_{k=1}^n\abs{x_k}^2}\\
+        &= \sqrt{\sum_{k=1}^n\sum_{i=1}^n{\abs{a_{ik}}}^2}\sqrt{\sum_{k=1}^n\abs{x_k}^2} \\
         &=\norm{A}_F\norm{\bm{x}}
+    \intertext{Altså gælder det, at}
+        \norm{A\textbf{x}} &\leq \norm{A}_F\norm{\bm{x}}
     \end{align*}
 \end{bev}
 
 \begin{thmx} \textbf{} %Ny sætning
 \label{sæt:frobenius_egenskab_2}
 \newline
-Lad $A,B\in \R^{n\times n}$. Det gælder, at
+Lad $A,B\in \R^{n\times n}$. Da gælder det, at
 $$\norm{AB}_F \leq \norm{A}_F \norm{B}_F$$
 \end{thmx}
 
 \begin{bev} \textbf{} %Nyt bevis
 \newline 
-For at bevise dette undersøges Frobenius normen af $AB$ kvadreret. Når to matricer multipliceres med hinanden, ganger man hver søjle i den første matrice med hver række i den anden matrice. Derfor gælder nedenstående lighed
+For at bevise dette undersøges Frobenius normen af $AB$ kvadreret. Når to matricer multipliceres med hinanden, multiplicerer man hver søjle i den første matrice med hver række i den anden matrice. Derfor gælder nedenstående lighed.
 \begin{align*}
     \norm{AB}_F^2 &=\sum_{i=1}^n \sum_{j=1}^n\abs{\langle \textbf{a}_i,\textbf{b}_j \rangle}^2\\
-    \intertext{\autoref{sæt:cauchy-schwarz} benyttes.}
+    \intertext{Cauchy-Schwarz' ulighed (se \autoref{sæt:cauchy-schwarz}) benyttes.}
     \sum_{i=1}^n \sum_{j=1}^n\abs{\langle \textbf{a}_i,\textbf{b}_j \rangle}^2&\leq \sum_{i=1}^n \sum_{j=1}^n \norm{\textbf{a}_i}^2\norm{\textbf{b}_j}^2\\
-    \intertext{Summerne kan opdeles, da $\textbf{a}_i$ ikke afhænger af $j$, og $\textbf{b}_j$ ikke afhænger af $i$.}
+    \intertext{Da $\textbf{a}_i$ ikke afhænger af $j$, og $\textbf{b}_j$ ikke afhænger af $i$, kan summerne opdeles.}
     \sum_{i=1}^n \sum_{j=1}^n \norm{\textbf{a}_i}^2\norm{\textbf{b}_j}^2&=\sum_{i=1}^n\norm{\textbf{a}_i}^2\sum_{j=1}^n\norm{\textbf{b}_j}^2\\
     \intertext{Normen udskrives for $\mathbf{a}_i$ og $\mathbf{b}_j$.}
-    \sum_{i=1}^n\norm{\textbf{a}_i}^2\sum_{j=1}^n\norm{\textbf{b}_j}^2&=\sum_{i=1}^n \sum_{k=1}^n\abs{a_{i,k}}^2\sum_{j=1}^n \sum_{k=1}^n\abs{b_{j,k}}^2\\
+    \norm{AB}_F^2 &\leq \sum_{i=1}^n\norm{\textbf{a}_i}^2\sum_{j=1}^n\norm{\textbf{b}_j}^2\\ 
+    &=\sum_{i=1}^n \sum_{k=1}^n\abs{a_{ik}}^2\sum_{j=1}^n \sum_{k=1}^n\abs{b_{jk}}^2\\
     &= \norm{A}_F^2 \norm{B}_F^2
-    \intertext{Ud fra dette fås resultatet}
-    \norm{AB}_F^2 &= \norm{A}_F^2 \norm{B}_F^2\\
+    \intertext{Ved at tage kvadratroden på begge sider gælder følgende}
+    \sqrt{\norm{AB}_F^2} &\leq \sqrt{\norm{A}_F^2 \norm{B}_F^2}\\
     &\Updownarrow\\
-    \norm{AB}_F &= \norm{A}_F \norm{B}_F
+    \norm{AB}_F &\leq \norm{A}_F \norm{B}_F
 \end{align*}
 \end{bev}
 
