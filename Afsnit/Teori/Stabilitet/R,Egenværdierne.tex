@@ -1,0 +1,73 @@
+\section{Reelle egenværdier}
+
+\begin{thmx} \textbf{Reelle egenværdier} %Ny sætning
+\newline
+Lad $\frac{d\textbf{x}}{dt} = \textbf{f(x)}$, hvor $\textbf{f(x) = A\textbf{x}}$, være et autonomt lineært system. Lad $\lambda_1,\lambda_2\neq 0$ være egenværdier til $A$. Så gælder der, at hvis
+\begin{enumerate}
+    \item $\lambda_1<0<\lambda_2$, så er systemet ustabilt. 
+    \item $\lambda_1<\lambda_2<0$, så er systemet asymptotisk stabilt.
+    \item $0<\lambda_1<\lambda_2$, så er systemet ustabilt.
+    \item $0<\lambda_1=\lambda_2$, så er systemet ustabilt.
+    \item $\lambda_1=\lambda_2 < 0$, så er systemet asymptotisk stabilt.
+\end{enumerate}
+\end{thmx}
+
+\begin{bev} \textbf{} %Nyt bevis
+\newline
+Først vil punkt 1-3 blive bevist, hvorom det gælder, at $\lambda_1 \neq \lambda_2$. Fra \textbf{ref koordinatskifte} gælder der for $\frac{d\textbf{x}}{dt} = A\textbf{x}$, at
+    \begin{align*}A=
+        \begin{bmatrix}
+        \lambda_1 & 0 \\
+        0 & \lambda_2
+        \end{bmatrix}
+    \end{align*}
+    Da $A$ er en diagonalmatrice, gælder det, at $\lambda_1$ og $\lambda_2$ er egenværdierne til $A$. Egenvektoren tilhørende $\lambda_1$ er $\textbf{v}_1 = \begin{bmatrix} 1 \\0\end{bmatrix}$, og egenvektoren tilhørende $\lambda_2$ er $\textbf{v}_2 = \begin{bmatrix} 0 \\1\end{bmatrix}$. Dette indsættes i \eqref{eq_x(t)_skrevet_lambda_egenvektorer}.
+    \begin{align}
+    \textbf{x}(t) &= c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2 \nonumber \\
+    &= c_1e^{t\lambda_1}\begin{bmatrix} 1 \\0\end{bmatrix} + c_2e^{t\lambda_2}\begin{bmatrix} 0 \\1\end{bmatrix}= \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix}\label{eq:reelle_egenværdier_matrice}
+    \end{align}
+    Ved brug af egenværdierne kan udviklingen af systemet analyseres. Dette gøres ved at bestemme udviklingen for hver af koordinaterne i \eqref{eq:reelle_egenværdier_matrice}.
+\begin{itemize}
+    \item [] \textbf{Bevis for punkt 1} \\
+    Lad $\lambda_1 < 0 < \lambda_2$. Da gælder der, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet, at 
+    \begin{align*}
+        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ \infty \end{bmatrix}
+    \end{align*}
+    Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. Systemet er kun konvergent mod ligevægtspunktet såfremt, $c_2e^{t\lambda_2} = 0$. Da $e^{t\lambda_2} \neq 0$, gælder dette, når $c_2 = 0$. For et sådan system kaldes ligevægtspunktet for et \textit{saddelpunkt}. Nedenfor ses et \textbf{\textit{saddel-faseportræt}}.
+    \item [] \textbf{Bevis for punkt 2}\\
+    Lad $\lambda_1<\lambda_2<0$. Da gælder der, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to 0$ for $t \to \infty$. Det må derfor gælde for systemet at 
+    \begin{align*}
+        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ 0 \end{bmatrix}
+    \end{align*}
+    Systemet er dermed asymptotisk stabilt, og konvergerer derfor mod ligevægtspunktet. 
+    Da $\lambda_1<\lambda_2$, konvergerer $\lambda_1$ hurtigere mod ligevægtspunktet end $\lambda_2$.
+    For et sådan system kaldes ligevægtspunktet for et \textit{vaskepunkt}. Nedenfor ses et \textbf{\textit{vaske-faseportræt}}.
+    \item [] \textbf{Bevis for punkt 3}\\
+    Lad $0<\lambda_1<\lambda_2$. Da gælder der, at $c_1e^{t\lambda_1} \to \infty$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet at 
+    \begin{align*}
+        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix} \infty \\ \infty \end{bmatrix}
+    \end{align*}
+    Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. 
+    Da $\lambda_1<\lambda_2$, divergerer $\lambda_2$ hurtigere væk fra ligevægtspunktet end $\lambda_1$.
+    For et sådan system kaldes ligevægtspunktet for en \textit{kilde}. Nedenfor ses et \textbf{\textit{kilde-faseportræt}}.
+\end{itemize}
+Herefter vil punkt 4-5 blive bevist, hvorom det gælder, at $\lambda_1 = \lambda_2$. Fra \textbf{ref koordinatskifte} gælder der for $\frac{d\textbf{x}}{dt} = A\textbf{x}$, at
+    \begin{align*}A=
+        \begin{bmatrix}
+        \lambda & k \\
+        0 & \lambda
+        \end{bmatrix}
+    \end{align*}
+    I tilfældet, hvor $k=0$, gælder der, at $\lambda$ er egenværdi til $A$ med algebraisk multiplicitet 2. Derfor kan \eqref{eq:tilhørende_egenvektor} skrives som 
+    \begin{align*}
+        \textbf{x(t)} = c_1e^{t\lambda}\textbf{v} \quad \textit{for alle }  \textbf{v}\in\R^2 \backslash \{\textbf{0}\}
+    \end{align*}
+    Derfor ligger alle løsninger på en lige linje gennem ligevægtspunktet. Hvis $\lambda<0$, så er systemet asymptotisk stabilt og konvergere derfor mod ligevægtspunktet. Systemet er ustabilt og divergere derfor væk fra ligevægtspunktet, hvis $\lambda>0$.
+\begin{itemize}
+    \item [] \textbf{Bevis for punkt 4}\\
+    k=1
+    \item [] \textbf{Bevis for punkt 5}\\
+    k=1
+\end{itemize}
+\end{bev}
+

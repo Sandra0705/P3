@@ -2,7 +2,7 @@ Til at beregne $e^{tA}$ kan \textit{Putzers algoritme} anvendes.
 %I et tidligere projekt blev der redegjort for, hvordan det var muligt at beregne eksponenter af matricer ved brug af \textit{diagonalisering}. For matricer, der ikke er diagonalisérbare, kan \textit{Putzers algoritme} anvendes til at beregne $e^{tA}$. 
 \textit{Cayley Hamilton} (\autoref{lem:Cayley_Hamilton_Sætning}) vil blive brugt til beviset af Putzers algoritme. 
 \begin{lem}\textbf{Cayley Hamilton}\label{lem:Cayley_Hamilton_Sætning}\\
-Lad $A \in \R^{n\times n}$ være en matrice med det karakteristiske polynomium $p_A(\lambda)$. Så gælder, at $p_A(A) = 0$.
+Lad $A \in \R^{n\times n}$ være en matrice med det karakteristiske polynomium $p_A(\lambda)$. Så gælder, at $p_A(A) = \textit{O}$.
 \end{lem}
 
 Putzers algoritme er en metode, hvorved det er muligt at beregne $e^{tA}$ ved brug af egenværdierne for matricen $A$. Putzers algoritme opstilles som følgende sætning.
@@ -56,13 +56,13 @@ Vektorfunktionen, $\textbf{r}(t)$,  med indgangene $r_k(t)$ for $k=1, 2, \cdots,
         P_0 &= I_n\\
         P_k &= (A-\lambda_k I_n) P_{k-1}, k=1,2,\cdots, n\\
         %P_n = 0
-    \intertext{Det gælder, at $P_n = 0$, da}
+    \intertext{Det gælder, at $P_n = O $, da}
     %
          P_n &= \prod_{i=1}^n(A -\lambda_i I_n)\\
             &= (A-\lambda_1 I_n)(A-\lambda_2 I_n)\cdots (A-\lambda_n I_n)\\
-        \intertext{Ovenstående er det karakteristiske polynomium i faktoriseret form, $p_A(A)$. Ud fra Cayley Hamilton (\autoref{lem:Cayley_Hamilton_Sætning}) gælder det, at $p_A(A)=0$. Derfor fås}
+        \intertext{Ovenstående er det karakteristiske polynomium i faktoriseret form, $p_A(A)$. Ud fra Cayley Hamilton (\autoref{lem:Cayley_Hamilton_Sætning}) gælder det, at $p_A(A)=O$. Derfor fås}
     %
-           P_n &=  p_A(A)= 0
+           P_n &=  p_A(A)= \textit{O}
     \end{align*}
     %
     Hvis $\Psi(t)$ er er løsning til samme begyndelsesværdiproblem som $e^{tA}$, må der gælde, at $\Psi'(t)-A\Psi(t)$ skal være lig nulmatricen, \textit{O}. Dette vises ved at indsætte summerne for $\Psi(t)$ og $\Psi'(t)$ og reducere som følgende
@@ -89,8 +89,8 @@ Vektorfunktionen, $\textbf{r}(t)$,  med indgangene $r_k(t)$ for $k=1, 2, \cdots,
         &= \sum_{k=1}^{n-1} r_{k}(t)P_k - \sum_{k=0}^{n-1}r_{k+1}(t)P_{k+1} \\
         &= -r_n(t) P_n
     \end{align*}
-   Da $P_n = 0$, fås
-        $$\Psi'(t) - A\Psi(t) = 0$$
+   Da $P_n = O$, fås
+        $$\Psi'(t) - A\Psi(t) = O$$
 
 Jævnfør ovenstående må det gælde, at $\Psi(t)$ er løsning til samme differentialligning som $e^{tA}$. $\Psi(t)$ har også samme begyndelsesbetingelse som $e^{tA}$, eftersom $\displaystyle \Psi(0) = \sum_{k=0}^{n-1}r_{k+1}(0) P_k = I_n$.
 

@@ -14,16 +14,17 @@ Lagranges notation er en anden måde at udtrykke differentialkvotienter på. Det
 
 I dette projekt tages der udgangspunkt i Leibniz' notation. Der vil dog forekomme undtagelser, hvor Lagranges notation vil blive anvendt, men dette skift i notation vil blive noteret i den tilhørende tekst.
 
-Ud fra Leibniz' notation defineres en $n$'te differentialligning.
+Med udgangspunkt i Leibniz' notation defineres en $n$'te differentialligning.
 
 \begin{defn}\label{def:generel_differentialligning} \textbf{}\\
-Lad $D_f \subseteq \R \times \R^n$ være en åben ikke-tom delmængde. Lad $t \in I$, $x:I \to \R$ og $f \in C^n(D_f,\R)$. En $n$'te ordens differentialligning kan da udtrykkes som følgende
+Lad $D_f \subseteq \R \times \R^n$ være en åben ikke-tom delmængde og $f \in C^0(D_f,\R)$. En $n$'te ordens differentialligning kan da udtrykkes som følgende
 %
 \begin{align*}
     \frac{d^nx}{dt^n}=f\left(t, x, \frac{dx}{dt},\cdots, \frac{d^{n-1}x}{dt^{n-1}}\right )
 \end{align*}
+hvor $t \in I$ og $x \in C^n(I \to \R)$. 
 \end{defn}
 
-$C^n(D_f, V_f)$ er mængden af alle kontinuerte differentiable funktioner af $n$'te orden, hvor $n \neq 0$. For en funktion $f \in C^n(D_f, V_f)$ gælder det, at $f: D_f \to V_f$. 
+$C^n(D_f, V_f)$ er mængden af alle kontinuerte differentiable funktioner af $n$'te orden, hvor $n \geq 0$. For en funktion $f \in C^n(D_f, V_f)$ gælder det, at $f: D_f \to V_f$. 
 
 

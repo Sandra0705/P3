@@ -6,7 +6,7 @@ Da der for enhver matrice $A$ er defineret en eksponentialmatrice $e^{tA}$, er d
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{Løsning til et autonomt lineært system af homogene første ordens differentialligninger} \label{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger}%Ny sætning
 \newline
-Lad $A \in \R^{n \times n}$, $t\in I$ og $\textbf{x}: I \to \R^n$. Lad $D_\textbf{f} \subseteq \R^n$ være en åben ikke-tom delmængde og $\textbf{f} \in C^1(D_\textbf{f},\R^n)$. Da gælder det, at begyndelsesværdiproblemet for det homogene autonome lineære system 
+Lad $A \in \R^{n \times n}$. Lad $\textbf{f}=A\textbf{x}$, hvorom der gælder, at $D_\textbf{f} \subseteq \R^n$ er en åben ikke-tom delmængde og $\textbf{f} \in C^0(D_\textbf{f},\R^n)$. Da gælder det, at begyndelsesværdiproblemet for det homogene autonome lineære system 
 \begin{align}\label{eq:homogen_lineart_system}
     \frac{d\textbf{x}}{dt} = A\textbf{x}, \quad \mathbf{x}(t_0) = \mathbf{x}_0 
 \end{align}
@@ -14,6 +14,7 @@ har den entydig bestemte løsning
 \begin{align}\label{eq:løsning_til_homogen_lineart_system}
     \textbf{x}(t) = e^{(t-t_0)A}\textbf{x}_0
 \end{align}
+hvor $t\in \R$ og $\textbf{x}\in C^1(I,D_\textbf{f}$.
 \end{thmx}
 \end{minipage}
 
@@ -29,6 +30,14 @@ Det vil blive bevist, at \eqref{eq:løsning_til_homogen_lineart_system} er en l�
     \intertext{Da $\textbf{x}(t)=e^{(t-t_0)A}\textbf{x}_0$, indsættes $\textbf{x}$ i udtrykket.}
     \frac{d\textbf{x}}{dt} &= A\textbf{x}
     \end{align*}
+%
+Begyndelsesbetingelsen vil herefter blive verificeret.
+%
+\begin{align*}
+    \textbf{x}(t_0)=e^{(t_0-t_0)A}\textbf{x}_0 = e^{0A}\textbf{x}_0
+    = I\textbf{x}_0 = \textbf{x}_0
+\end{align*}
+%
 Dermed er det bevist, at \eqref{eq:løsning_til_homogen_lineart_system} er en løsning til \eqref{eq:homogen_lineart_system}.
 \end{bev}
 
@@ -37,7 +46,7 @@ Ved brug af ovenstående resultat, kan løsningen til begyndelsesværdiproblemet
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{Løsning til et lineært system af inhomogene første ordens differentialligninger} \label{sæt:løsning_til_inhomogen_system}%Ny sætning
 \newline
-Lad $A \in \R^{n \times n}$, $t\in I$ og $\textbf{x}: I \to \R^n$. Lad $D_\textbf{f} \subseteq \R\times \R^n$ være en åben ikke-tom delmængde og $\textbf{f} \in C^1(D_\textbf{f}, \R^n)$. Lad derudover $\mathbf{b}(t): \R \rightarrow \R^n$ være en given kontinuert funktion. Da gælder det, at begyndelsesværdiproblemet for det inhomogene lineære system 
+Lad $A \in \R^{n \times n}$ og $\mathbf{b}(t) \in C^0(I,R^n)$. Lad $\textbf{f} = A\textbf{x}+\textbf{b}(t)$, hvorom det gælder, at $D_\textbf{f} \subseteq \I\times \R^n$ er en åben ikke-tom delmængde og $\textbf{f} \in C^0(D_\textbf{f}, \R^n)$. Da gælder det, at begyndelsesværdiproblemet for det inhomogene lineære system 
 \begin{align}\label{eq:inhomogen_lineart_system}
     \frac{d\textbf{x}}{dt} = A\textbf{x}+\textbf{b}(t), \quad \mathbf{x}(t_0) = \mathbf{x}_0 
 \end{align}
@@ -45,6 +54,7 @@ har den entydigt bestemte løsning
 \begin{align}\label{eq:løsning_til_inhomogen_lineart_system}
     \textbf{x}(t) = e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{(t-s)A}\textbf{b}(s) ds
 \end{align}
+hvor $t\in I$ og $\textbf{x} \in C^1(I, \R^n)$.
 \end{thmx}
 \end{minipage}
 
@@ -53,7 +63,7 @@ har den entydigt bestemte løsning
 Først vil det blive bevist, at løsningen opfylder kravene for eksistens- og entydighedssætningen (se \autoref{sæt:eksistens_og_entydighed}). 
 
 Det er defineret, at $A\textbf{x}(t)$ og $\textbf{b}(t)$ er kontinuerte funktioner, da de er lineære. Det vides, at for
-$\displaystyle \frac{d\textbf{x}}{dt}=\textbf{f}(t,\textbf{x})$ gælder det, at $D_\textbf{f} \subseteq \R \times \R^n$ er en ikke-tom delmængde, og $\textbf{f}: D_\textbf{f} \to \R^n$. Da $\textbf{f}(t,\textbf{x})$ er defineret på $\R \times \R^{n}$, er $D_\textbf{f}$ et åbent interval. Funktionen opfylder altså kravene for eksistens- og entydighedssætningen (se \autoref{sæt:eksistens_og_entydighed}).
+$\displaystyle \frac{d\textbf{x}}{dt}=\textbf{f}(t,\textbf{x})$ gælder det, at $D_\textbf{f} \subseteq \R \times \R^n$ er en ikke-tom delmængde, og $\textbf{f}: D_\textbf{f} \to \R^n$. Da $\textbf{f}(t,\textbf{x})$ er defineret på $\R \times \R^{n}$, er $D_\textbf{f}$ et åbent interval. Funktionen opfylder altså antagelserne for eksistens- og entydighedssætningen (\autoref{sæt:eksistens_og_entydighed}).
 
 Lad $\textbf{y}_1$ og $\textbf{y}_2$ være løsninger til \eqref{eq:inhomogen_lineart_system}.
 Løsningerne indsættes i \eqref{eq:Eksistens_og_entydighed}.
@@ -68,7 +78,7 @@ Løsningerne indsættes i \eqref{eq:Eksistens_og_entydighed}.
     &\Updownarrow\\
     \norm{\textbf{f}(t, \textbf{y}_1)-\textbf{f}(t, \textbf{y}_2)}&\leq \norm A _F \norm{\textbf{y}_1-\textbf{y}_2}
 \end{align*}
-Det er dermed bevist, ud fra eksistens- og entydighedssætningen (se \autoref{sæt:eksistens_og_entydighed}), at \eqref{eq:inhomogen_lineart_system} har en entydig løsning.
+Det er dermed bevist, ud fra eksistens- og entydighedssætningen (\autoref{sæt:eksistens_og_entydighed}), at \eqref{eq:inhomogen_lineart_system} har en entydig løsning, da $\norm{A}_F \leq L$.
 
 Dernæst vil den entydige løsning blive bestemt.
 %
@@ -85,20 +95,20 @@ Dernæst vil den entydige løsning blive bestemt.
     \intertext{Begge sider af udtrykket integreres.}
     \int \frac{d}{dt}\left(e^{-tA}\mathbf{x}\right) dt&= \int
     e^{-tA}\mathbf{b}(t) dt\nonumber\\
-    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der et konstantled på begge sider af lighedstegnet. De konstante led samles på højresiden og betegnes $c$.}
-    e^{-tA}\mathbf{x} &= \int e^{-tA}\mathbf{b}(t) dt + c\nonumber\\
+    \intertext{På venstresiden af udtrykket reducerer differentiation og integration hinanden. På grund af integration, dannes der en konstant vektor på begge sider af lighedstegnet. De konstante vektorer samles på højresiden og betegnes $\textbf{c}$.}
+    e^{-tA}\mathbf{x} &= \int e^{-tA}\mathbf{b}(t) dt + \textbf{c}\nonumber\\
     \intertext{Der multipliceres med $e^{tA}$ på begge sider af lighedstegnet for at isolere \textbf{x}.}
-    \mathbf{x}(t) &= e^{tA}c + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt
+    \mathbf{x}(t) &= e^{tA}\textbf{c} + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt
 \end{align}
 
-Begyndelsesbetingelsen, $\textbf{x}(t_0)=\textbf{x}_0$, indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}, og $c$ isoleres.
+Begyndelsesbetingelsen, $\textbf{x}(t_0)=\textbf{x}_0$, indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}, og $\textbf{c}$ isoleres.
 \begin{align*}
-    \mathbf{x}_0 &= e^{t_0A}c + e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
+    \mathbf{x}_0 &= e^{t_0A}\textbf{c} + e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
     &\Uptown\\
-    e^{t_0A}c &= \textbf{x}_0 - e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
+    e^{t_0A}\textbf{c} &= \textbf{x}_0 - e^{t_0A}\cdot \int e^{-t_0A}\mathbf{b}(t_0) dt\\
     &\Uptown\\
-    c &= e^{-t_0A}\textbf{x}_0 - \int e^{-t_0A}\mathbf{b}(t_0) dt
-    \intertext{Udtrykket for $c$ indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}.}
+    \textbf{c} &= e^{-t_0A}\textbf{x}_0 - \int e^{-t_0A}\mathbf{b}(t_0) dt
+    \intertext{Udtrykket for $\textbf{c}$ indsættes i \eqref{eq:løsningen_til_inhomogen_system_inden_begyndelsesbetingelsen_er_indsat}.}
     \textbf{x}(t) &= e^{tA} \left( e^{-t_0A}\textbf{x}_0 - \int e^{-t_0A}\mathbf{b}(t_0) dt \right) + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt
     \intertext{$e^{tA}$ multipliceres ind i parentesen.}
     \textbf{x}(t) &= e^{tA}e^{-t_0A}\textbf{x}_0 - e^{tA} \cdot \int e^{-t_0A}\mathbf{b}(t_0) dt + e^{tA}\cdot \int e^{-tA}\mathbf{b}(t) dt\\
@@ -111,8 +121,15 @@ Begyndelsesbetingelsen, $\textbf{x}(t_0)=\textbf{x}_0$, indsættes i \eqref{eq:l
      &= e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{tA-sA}\mathbf{b}(s) ds\\
     &= e^{(t-t_0)A}\textbf{x}_0 + \int_{t_0}^t e^{(t-s)A}\mathbf{b}(s) ds
 \end{align*}
+%
+Begyndelsesbetingelsen vil herefter blive verificeret.
+%
+\begin{align*}
+    \textbf{x}(t_0) = e^{(t_0-t_0)A}\textbf{x}_0 + \int_{t_0}^{t_0} e^{(t-s)A}\mathbf{b}(s) ds= e^{0A}\textbf{x}_0
+    = I\textbf{x}_0 
+    =\textbf{x}_0
+\end{align*}
 Dermed er det bevist, at \eqref{eq:løsning_til_inhomogen_lineart_system} er den entydigt bestemte løsning til \eqref{eq:inhomogen_lineart_system}.
-
 \end{bev}
 
 

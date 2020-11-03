@@ -1,0 +1,101 @@
+
+% Slet senere
+\pagebreak
+% Slet senere
+
+\section{Koordinatskifte}
+
+For at kunne analysere stabiliteten af et system ud fra egenværdierne af koefficientmatricen, er det en fordel at lave et \textit{koordinatskift}. Dette gøres for at få systemet på \textit{kanonisk form}, som generaliserer matematikken for vilkårlige lineære systemer.
+Kanonisk form defineres som følgende 
+\begin{defn}\textbf{Kanonisk form}\\
+    En $2\times 2$ matrice siges at være på kanonisk form, såfremt den antager en af følgende former
+%    
+    \begin{align*}
+        \begin{bmatrix}
+            \lambda_1   &  0\\
+            0           &  \lambda_2
+        \end{bmatrix}, \quad
+        \begin{bmatrix}
+            \phantom{-}\alpha & \beta \\
+            -\beta & \alpha
+        \end{bmatrix}, \quad
+        \begin{bmatrix}
+            \lambda & 1\\
+            0       & \lambda
+        \end{bmatrix}
+    \end{align*}
+\end{defn}
+
+\begin{thmx}\textbf{Koordinatskift}\\
+Lad $T\in\R^{2\times 2}$ være invertibel og $A\in \R^{2\times 2}$.
+%
+\begin{align}\label{eq:y(t)_og_invertibel_T_koordinatskifte}
+    \frac{d\textbf{y}}{dt} = T^{-1}AT \textbf{y}
+\end{align}
+%
+Hvis $\textbf{y}(t)\in C^1(\R, \R^2)$ er en løsning til \eqref{eq:y(t)_og_invertibel_T_koordinatskifte}, så gælder det, at 
+\begin{align}\label{eq:x(t)_koordinatskifte}
+    \textbf{x}(t)=T\textbf{y}(t)
+\end{align}
+%
+er løsning til %$\displaystyle \frac{d\textbf{x}}{dt}= A\textbf{x}$
+%
+\begin{align}\label{eq:x'(t)=Ax_koordinatskifte}
+    \displaystyle \frac{d\textbf{x}}{dt}= A\textbf{x}
+\end{align}
+
+%hvis y(t) er løsning så er
+%x(t)=Ty(t) løsning til x'(t) = Ax(t)
+
+\end{thmx}
+
+\begin{bev}\textbf{}\\
+$\textbf{x}(t)$ differentieres.
+    \begin{align*}
+        \frac{dx}{dt}   &= \left(Ty(t)\right)' 
+                         = Ty'(t)
+                         = T\left(T^{-1}AT \textbf{y}\right)
+                         = A(T\textbf{y})
+                         = A\textbf{x}
+    \end{align*}
+Det er hermed bevist, at \eqref{eq:x(t)_koordinatskifte} er en løsning til \eqref{eq:x'(t)=Ax_koordinatskifte}.  
+\end{bev}
+
+Ud fra dette ses det, at matricen $T$ konverterer løsninger for  \eqref{eq:y(t)_og_invertibel_T_koordinatskifte} til løsninger for \eqref{eq:x'(t)=Ax_koordinatskifte}. Omvendt konverterer den inverse matrice $T^{-1}$, løsninger for \eqref{eq:x'(t)=Ax_koordinatskifte}  til løsninger for \eqref{eq:y(t)_og_invertibel_T_koordinatskifte}. 
+
+%linear system into one whose coefficient matrix is different. What we hope to be able to do is find a linear map T that converts the given system into a system of the form Y  = (T −1AT)Y that is easily solved. And, as you may have guessed, we can always do this by finding a linear map that converts a given linear system to one in canonical form.
+
+\begin{thmx}\textbf{Koordinatskift til kanonisk form}\\
+    Lad $T\in\R^{2\times 2}$ være invertibel og lad $A\in \R^{2\times 2}$ være en matrice med egenværdier $\lambda_1$ og $\lambda_2$ med tilhørende egenvektorer $\textbf{v}_1, \textbf{v}_2\in \R^2$. Så gælder det, at $T^{-1}AT$ er på følgende kanoniske form,
+    
+    
+    \begin{enumerate}
+        \item hvis $\lambda_1,\lambda_2 \in \R$ og $\lambda_1 \neq \lambda_2$ er 
+        \begin{align*}
+            T^{-1}AT = \begin{bmatrix}
+                            \lambda_1   &  0\\
+                            0           &  \lambda_2
+                        \end{bmatrix}
+        \end{align*}
+        
+        \item hvis $\lambda_1, \lambda_2 \in \C$, hvor $\lambda = \alpha \pm i \beta$, er
+        \begin{align*}
+            T^{-1}AT = \begin{bmatrix}
+                            \phantom{-}\alpha &  \beta\\
+                            - \beta           &  \alpha
+                        \end{bmatrix}
+        \end{align*}
+        
+        \item hvis $\lambda_1, \lambda_2 \in \R$ og $\lambda_1 = \lambda_2$ er 
+        \begin{align*}
+            T^{-1}AT = \begin{bmatrix}
+                            \lambda   &  1\\
+                            0           &  \lambda
+                        \end{bmatrix}
+        \end{align*}
+    \end{enumerate}
+\end{thmx}
+
+\begin{bev}\textbf{}\\
+    
+\end{bev}

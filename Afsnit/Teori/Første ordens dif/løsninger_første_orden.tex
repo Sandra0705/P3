@@ -6,7 +6,7 @@ Den generelle løsning til en lineær første ordens differentialligning kan bes
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{Generel løsning til en lineær første orden differentialligning}\label{sæt:generel_løsning_første_ordens_diff} %Ny sætning
 \newline
-Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde og $f \in C^1(D_f,\R)$. Lad $a(t), b(t) \in C^0(\R)$.
+Lad $a(t), b(t)\in C^0(I,\R)$. Lad $f(t,x)=a(t)x+b(t)$, hvorom det gælder, at $D_f \subseteq \R \times \R$ er en åben ikke-tom delmængde og $f \in C^0(D_f,\R)$. 
 Da vil den lineære differentialligning
 \begin{align}
     \frac{dx}{dt}=a(t)x+b(t)
@@ -15,7 +15,7 @@ have den generelle løsning,
 \begin{align}\label{eq:generel_løsning_til_1.ordens_med_variable_koefficienter}
     x(t)=ce^{A(t)} + e^{A(t)} \int e^{-A(t)}b(t) \ dt
 \end{align}
-hvor $\displaystyle A(t)=\int a(t) \ dt$ og $c \in \R$.
+hvor $t \in I$, $x \in C^1(\I,\R)$, $\displaystyle A(t)=\int a(t) \ dt$ og $c \in \R$.
 \end{thmx}
 \end{minipage}
 %

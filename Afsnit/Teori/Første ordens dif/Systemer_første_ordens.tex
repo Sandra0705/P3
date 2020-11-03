@@ -47,10 +47,16 @@ Ud fra dette opstilles en definition for et system af lineære første ordens di
 \begin{minipage}\textwidth
 \begin{defn}\label{def:system_af_første_ordens_differentialligninger}\textbf{System af første ordens differentialligninger} %Ny definition
 \newline
-Lad $D_f \subseteq \R \times \R^n$ være en åben ikke-tom delmængde, og $\textbf{f}\in C^1(D_f, \R^n)$. Lad $A(t) \in C^0(\R, \R^{n \times n})$ og $\textbf{b}(t) \in C^0(\R, \R^n)$. Et system af lineære første ordens differentialligninger med den ukendte vektorfunktion $\textbf{x}$ er udtrykt ved
+Lad $A(t) \in C^0(I, \R^{n \times n})$ og $\textbf{b}(t) \in C^0(I, \R^n)$. Lad $\textbf{f}(t,\textbf{x})=A(t)\textbf{x}+\textbf{b}(t)$, hvorom det gælder, at $D_\textbf{f} \subseteq \I \times \R^n$ er en åben ikke-tom delmængde og $\textbf{f}\in C^0(D_f, \R^n)$.
+
+%Lad $D_\textbf{f} \subseteq \I \times \R^n$ være en åben ikke-tom delmængde og $\textbf{f}(t,\textbf{x})=A(t)\textbf{x}+\textbf{b}(t)$, hvor $\textbf{f}\in C^1(D_f, \R^n)$.
+
+Så kan et system af lineære første ordens differentialligninger med den ukendte vektorfunktion $\textbf{x}$ udtrykkes ved
 \begin{align}
     \frac{d\textbf{x}}{dt} = A(t)\textbf{x} + \textbf{b}(t)
 \end{align}
+hvor $t \in \I$ og $\textbf{x}\in C^1(I, \R^n)$.
+
 \end{defn}
 \end{minipage}
 

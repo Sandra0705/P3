@@ -1,4 +1,4 @@
-I det forrige kapitel blev autonome lineære differentialligninger samt tilhørende løsninger gennemgået. Dette skal kunne generaliseres til autonome lineære systemer, hvor der indgår $n$ autonome lineære differentialligninger.  
+I det forrige kapitel blev autonome lineære differentialligninger, samt tilhørende løsninger gennemgået. Dette skal kunne generaliseres til autonome lineære systemer, hvor der indgår $n$ autonome lineære differentialligninger.  
 
 Det homogene autonome lineære system af første ordens differentialligninger kan udtrykkes som følgende begyndelsesværdiproblem
 %
@@ -6,15 +6,21 @@ Det homogene autonome lineære system af første ordens differentialligninger ka
     \frac{d\textbf{x}}{dt}=A\textbf{x}, \quad \textbf{x}(t_0)=\textbf{x}_0
 \end{align}
 %
-hvor $A \in \R^{n \times n}$ og $\textbf{x}: I \to \R^n$. Den entydigt bestemte løsning vil da være $\textbf{x}(t)=e^{(t-t_0)A}\textbf{x}_0$ (\autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger}). For at dette er gældende, skal der for ethvert $A$ kunne defineres en matrice $e^{tA}$, som giver løsningen til $\eqref{eq:begyndelsesværdiproblem_basic}$.
+hvor $A \in \R^{n \times n}$ og $\textbf{x}: I \to \R^n$. Den entydigt bestemte løsning vil da være $\textbf{x}(t)=e^{(t-t_0)A}\textbf{x}_0$ jævnfør \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger}. Denne sætning vil blive bevist senere i projektet. Udtrykket indeholder en matriceeksponential $e^{tA}$, hvor $e^{tA}: I\times\R^{n\times n} \to \R^{n \times n}$. Denne matriceeksponential defineres således, at $\textbf{x}(t)$ er løsningen til \eqref{eq:begyndelsesværdiproblem_basic}.
+%
+
+
+%For at dette er gældende, skal der for ethvert $A$ kunne defineres en matrice $e^{tA}$, som giver løsningen til $\eqref{eq:begyndelsesværdiproblem_basic}$.
 
 Lad $\Phi(t)$ betegne en løsning til \eqref{eq:begyndelsesværdiproblem_basic}, hvor $\Phi(t): I\to \R^{n \times n}$. Begyndelseværdiproblemet for følgende differentialligning opstilles.
-
+%
 \begin{align*}
     \frac{d\Phi}{dt}= F(t,\Phi), \quad \Phi(0)=I_n
 \end{align*}
-
-Eftersom der arbejdes med lineære differentialligninger, kan det omskrives til følgende, hvor $A \in \R^{n \times n}$.
+%
+Under antagelsen om, at systemet er lineært, 
+%Eftersom der arbejdes med lineære differentialligninger, 
+kan systemet omskrives til følgende, hvor $A \in \R^{n \times n}$.
 %
 %, og lad $\Phi(t)$ betegne en løsning til \eqref{eq:begyndelsesværdiproblem_basic}. Begyndelsesværdiproblemet kan da opstilles som
 %
@@ -54,25 +60,27 @@ Venstresiden af Lipschitz-betingelsen opskrives for $F(t, \Phi)$ og $F(t, \Tilde
 \intertext{\autoref{sæt:frobenius_egenskab_1} anvendes.}
     \norm{A(\Phi-\Tilde{\Phi})}_F &\leq \norm{A}_F\norm{\Phi-\Tilde{\Phi}}_F
 \end{align*}
-Hvis $\norm{A}_F \leq L$ er Lipschitz-betingelsen opfyldt, da der vil gælde, at 
+%
+Da $\norm{A}_F \in \R_{\geq 0}$, kan der altid vælges et $L \in \R_{>0}$, hvor $\norm{A}_F \leq L$. Lipschitz-betingelsen er da opfyldt, hvoraf der vil gælde, at
+%Hvis $\norm{A}_F \leq L$ er Lipschitz-betingelsen opfyldt, da der vil gælde, at %
 \begin{align*}
     \norm{F(t,\Phi)-F(t,\Tilde{\Phi})}_F \leq L\norm{\Phi-\Tilde{\Phi}}_F
 \end{align*}
 %
-Da Lipschitz-betingelsen i variablerne $t$ og $\Phi$ er opfyldt, eksisterer der, jævnfør eksistens- og entydighedssætningen, (se \autoref{sæt:eksistens_og_entydighed}), en entydig løsning til \eqref{eq:begyndelsesværdiproblem_basic}.
+Da Lipschitz-betingelsen i variablerne $t$ og $\Phi$ er opfyldt, eksisterer der, jævnfør eksistens- og entydighedssætningen (\autoref{sæt:eksistens_og_entydighed}), en entydig løsning til \eqref{eq:begyndelsesværdiproblem_basic}.
 
 Denne løsning vil fremadrettet blive betegnet som $\E(t)$, og bliver defineret som følgende.
 
 \begin{defn}\textbf{Løsning til et autonomt lineært system af differentialligninger} \label{def:løsning_autonomt_system}
 \newline
-Lad $D_F\subseteq \R^{n\times n}$ være en åben ikke-tom delmængde og $F\in C^1(D_F,\R^{n\times n})$.
-Lad $A \in \R^{n \times n}$ og $\E: I \to \R^{n \times n}$. Da er $\E(t)$ den entydige løsning til begyndelsesværdiproblemet
+Lad $A\in\R^{n\times n}$. Lad $F(\E)=A\E$, hvorom det gælder, at $D_F\subseteq \R^{n\times n}$ er en åben ikke-tom delmængde og $F\in C^0(D_F,\R^{n\times n})$. Så kan følgende begyndelsesværdiproblem opstilles
+%Da er $\E(t)$ den entydige løsning til begyndelsesværdiproblemet
 %
 \begin{align}
     \frac{d\E}{dt}=A\E, \quad \E(0)=I_n \label{eq:løsning_e(t)=Ae(t)}
 \end{align}
 %
-for alle $t \in I$.
+hvor $t \in I$ og $\E\in C^1(I,D_F)$. 
 \end{defn}
 
 

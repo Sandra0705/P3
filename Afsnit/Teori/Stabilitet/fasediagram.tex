@@ -1,0 +1,39 @@
+\section{Fasediagrammer}
+
+Dette afsnit er baseret på \cite[s. 145]{"Ronald_Shone"}.
+
+For et system af to variable $x_1,x_2$, vil der for ethvert $t \in I$ eksisterer et punkt $(x_1,x_2)$ i $(x_1,x_2)$-planen, hvor \textit{løsningskurven} er entydigt bestemt for en begyndelsesbetingelse $(x_{0_1},x_{0_2})$. Altså eksisterer der en entydig bestemt funktion $x_2=\Phi(x_1)$, som opfylder begyndelsesbetingelsen $\Phi(x_{0_1})=x_{0_2}$. 
+
+Ved brug af fasediagrammer er det muligt at visualisere denne løsningskurve i $(x_1,x_2)$-planet. Fasediagrammet er en sammensætning af et forskellige elementer, som introduceres. 
+
+Løsningskurven kaldes også for systemets \textit{bane}, og $x_1,x_2$-planen, hvor banen er defineret kaldes for \textit{faseplanet}. Mængden af alle løsningskurver kaldes for \textit{faseportrættet}. \textit{Retningsfeltet} for systemet er udgjort af tangentvektorer til løsningskurver i et passende antal punkter i $(x_1,x_2)$-planet.
+
+I nedenstående eksempel visualiseres de ovenstående begreber.
+\begin{eks}\textbf{}
+\newline
+Lad følgende begyndelsesværdiproblem for det autonome system være givet. 
+%
+\begin{align*}
+    \frac{dx_1}{dt}&=x_1-4x_2, \phantom{2}\quad  x_{0_1}(t_0)=1 \\
+    \frac{dx_2}{dt}&=2x_1-5x_2, \quad x_{0_2}(t_0)=0
+\end{align*}
+%
+Da dette er et autonomt lineært system af første ordens differentialligninger, kan løsningen bestemmes jævnfør \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger} og \autoref{sæt:putzers_algoritme}.
+%
+\begin{align*}
+    x_1 = e^{-t}-e^{-3t} \\
+    x_2 = 2e^{-t}-e^{-3t}
+\end{align*}
+%
+Løsningenskurven illustreres i $(x_1,x_2)$-planet.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Billeder/faseportræt_eksempel.png}
+    \caption{Faseportræt for systemet.}
+    \label{fig:faseportræt_eksempel}
+\end{figure}
+%
+I \autoref{fig:faseportræt_eksempel} udgør de røde pile retningsfeltet, og den blå kurve udgør løsningen til systemets begyndelsesværdiproblem.
+
+\end{eks}

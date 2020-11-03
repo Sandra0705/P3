@@ -1,0 +1,67 @@
+\newpage
+\section{Stabilitet ved egenværdier}
+Dette afsnit er baseret på \cite[s. 30-35]{"Morris_and_Stephen"}
+\begin{thmx}\textbf{}
+\newline
+Lad $A\in \R^{2\times 2}$ og $\lambda\in \C$ være en egenværdi til A med tilhørende egenvektor $\textbf{v}\in \R^2$. Så gælder det, at
+\begin{align}\label{eq:tilhørende_egenvektor}
+    x(t) = e^{t\lambda}\textbf{v}
+\end{align}
+er en løsning til differentialligningen (\textbf{ref til en differentialligning}), og $t\in \R$.
+\end{thmx}
+
+\begin{bev} \textbf{}
+\newline
+Dette vises ved at differentiere $\textbf{x}(t) = e^{t\lambda}\textbf{v}$.
+
+\begin{align*}
+    \frac{dx}{dt} = \lambda e^{t\lambda} \textbf{v} = e^{t\lambda} (\lambda\textbf{v}) =  e^{t\lambda} (A\textbf{v}) = Ae^{t\lambda} \textbf{v} = A\textbf{x}
+\end{align*}
+
+Det er hermed bevist, at $\textbf{x}(t) = e^{t\lambda}\textbf{v}$ er en løsning til differentialligningen (\textbf{ref til en differentialligning}).
+\end{bev}
+
+
+\begin{thmx}\textbf{} \label{sæt_x(t)_skrevet_lambda_egenvektorer}
+\newline
+Lad $A\in \R^{2\times 2}$ og $\lambda_1\neq \lambda_2 \in \R$ være egenværdier til $A$ med de tilhørende egenvektorer $\textbf{v}_1, \textbf{v}_2\in \R^2$. Så gælder det, at 
+\begin{align}\label{eq_x(t)_skrevet_lambda_egenvektorer}
+    \textbf{x}(t) = c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2
+\end{align}
+er en løsning til begyndelsesværdiporblemet (\textbf{ref til et begyndelsesværdiproblem}), hvor $t,c_1,c_2 \in \R$ og $\textbf{x}\in C^1(\R,\R^2)$.
+
+\end{thmx}
+
+\begin{bev} \textbf{}
+\newline
+Først vises, at \eqref{eq_x(t)_skrevet_lambda_egenvektorer} er en løsning til \textbf{begyndelsesværdiproblem og noget ref}. Ud fra eksistens- og entydighedssætning (\autoref{sæt:eksistens_og_entydighed} vides det, at der er en entydig løsning til \textbf{Ref begyndelseværdi problem}. Derfor er det nok at vise eksistens af løsningen. 
+$\textbf{x}(t) = c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2$ differentieres.
+
+\begin{align*}
+    \frac{d\textbf{x}}{dt} &= \left(c_1 e^{t\lambda_1}\textbf{v}_1\right)' + \left(c_2e^{t\lambda_2}\textbf{v}_2\right)'\\
+    &= c_1 \left( e^{t\lambda_1}\textbf{v}_1\right)' + c_2\left(e^{t\lambda_2}\textbf{v}_2\right)'\\
+    &= c_1 \lambda_1 e^{t\lambda_1}\textbf{v}_1 + c_2 \lambda_2 e^{t\lambda_2}\textbf{v}_2\\
+    &= c_1 e^{t\lambda_1}\lambda_1\textbf{v}_1 + c_2 e^{t\lambda_2} \lambda_2\textbf{v}_2\\
+    &= c_1 e^{t\lambda_1}A\textbf{v}_1 + c_2 e^{t\lambda_2} A\textbf{v}_2\\
+    &= A \left(c_1 e^{t\lambda_1}\textbf{v}_1 + c_2 e^{t\lambda_2} \textbf{v}_2\right)\\
+    &=A\textbf{x}
+\end{align*}
+
+Dernæst verificeres begyndelsesbetingelsen. $x(0)=x_0$ kan opstilles som en linearkombination af de to egenvektorer, da $\lambda_1\neq\lambda_2$ medfører, at $\textbf{v}_1$ og $\textbf{v}_2$ er lineært uafhængige, og dermed er basis for $\R^2$. Dette kan altså opstilles på følgende måde.
+\begin{align*}
+    x_0 = \alpha \textbf{v}_1 + \beta \textbf{v}_2
+\end{align*}
+
+Begyndelsesbetingelsen indsættes i \eqref{eq_x(t)_skrevet_lambda_egenvektorer}.
+
+\begin{align*}
+    x(0) &= c_1e^{0\cdot \lambda_1}\textbf{v}_1 + c_2e^{0\cdot \lambda_2}\textbf{v}_2 \\
+    &= c_1 \textbf{v}_1 + c_2 \textbf{v}_2
+\intertext{$c_1 = \alpha$ og $c_2 = \beta$ indsættes.}
+    x(0) &= \alpha \textbf{v}_1 + \beta \textbf{v}_2 = x_0
+\end{align*}
+\autoref{sæt_x(t)_skrevet_lambda_egenvektorer} er hermed bevist.
+
+\end{bev}
+
+

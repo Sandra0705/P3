@@ -4,14 +4,21 @@
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{} \label{sæt:begyndelsesværdiproblemet_for_phi}%Ny sætning
 \newline
-Lad $s\in \R$, $D_F \subseteq \R^{n\times n}$ være en åben ikke-tom delmængde og $F \in C^1(D_F,\R^{n\times n})$. Lad $A \in \R^{n \times n}$, $t\in I$ og $\Phi: I \to \R^{n \times n}$. Der gælder for begyndelsesværdiproblemet
+Lad $s\in \R$ og $A\in \R^{n\times n}$. Lad $F(\Phi)=A\Phi$, hvorom det gælder, at $D_F \subseteq \R^{n\times n}$ er en åben ikke-tom delmængde og $F \in C^0(D_F,\R^{n\times n})$. $\E$ er defineret ud fra \autoref{def:løsning_autonomt_system}.
+Der gælder for begyndelsesværdiproblemet
+%
 \begin{align}\label{eq:begyndelsesværdiproblemet_for_phi}
     \frac{d\Phi}{dt}= A\Phi, \quad \Phi(0) = \E(s)
 \end{align}
+%
 at det har den entydig bestemte løsning
+%
 \begin{align}
     \Phi(t) = \E(t)\E(s) = \E(t+s)
 \end{align}
+%
+hvor $t\in I$ og $\Phi\in C^1(D_F,R^{n\times n})$
+%
 \end{thmx}
 \end{minipage}
 
@@ -31,7 +38,7 @@ Da $\E(s)$ ikke er afhængig af $t$, forbliver den konstant under differentiatio
 \begin{align*}
     \frac{d\left(\E(t)\E(s)\right)}{dt}&=\frac{d\E(t)}{dt}\E(s)
     \intertext{Det vides fra \autoref{def:løsning_autonomt_system}, at udtrykket kan omskrives til}
-    \frac{d\E(t)}{dt}\E(s)&=A\E(t)\E(s)
+    \frac{d\E(t)}{dt}\E(s)&=A\E(t)\E(s) = A\Psi_1
 \end{align*}
 
 Herefter verificeres begyndelsesbetingelsen ved brug af \eqref{eq:løsning_e(t)=Ae(t)}.
@@ -43,7 +50,8 @@ Herefter verificeres begyndelsesbetingelsen ved brug af \eqref{eq:løsning_e(t)=
 %     \E(s)&=\E(s)
 % \end{align*}
 \begin{align*}
-    \E(s) &= \E(0)\E(s)\\
+        \Psi_1(0) &= \E(s)\\ 
+        &= \E(0)\E(s)\\
         &=I_n\E(s)\\
         &=\E(s)
 \end{align*}
@@ -56,7 +64,7 @@ Lad $\Psi_2 = \E(t+s)$. Det vil blive bevist, at $\Psi_2$ også er en løsning t
 
 $\Psi_2$ differentieres med hensyn til $t$. Lad $\Tilde{t}=t+s$. 
 \begin{align*}
-    \frac{d\E(t+s)}{dt} &= \frac{d\E(\Tilde{t})}{dt}
+    \frac{d\Psi_2}{dt} &= \frac{d\E(t+s)}{dt} = \frac{d\E(\Tilde{t})}{dt}
     \intertext{Kædereglen for differentiation anvendes, da $\Tilde{t}$ er en funktion af $t$. Ud fra \autoref{def:løsning_autonomt_system} kan ovenstående udskrives som}
     \frac{d\E(\Tilde{t})}{dt} &= A\E(\Tilde{t})\cdot\frac{d\Tilde{t}}{dt} \\
     %\intertext{$t+s$ bliver substitueret ind %igen.}
@@ -64,14 +72,15 @@ $\Psi_2$ differentieres med hensyn til $t$. Lad $\Tilde{t}=t+s$.
     \intertext{$t+s$ bliver substitueret ind igen og ved at differentiere det sidste led fås}
     \frac{d\E(t+s)}{dt} &= A\E(t+s)\cdot \frac{d(t+s)}{dt}\\
     &= A\E(t+s) \cdot 1\\
-    &= A\E(t+s)
+    &= A\E(t+s) = A\Psi_2
 \end{align*}
 
 Begyndelsesbetingelsen verificeres.
 %
 \begin{align*}
-    \E(s) &= \E(0+s)\\
-          &= \E(s)
+    \Psi_2(0)   &= \E(s)\\
+                &= \E(0+s)\\
+                &= \E(s)
 \end{align*}
 %
 Altså er begyndelsesbetingelsen opfyldt. 

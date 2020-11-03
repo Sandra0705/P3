@@ -12,17 +12,17 @@ Dette afsnit er baseret på \cite{"Moller"}
 
 \begin{defn}\textbf{Begyndelsesværdiproblemet} %Ny definition
 \newline
-Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde. Lad $f \in C^1(D_f,\R)$ og $(t_0, x_0) \in D_f$. Så er begyndelsesværdiproblemet givet ved 
+Lad $D_f \subseteq I \times \R$ være en åben ikke-tom delmængde og $f \in C^0(D_f,\R)$. Så er begyndelsesværdiproblemet givet ved 
 \begin{align*}
     \frac{dx}{dt} = f(t, x), \quad x(t_0) = x_0
 \end{align*}
-hvor $x(t_0) = x_0$ betegner \textit{begyndelsesbetingelsen}.
+hvor $t\in I$ og $x\in C^1(I,\R)$. \textit{Begyndelsesbetingelsen} er $x(t_0) = x_0$.
 \end{defn}
 
 Senere i projektet skal løsningen for begyndelsesværdiproblemet bruges for en homogen første ordens differentialligning med konstante koefficienter. Derfor vil denne blive gennemgået. 
 
 \begin{thmx}\textbf{En løsning til begyndelsesværdiproblemet}\\
-Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde. Lad \textit{a} være en konstant og $f \in C^1(D_f, \R)$. Da vil begyndelsesværdiproblemet 
+Lad $a \in \R$ være en konstant. Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde og lad $f \in C^0(D_f, \R)$. Da vil begyndelsesværdiproblemet 
     \begin{align}\label{begyndelsesværdi_konstant_a}
         \frac{dx}{dt}=ax, \quad x(t_0)=x_0
     \end{align}
@@ -30,6 +30,7 @@ Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde. Lad \textit
     \begin{align*}
         x(t) = e^{(t-t_0)a}x_0
     \end{align*}
+hvor $t \in I$ og $x \in C^1(I,\R)$.
 \end{thmx}
 
 \begin{bev}\textbf{}\\

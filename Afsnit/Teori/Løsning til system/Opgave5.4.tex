@@ -1,6 +1,6 @@
 \begin{thmx}\textbf{Regneregler} \label{sæt:regneregler_for_etcI}
 \newline
-Lad $c\in\R$ og $A\in\R^{2\times2}$. Da gælder følgende
+Lad $c\in\R$ og $A\in\R^{2\times2}$. Da gælder det, at
 \begin{enumerate}
     \item $e^{tcI_2} = e^{tc}I_2$
     \item $e^{t(A+cI_2)} = e^{tc}e^{tA}$
@@ -10,8 +10,7 @@ Lad $c\in\R$ og $A\in\R^{2\times2}$. Da gælder følgende
 \begin{bev}\textbf{}
 \begin{itemize}
 \item [] \textbf{Bevis for punkt 1}\\
-Punkt 1 vil blive bevist ud fra Putzers algoritme (se \textbf{Ref Sætning omkring putzers}). \textbf{Lav evt en generel ref op til hvordan man beregner putzer og skriv at denne vil blive brugt i dette bevis}
-Lad $A=I_2$. Identitetsmatricen $I_2$ har egenværdierne $\lambda_1,\lambda_2=1$.
+Punkt 1 vil blive bevist ud fra Putzers algoritme (\autoref{sæt:putzers_algoritme}). Lad $A=I_2$. Identitetsmatricen $I_2$ har egenværdierne $\lambda_1=1 $ og $\lambda_2=1$.
 
 Først bestemmes $r_1(t)$ og $r_2(t)$. 
 %
@@ -22,18 +21,16 @@ Først bestemmes $r_1(t)$ og $r_2(t)$.
 %
 Herefter opstilles $P_0$ og $P_1$.
 \begin{align*}
-    P_0 = I_2
-    P_1 &= (I_2 - 1I_2) \\
-    &= (I_2-I_2)\\
-    &= 0 
+    P_0 &= I_2\\
+    P_1 &= (I_2 - 1I_2) = O
 \end{align*}
 %
-\textbf{ref} benyttes til at udregne $e^{tcI_2}$. 
+$e^{tcI_2}$ bestemmes. 
 %
 \begin{align*}
     e^{tcI_2} &= \sum_{k=0}^1 r_{k+1}P_k \\
     &= r_1P_0 + r_2P_1\\
-    &= e^{tc} \cdot I_2 + \left(e^{tcI_2}\cdot \int_0^te^{-sc}e^{sc}\right) \cdot 0 \\
+    &= e^{tc}I_2 + \left(e^{tcI_2}\cdot \int_0^te^{-sc}e^{sc}ds\right) O \\
     &= e^{tc}I_2
 \end{align*}
 Dermed er det bevist, at $e^{tcI_2} = e^{tc}I_2$.

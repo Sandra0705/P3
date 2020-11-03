@@ -1,14 +1,14 @@
-For at bestemme udtrykket for $e^{tA}$ når $tr(A) \neq 0$, skal der kendes en matrice, hvorom det gælder, at sporet altid er lig nul. For denne matrice vil man ved brug af \autoref{sæt:egenværdier_og_spor} kunne bestemme egenværdierne til denne.
+For at kunne bestemme dette udtryk for $e^{tA}$, når $tr(A) \neq 0$, skal der bestemmes en matrice $B$, der er afhængig af $A$, hvorom det gælder, at $tr(B)=0$. Da er det muligt at bestemme udtrykket for $e^{tB}$ ved brug af \autoref{e^tA_udtrykt_når_trA=0}.
 
 \begin{thmx}\textbf{}\label{sæt:tr(a-led)=0}\\
-Lad $A\in \R^{2\times2}$. Det gælder, at 
+Lad $A\in \R^{2\times2}$. Da gælder det, at 
 \begin{align*}
     tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right) = 0
 \end{align*}
 \end{thmx}
 
 \begin{bev}\textbf{}\\
-$tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right)$ kan ifølge \autoref{def:spor} omskrives til følgende.
+$tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right)$ kan ifølge \autoref{def:spor} omskrives til følgende
 \begin{align*}
     tr\left(A-\frac{1}{2}\left(tr\left(A\right)\right)I_2\right) &= tr\left(A-\frac{1}{2}\left(a_{11}+a_{22}\right)I_2\right) \\
     &= \left(a_{11}-\left(\frac{1}{2}a_{11} + \frac{1}{2}a_{22}\right)I_{11}\right)+ \left(a_{22}-\left(\frac{1}{2}a_{11} + \frac{1}{2}a_{22}\right)I_{22}\right)\\
@@ -29,13 +29,11 @@ Lad $A \in \R^{2 \times 2}$. Da kan $e^{tA}$ opskrives som følgende
 \end{thmx}
 %
 \begin{bev}\textbf{}\\
-Det skal bevises, at højresiden kan reduceres til $e^{tA}$.
+Det skal bevises, at $e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2} tr(A)\right)I_2}$ kan reduceres til $e^{tA}$. Der multipliceres ind i parenteserne, og \autoref{sæt:egenskaber_for_eta} punkt 3 anvendes.
 %
 \begin{align*}
-    e^{tA} &= e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2} tr(A)\right)I_2} 
-\intertext{Der multipliceres ind i parenteserne jævnfør \autoref{sæt:egenskaber_for_eta}.}
-    e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2}tr(A)\right)I_2} &= e^{t\left(\frac{1}{2}tr(A)\right)}e^{tA}e^{\left(-t\frac{1}{2}tr(A)\right)I_2} 
-\intertext{$e^{\left(-t\frac{1}{2}tr(A)\right)I_2}$ udregnes jævnfør \autoref{sæt:regneregler_for_etcI}.}
+    e^{t\left(\frac{1}{2}tr(A)\right)}e^{t\left(A-\frac{1}{2} tr(A)\right)I_2} &= e^{t\left(\frac{1}{2}tr(A)\right)}e^{tA}e^{\left(-t\frac{1}{2}tr(A)\right)I_2} 
+\intertext{$e^{\left(-t\frac{1}{2}tr(A)\right)I_2}$ udregnes jævnfør \autoref{sæt:regneregler_for_etcI} punkt 1.}
     e^{t\left(\frac{1}{2}tr(A)\right)}e^{tA}e^{\left(-t\frac{1}{2}tr(A)\right)I_2} &= e^{tA}\left(e^{t\left(\frac{1}{2}tr(A)\right)}e^{-t\left(\frac{1}{2}tr(A)\right)}\right)I_2\\
     &= e^{tA}I_2 \\
     &= e^{tA}

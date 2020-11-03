@@ -10,11 +10,15 @@ I dette projekt vil der blive arbejdet med lineære differentialligninger. En li
 \begin{minipage}\textwidth
 \begin{defn} \textbf{Lineær første ordens differentialligning} %Ny sætning
 \newline
-Lad $D_f \subseteq \R \times \R$ være en åben ikke-tom delmængde. Lad $f \in C^1(D_f,\R)$. En lineær første ordens differentialligning med den ukendte funktion $x$ er udtrykt ved
+Lad $a(t), b(t)\in C^0(I,\R)$. Lad $f(t,x)=a(t)x+b(t)$, hvorom det gælder, at $D_f \subseteq \R \times \R$ er en åben ikke-tom delmængde og $f \in C^0(D_f,\R)$. Så kan en lineær første ordens differentialligning med den ukendte funktion $x$ udtrykkes ved
 \begin{align}
     \frac{dx}{dt}=a(t)x+b(t)
 \end{align}
-hvor $a(t), b(t) \in C^0(\R)$ og betegner variable koefficienter. Hvis $a(t)=a$ og $b(t)=b$ for alle $t\in I$, har den lineære differentialligning konstante koefficienter.
+hvor $t \in I$ og $x \in C^1(\I,\R)$. 
+% $a(t)$ og $b(t)$ betegner variable koefficienter. Hvis $a(t)=a$ og $b(t)=b$ for alle $t\in I$, har den lineære differentialligning konstante koefficienter.
+$a(t)$ og $b(t)$ kaldes variable koefficienter. Hvis $a(t)=a$ og $b(t)=b$ for alle $t\in I$, kaldes koefficienterne konstante
+
+
 \end{defn}
 \end{minipage}
 
