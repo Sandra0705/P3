@@ -2,16 +2,19 @@
 
 Dette afsnit er baseret på \cite{"PREBEN"}.
 
-En \textit{separabel differentialligning} er enhver ligning, der kan udtrykkes på formen $\frac{dx}{dt}=h(t)g(x)$.
+En \textit{separabel differentialligning} er enhver ligning, der kan udtrykkes på formen $\displaystyle\frac{dx}{dt}=h(t)g(x)$.
 
 \begin{defn}\textbf{Separabel differentialligning}\label{Separable_differentialligning_defn}\cite[s.92]{"AICNDE"}
 \newline
-Lad $x,h: I \to \R$ og $g:\R \to \R$.
+Lad $h\in C^0(I,\R)$ og $g\in C^0(\R, \R)$.
+%Lad $x,h: I \to \R$ og $g:\R \to \R$.
 En separabel differentialligning er en differentialligning, vil da kunne skrives på formen
 %
 \begin{align}\label{eq:Separable_differentialligning_def}
     \frac{dx}{dt} = h(t)g(x)
 \end{align}
+
+hvor $t\in I$ og $x\in C^1(I,\R)$.
 
 %kan blive udtrykt ved en funktion $g(t)$, der kun afhænger af t, mutiplicerert med en funktion $p(x)$, der kun afhænger af x, således at $f(t,x)=g(t)p(x)$, så vil differentialligningen \ref{eq:Separable_differentialligning_eks} blive kaldt \textbf{separable}.
 \end{defn}
@@ -34,12 +37,12 @@ Den afledede i \eqref{eq:separabel_eks} kan derved skrives som et produkt mellem
 Ud fra \autoref{Separable_differentialligning_defn} kan differentialligningen skrives på formen  $\frac{dx}{dt}=h(t)g(x)$, og differentialligningen kaldes derved separabel.
 \end{eks} 
 
-\begin{thmx}\textbf{Løsninger til separable differentialligninger \cite[s. 5]{"PREBEN"} }\label{sæt:Løsninger til separable differentialligninger}\\
+\begin{thmx}\textbf{Løsninger til separable differentialligninger} \cite[s. 5]{"PREBEN"} \label{sæt:Løsninger til separable differentialligninger}\\
     Betragt \eqref{eq:Separable_differentialligning_def}, hvor $h$ er kontinuert på det åbne interval $I$, og $g$ er kontinuert på det åbne interval $J$. Så gælder
     
     \begin{enumerate}
     % 1)
-        \item Lad $\phi$ være en funktion, der på intervallet $I$ opfylder $g(\phi(t)) \neq 0, \ \forall t\in I$. Så er $x=\phi(t)$ en løsning til \eqref{eq:Separable_differentialligning_def} på intervallet $I$, hvis og kun hvis $x=\phi(t)$ på intervallet $I$ er en løsning til ligningen
+        \item Lad $\phi$ være en funktion, der på intervallet $I$ opfylder $g\left(\phi(t)\right) \neq 0, \ \forall t\in I$. Så er $x=\phi(t)$ en løsning til \eqref{eq:Separable_differentialligning_def} på intervallet $I$, hvis og kun hvis $x=\phi(t)$ på intervallet $I$ er en løsning til ligningen
         \begin{align}\label{eq:punkt_1_separable_differentialligninger_sætning}
           \int\frac{1}{g(x)}dx = \int h(t)dt + k
         \end{align}
@@ -68,17 +71,17 @@ Ud fra \autoref{Separable_differentialligning_defn} kan differentialligningen sk
         %    
             $$ \int \frac{1}{g\left(\phi(t)\right)} \phi'(t) dt  = \int h(t) dt + k $$
         %    
-            Lad $G(\phi(t))$ være stamfunktion til $\frac{1}{g(\phi(t))}\phi'(t)$, så fås
+            Lad $G\left(\phi(t)\right)$ være stamfunktion til $\frac{1}{g\left(\phi(t)\right)}\phi'(t)$, så fås
         %    
-            $$ G'(\phi(t)) = \frac{1}{g(\phi(t))} \phi'(t) $$ 
+            $$ G'\left(\phi(t)\right) = \frac{1}{g\left(\phi(t)\right)} \phi'(t) $$ 
         %    
             ved brug af kædereglen for differentiation. Dette giver
         %    
-            $$ \int G'(\phi(t)) = G(\phi(t)) = \int h(t) dt + k $$
+            $$ \int G'\left(\phi(t)\right) = G\left(\phi(t)\right) = \int h(t) dt + k $$
         %    
             Lad $H(t)$ betegne stamfunktionen til $h(t)$ så fås
         %
-            $$ G(\phi(t)) = H(t) + k $$
+            $$ G\left(\phi(t)\right) = H(t) + k $$
         %    
             Da $x = \phi(t)$, fås \ref{eq:punkt_1_separable_differentialligninger_sætning}
         %    
@@ -93,11 +96,11 @@ Ud fra \autoref{Separable_differentialligning_defn} kan differentialligningen sk
        %
        \begin{align*}
             %\frac{dG}{dt} = \frac{dH}{dt}
-            G'(\phi(t))\phi'(t) &= H'(t)\\
+            G'\left(\phi(t)\right)\phi'(t) &= H'(t)\\
             &\Downarrow\\
-            \frac{\phi'(t)}{g(\phi(t)} &= h(t)\\
+            \frac{\phi'(t)}{g\left(\phi(t)\right)} &= h(t)\\
             &\Updownarrow\\
-            \phi'(t) &= g(\phi(t))h(t)
+            \phi'(t) &= g\left(\phi(t)\right)h(t)
             \intertext{$x=\phi(t)$ substitueres ind i udtrykket.}
             \frac{dx}{dt}&= g(x)h(t)
        \end{align*} 
@@ -111,7 +114,7 @@ Ud fra \autoref{Separable_differentialligning_defn} kan differentialligningen sk
             
 
         \item[] \textbf{Bevis for punkt 3.}\\ 
-            Det vides fra begyndelsesværdiproblemet, at \eqref{eq:Separable_differentialligning_def} har entydigt bestemte løsninger gennem ethvert punkt i $I\times J$. Da punkt 1 giver entydigt bestemte løsninger, når $g(\phi(t)) \neq 0, \forall t\in I$, og punkt 2 giver entydigt bestemte løsninger, når $g(x_0)=0$, så må punkt 1 og 2 til sammen give alle entydigt bestemte løsninger i $I \times J$. Punkt 1 og punkt 2 udgør derved den fuldstændige løsning til \eqref{eq:Separable_differentialligning_def}.
+            Det vides fra begyndelsesværdiproblemet, at \eqref{eq:Separable_differentialligning_def} har entydigt bestemte løsninger gennem ethvert punkt i $I\times J$. Da punkt 1 giver entydigt bestemte løsninger, når $g\left(\phi(t)\right) \neq 0, \forall t\in I$, og punkt 2 giver entydigt bestemte løsninger, når $g(x_0)=0$, så må punkt 1 og 2 til sammen give alle entydigt bestemte løsninger i $I \times J$. Punkt 1 og punkt 2 udgør derved den fuldstændige løsning til \eqref{eq:Separable_differentialligning_def}.
     \end{itemize}
 \end{bev}
 

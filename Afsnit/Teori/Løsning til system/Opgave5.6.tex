@@ -1,13 +1,13 @@
-Der vil blive opstillet et udtryk for $e^{tA}$ når $tr(A) \neq 0$. 
+Der vil blive opstillet et udtryk for $e^{tA}$, når $tr(A) \neq 0$. 
 
 \begin{minipage}\textwidth
-\begin{thmx} \textbf{} %Ny sætning
+\begin{thmx} \textbf{}\label{sæt:løsning_2_x_2_ved_egenværdier_etA_beregning} %Ny sætning
 \newline
-Lad $A\in \R^{2\times 2}$, og lad $B = A - \frac{1}{2}(tr(A))I_2$. Så gælder det, at hvis 
+Lad $A\in \R^{2\times 2}$, og lad $B = A - \frac{1}{2}\left(tr(A)\right)I_2$. Så gælder det, at hvis 
 \begin{enumerate}
     \item $A$ har én reel egenværdi, så er $$e^{tA}=e^{t\lambda}(I_2+tB)$$
-    \item $A$ har to forskellige reelle egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}cosh\left(t\sqrt{-det(B)}\right)I_2+\frac{sinh\left(t\sqrt{-det(B)}\right)}{\sqrt{-det(B)}}B$$
-    \item $A$ har et par af kompleks konjugerede egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}cos\left(t\sqrt{det(B)}\right)I_2+\frac{sin\left(t\sqrt{det(B)}\right)}{\sqrt{det(B)}}B$$
+    \item $A$ har to forskellige reelle egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}\left(cosh\left(t\sqrt{-det(B)}\right)I_2+\frac{sinh\left(t\sqrt{-det(B)}\right)}{\sqrt{-det(B)}}B\right)$$
+    \item $A$ har et par af kompleks konjugerede egenværdier, så er $$e^{tA}=e^{t\frac{1}{2}(\lambda_1+\lambda_2)}\left(cos\left(t\sqrt{det(B)}\right)I_2+\frac{sin\left(t\sqrt{det(B)}\right)}{\sqrt{det(B)}}B\right)$$
 \end{enumerate}  
 \end{thmx}
 \end{minipage}
@@ -22,7 +22,7 @@ Fra \autoref{sæt:eta_med_trace} kan $e^{tA}$ udtrykkes som $$e^{tA} = e^{t\left
         e^{tA} &= e^{t\left(\frac{1}{2}{tr}(A)\right)}e^{tB} \label{eq:eta_indsat_B}
      \end{align}
      %
-Ved at opstille det karakteristiske polynomium, er det muligt at udtrykke $tr(A)$ og $det(A)$ ved brug af egenværdierne til $A$. Det karakteristiske polynomium opstilles ud fra \textbf{ref til karakteristiske polynomium}.
+Ved at opstille det karakteristiske polynomium, er det muligt at udtrykke $tr(A)$ og $det(A)$ ved brug af egenværdierne til $A$. Det karakteristiske polynomium opstilles, se \autoref{bilag:det_karakteristiske_polynomium}.
 %
 \begin{align}
     p_A(z) &= (-1)^2(z-\lambda_1)(z-\lambda_2)\nonumber \\
@@ -71,7 +71,7 @@ Dermed er det muligt at anvende \autoref{e^tA_udtrykt_når_trA=0} til at bestemm
         &= -\frac{1}{4}\lambda_1^2-\frac{1}{4}\lambda_2^2 + \frac{1}{2}\lambda_1\lambda_2 \\
         &= -\left(\frac{1}{2}\lambda_1-\frac{1}{2}\lambda_2\right)^2
     \end{align*}
-    Da $\lambda_1 \neq \lambda_2$ medfører det, at $det(B)<0$.
+    Da $\lambda_1 \neq \lambda_2$, medfører det, at $det(B)<0$.
     
     Da $det(B)<0$ anvendes \autoref{e^tA_udtrykt_når_trA=0} punkt 2 til at omskrive $e^{tB}$.
     %Udtrykket for $e^{tB}$, \autoref{e^tA_udtrykt_når_trA=0}, for $det(B)<0$ indsættes i \eqref{Den_vi_skal_bruge_til_at_bevise_6.0.1}
@@ -96,9 +96,9 @@ Dermed er det muligt at anvende \autoref{e^tA_udtrykt_når_trA=0} til at bestemm
     Da $\lambda_1,\lambda_2\in \C\backslash\R$, vil $b^2>0$, hvoraf $det(B)>0$.
     %
     \begin{align*}
-     \intertext{Da $det(B)>0$ anvendes \autoref{e^tA_udtrykt_når_trA=0} punkt 3 til at omskrive $e^{tB}$.}
-     e^{tA} &= e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A
+     \intertext{Da $det(B)>0$, anvendes \autoref{e^tA_udtrykt_når_trA=0} punkt 3 til at omskrive $e^{tB}$.}
+     e^{tA} &= e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \left(cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A\right)
      \end{align*}
-    Altså er det bevist, at $e^{tA} = e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A$, når $A$ har to kompleks konjugerede egenværdier. 
+    Altså er det bevist, at $e^{tA} = e^{t\left(\frac{1}{2}(\lambda_1+\lambda_2)\right)} \left(cos\left(t\sqrt{det(A)}\right)I_2+\frac{\sin\left(t\sqrt{det(A)}\right)}{\sqrt{det(A)}}A\right)$, når $A$ har to kompleks konjugerede egenværdier. 
 \end{itemize}
 \end{bev}

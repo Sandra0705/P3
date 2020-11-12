@@ -1,12 +1,7 @@
-
-% Slet senere
-\pagebreak
-% Slet senere
-
 \section{Koordinatskifte}
 
-For at kunne analysere stabiliteten af et system ud fra egenværdierne af koefficientmatricen, er det en fordel at lave et \textit{koordinatskift}. Dette gøres for at få systemet på \textit{kanonisk form}, som generaliserer matematikken for vilkårlige lineære systemer.
-Kanonisk form defineres som følgende 
+For at kunne analysere stabiliteten af et system ud fra egenværdierne af koefficientmatricen, er det en fordel at lave et \textit{koordinatskift}. Dette gøres for at få koefficientmatricen for systemet på \textit{kanonisk form}, hvorved stabiliteten kan beskrives ud fra egenværdierne.
+Kanonisk form defineres som følgende for $2\times 2$ matricer
 \begin{defn}\textbf{Kanonisk form}\\
     En $2\times 2$ matrice siges at være på kanonisk form, såfremt den antager en af følgende former
 %    
@@ -70,6 +65,7 @@ Ud fra dette ses det, at matricen $T$ konverterer løsninger for  \eqref{eq:y(t)
     
     
     \begin{enumerate}
+        
         \item hvis $\lambda_1,\lambda_2 \in \R$ og $\lambda_1 \neq \lambda_2$ er 
         \begin{align*}
             T^{-1}AT = \begin{bmatrix}
@@ -89,13 +85,242 @@ Ud fra dette ses det, at matricen $T$ konverterer løsninger for  \eqref{eq:y(t)
         \item hvis $\lambda_1, \lambda_2 \in \R$ og $\lambda_1 = \lambda_2$ er 
         \begin{align*}
             T^{-1}AT = \begin{bmatrix}
-                            \lambda   &  1\\
-                            0           &  \lambda
+                            \lambda\phantom{_1}   &  k\phantom{_1}\\
+                            0\phantom{_2}           &  \lambda\phantom{_2}
                         \end{bmatrix}
         \end{align*}
+        hvor $k=0$, hvis $A$ har to lineært uafhængige egenvektorer tilhørende $\lambda$, og $k=1$, hvis $A$ kun har en egenvektor tilhørende $\lambda$.
     \end{enumerate}
 \end{thmx}
 
 \begin{bev}\textbf{}\\
+    \begin{itemize}
+        \item \textbf{Bevis for punkt 1}\\
+        Lad $\lambda_1, \lambda_2 \in \R$ være egenværdier for $A\in \R^{2\times 2}$ med de tilhørende egenvektorer $\textbf{v}_1, \textbf{v}_2 \in \R^2$, hvor $\lambda_1\neq \lambda_2$, hvilket medfører, at $\textbf{v}_1$ og $\textbf{v}_2$ er lineært uafhængige. Lad $T$ være den invertible matrice med søjlerne $\textbf{v}_1$ og $\textbf{v}_2$. Så må der gælde, at $T\textbf{e}_j=\textbf{v}_j$ for $j=1,2$, hvor  $\textbf{e}_j$ betegner den j'te standardvektor i $\R^2$. Der må derfor også gælde, at $T^{-1}\textbf{v}_j=\textbf{e}_j$.
+        
+        Ud fra dette kan søjlerne i $T^{-1}AT$ konstrueres.
+        \begin{align*}
+            \left(T^{-1}AT\right)\textbf{e}_j 
+            = T^{-1}A\textbf{v}_j 
+            = T^{-1}\lambda_j\textbf{v}_j
+            = \lambda_j T^{-1} \textbf{v}_j
+            = \lambda_j \textbf{e}_j, \quad j=1,2
+        \end{align*}
+        
+        Matricen $T^{-1}AT$ kan herudfra opstilles.
+        %
+        \begin{align*}
+            T^{-1}AT = 
+            \begin{bmatrix}
+                \lambda_1 & 0\\
+                0 & \lambda_2
+            \end{bmatrix}
+        \end{align*}
+        Det er hermed bevist, at $T^{-1}AT$ er på kanonisk form, når $A$ har to forskellige reelle egenværdier.
+    \end{itemize}
     
+    \begin{itemize}
+        \item \textbf{Bevis for punkt 2}\\
+        Lad $A\in \R^{2\times 2}$ have et par af komplekse konjugerede egenværdier, $\lambda = \alpha \pm i\beta$, hvor $\beta \neq 0$. En kompleks egenvektor tilhørende $\lambda = \alpha + i \beta $ kan opskrives som $\textbf{v}_1 + i \textbf{v}_2$, hvor $\textbf{v}_1$ og $\textbf{v}_2$ er lineært uafhængige reelle vektorer. Hvis $\textbf{v}_1$ og $\textbf{v}_2$ ikke er lineært uafhængige, vil det gælde, at $\textbf{v}_1=c\textbf{v}_2$ for $c\in \R$, hvilket vil føre til en modstrid. Denne modstrid fås, ved at opskrive $ A\left(\textbf{v}_1 + i\textbf{v}_2\right)$ på følgende to forskellige måder
+        \begin{align*}
+            A\left(\textbf{v}_1 + i\textbf{v}_2\right) 
+            &= \left(\alpha + i\beta\right)\left(\textbf{v}_1 + i \textbf{v}_2\right) 
+            = \left(\alpha + i\beta\right) \left(c\textbf{v}_2+i\textbf{v}_2\right) 
+            = \left(\alpha + i\beta\right)\left(c + i\right)\textbf{v}_2
+    \intertext{og}
+            A\left(\textbf{v}_1 + i\textbf{v}_2\right) 
+            &= A\left(c\textbf{v}_2 + i\textbf{v}_2\right)
+            = \left(c+i\right)A\textbf{v}_2
+        \end{align*}
+        De to udtryk er lig hinanden, hvilket betyder
+        \begin{align*}
+            \left(\alpha + i\beta\right)\left(c + i\right)\textbf{v}_2 &= \left(c+i\right)A\textbf{v}_2\\
+            &\Updownarrow\\
+            \left(\alpha + i\beta\right)\textbf{v}_2 &= A\textbf{v}_2
+        \end{align*}
+        Herudfra er der en modstrid, da venstresiden er kompleks, hvorimod højresiden er reel. Derfor er $\textbf{v}_1$ og $\textbf{v}_2$ lineært uafhængige. Ud fra $A\textbf{v} = \lambda \textbf{v}$ må det for den komplekse egenvektor $\textbf{v}_1 + i\textbf{v}_2$ tilhørende $\lambda = \alpha + i\beta$ gælde, at
+    %
+        \begin{align*}
+            A(\textbf{v}_1 + i\textbf{v}_2) &= (\alpha + i\beta)(\textbf{v}_1 + i\textbf{v}_2)\\
+            &\Updownarrow\\
+            A\textbf{v}_1 + iA\textbf{v}_2 &= \alpha\textbf{v}_1 - \beta \textbf{v}_2 + i(\beta\textbf{v}_1 + \alpha \textbf{v}_2)
+        \end{align*}
+    %
+        Udtrykket opdeles i den reelle og imaginære del og skrives som følgende ligningssystem
+    %
+        \begin{align*}
+            A\textbf{v}_1 &= \alpha \textbf{v}_1 - \beta \textbf{v}_2   \\
+            A\textbf{v}_2 &= \beta \textbf{v}_1 + \alpha \textbf{v}_2
+        \end{align*}  
+    %
+        Lad $T$ være den invertible matrice med søjlerne $\textbf{v}_1$ og $\textbf{v}_2$. Så må der gælde, at $T\textbf{e}_j = \textbf{v}_j $ for $j=1,2$.
+        
+        Ud fra dette kan søjlerne i $T^{-1}AT$ konstrueres. Den første søjle konstrueres som følgende
+    %
+        \begin{align*}
+            \left(T^{-1}AT\right)\textbf{e}_1 
+            &= T^{-1}A\textbf{v}_1
+            = T^{-1} \left(\alpha \textbf{v}_1 - \beta \textbf{v}_2\right)
+            = \alpha \textbf{e}_1 - \beta \textbf{e}_2
+            \intertext{og ligeledes for den anden søjle}
+            \left(T^{-1}AT\right)\textbf{e}_2 
+            &= T^{-1}A\textbf{v}_2
+            = T^{-1} \left(\beta \textbf{v}_1 + \alpha \textbf{v}_2\right)
+            = \beta \textbf{e}_1 + \alpha \textbf{e}_2
+        \end{align*}
+    %
+        Matricen $T^{-1}AT$ kan herudfra opstilles. 
+    %
+        \begin{align*}
+            T^{-1}AT =
+            \begin{bmatrix}
+               \phantom{-} \alpha & \beta\\
+                - \beta           & \alpha
+            \end{bmatrix}
+        \end{align*}
+    %
+        Det er hermed bevist, at $T^{-1}AT$ er på kanonisk form, når $A$ har et par af komplekse konjugerede egenværdier.
+    \end{itemize}
+
+    \begin{itemize}
+        \item \textbf{Bevis for punkt 3}\\
+        Lad $A\in \R^{2\times 2}$ have en enkelt egenværdi $\lambda = \lambda_1= \lambda_2$, hvor $\lambda \in \R$. Hvis der er et par reelle egenvektorer, tilhørende $\lambda$, $\textbf{v}_1$ og $\textbf{v}_2$, som er lineært uafhængige, vil $T^{-1}AT$ kunne konstrueres ligesom i punkt 1, altså
+    %
+        \begin{align}\label{eq:bevis_koordinatskifte_k=0}
+            T^{-1}AT = 
+            \begin{bmatrix}
+                \lambda & 0\\
+                0       & \lambda
+            \end{bmatrix}
+        \end{align}
+    %
+        som er på kanonisk form.\\
+        Hvis der derimod kun er en egenvektor tilhørende $\lambda$ således, at $\textbf{v} = \textbf{v}_1 = c\textbf{v}_2$ for $c\in \R$, vil den kanoniske form være anderledes. 
+        Eftersom $\lambda$ er en egenværdi og $v$ den tilhørende egenvektor må følgende gælde
+    %
+        \begin{align*}
+            A\textbf{v}               &= \lambda \textbf{v}\\
+                                      &\Updownarrow\\
+            (A-\lambda I_2)\textbf{v} &= \textbf{0}
+        \end{align*}
+    %
+        Lad $\textbf{w}\in \R^2$ være en vektor, som er lineært uafhængig af $\textbf{v}$.
+        Det vides fra Cayley-Hamiltons sætning (\autoref{lem:Cayley_Hamilton_Sætning}), at $(A-\lambda I_2)^2=O$, og derfor kan $\textbf{v}$ defineres som
+     %   
+        \begin{align}\label{eq:bevis_koordinatskifte_bevis_3_v=(A-lam_I)w}
+            \textbf{v} = (A-\lambda I_2)\textbf{w}
+        \end{align}
+    %
+        $A\textbf{w}$ isoleres i \eqref{eq:bevis_koordinatskifte_bevis_3_v=(A-lam_I)w}
+    %
+        \begin{align*}
+            \textbf{v}  = (A-\lambda I_2)\textbf{w}
+                        \Leftrightarrow
+            \textbf{v}  = A\textbf{w}-\lambda\textbf{w}
+                        \Leftrightarrow
+            A\textbf{w} = \textbf{v} + \lambda \textbf{w}
+        \end{align*}
+    %   
+        Lad $T$ være den invertible matrice med søjlerne $\textbf{v}$ og $\textbf{w}$. Så må der gælde, at $T\textbf{e}_j= v_j$. Den første søjle i $T^{-1}AT$ konstrueres som følgende
+        \begin{align*}
+            (T^{-1}AT)\textbf{e}_1 
+            = T^{-1}A\textbf{v} 
+            = T^{-1}\lambda \textbf{v} 
+            = \lambda \textbf{e}_1 
+        \intertext{og ligeledes den anden søjle}
+            (T^{-1}AT)\textbf{e}_2 
+            = T^{-1}A\textbf{w} 
+            = T^{-1}(\textbf{v} + \lambda \textbf{w}) 
+            = \textbf{e}_1 + \lambda \textbf{e}_2
+        \end{align*}
+    %   
+        Matricen $T^{-1}AT$ kan herudfra opstilles.
+        \begin{align}\label{eq:bevis_koordinatskifte_k=1}
+            T^{-1}AT = \begin{bmatrix}
+                            \lambda   &  1\\
+                            0         &  \lambda
+                       \end{bmatrix}
+        \end{align}
+    %
+        De to tilfælde \eqref{eq:bevis_koordinatskifte_k=0} og \eqref{eq:bevis_koordinatskifte_k=1} kan generaliseres således at
+    %
+        \begin{align*}
+            T^{-1}AT = \begin{bmatrix}
+                            \lambda   &  k\\
+                            0         &  \lambda
+                       \end{bmatrix}
+        \end{align*}
+    %
+        hvor $k=0$, hvis $A$ har to lineært uafhængige egenvektorer tilhørende $\lambda$, og $k=1$, hvis $A$ kun har en egenvektor tilhørende $\lambda$.\\
+        Det er hermed bevist, at $T^{-1}AT$ er på kanonisk form, når $A$ har en reel egenværdi.
+    \end{itemize}
 \end{bev}
+
+
+
+\begin{eks}
+    Lad $A\in R^{2\times 2}$ være en matrice givet ved
+%    
+    \begin{align*}
+        A = \begin{bmatrix}
+                -1 & \phantom{-}0\\
+                \phantom{-}1 & -2
+        \end{bmatrix}
+    \end{align*}
+%
+    Ud fra matricens karakteristiske polynomium, fås $\lambda_1 = -1$ og $\lambda_2 = -2$. 
+    Ud fra egenværdierne findes egenvektorerne, hvor 
+    $\textbf{v}_1 = \begin{bmatrix}
+        1\\1
+    \end{bmatrix}$ og
+    $\textbf{v}_2 = \begin{bmatrix}
+        0\\1
+    \end{bmatrix}$ er egenvektorer til henholdsvis $\lambda_1$ og $\lambda_2$,
+%
+    Hvis $A$ er koefficientmatrice til et system af differentialligninger, kan systemet omskrives til et system, hvor koefficientmatricen antager kanonisk form. $T$ vælges til at være matricen, med $\textbf{v}_1$ og $\textbf{v}_2$ som søjler således at
+%    
+    \begin{align*}
+        T = \begin{bmatrix}
+                1 & 0\\
+                1 & 1
+            \end{bmatrix}
+    \end{align*}    
+%
+    Da $T$ per definition er invertibel, kan $T^{-1}$ udregnes til følgende
+%    
+    \begin{align*}
+      T^{-1} = \begin{bmatrix}
+                    \phantom{-}1 & 0\\
+                    -1 & 1
+                \end{bmatrix}
+    \end{align*}    
+%   
+    Nu kan den den kanoniske form $T^{-1}AT$ udregnes
+%
+    \begin{align*}
+        T^{-1}AT =
+            \begin{bmatrix}
+                \phantom{-}1 & 0\\
+                    -1 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+                -1 & \phantom{-}0\\
+                \phantom{-}1 & -2
+            \end{bmatrix}
+            \begin{bmatrix}
+                1 & 0\\
+                1 & 1
+            \end{bmatrix} 
+            =
+            \begin{bmatrix}
+                -1 & \phantom{-}0\\
+                \phantom{-}0 & -2
+            \end{bmatrix}
+    \end{align*}
+    \textbf{OBS} Læs kommentar i koden
+    %
+    % Er dette eksempel ikke lidt redundant? For vi ender jo bare med en matrice af den form der står i sætning 6,4,3. Dvs. der aldrig vil være en grund til at udregne T og T^-1 og egenvektorerne da vi har bevist matematikken og har vist at det kommer til at være på kanonisk form. 
+    %
+    %Så et eksempel ville give mere mening hvis man lavede det for et specifikt system, og derved konverterede løsningen x(t) til Ty(t) med koordinatskifte. Tror at det ville give mening at enten - lave eksemplet om, eller - lave endnu et eksempel når vi kommer til fasediagrammer. 
+    %
+\end{eks}

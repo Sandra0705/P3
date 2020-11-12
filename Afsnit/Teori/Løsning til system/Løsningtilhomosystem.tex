@@ -14,8 +14,8 @@ har den entydig bestemte løsning
 \begin{align}\label{eq:løsning_til_homogen_lineart_system}
     \textbf{x}(t) = e^{(t-t_0)A}\textbf{x}_0
 \end{align}
-hvor $t\in \R$ og $\textbf{x}\in C^1(I,D_\textbf{f}$.
-\end{thmx}
+hvor $t\in \R$ og $\textbf{x}\in C^1(I,D_\textbf{f})$.
+    \end{thmx}
 \end{minipage}
 
 \begin{bev}\textbf{}\\
@@ -35,7 +35,7 @@ Begyndelsesbetingelsen vil herefter blive verificeret.
 %
 \begin{align*}
     \textbf{x}(t_0)=e^{(t_0-t_0)A}\textbf{x}_0 = e^{0A}\textbf{x}_0
-    = I\textbf{x}_0 = \textbf{x}_0
+    = I_n\textbf{x}_0 = \textbf{x}_0
 \end{align*}
 %
 Dermed er det bevist, at \eqref{eq:løsning_til_homogen_lineart_system} er en løsning til \eqref{eq:homogen_lineart_system}.
@@ -46,7 +46,7 @@ Ved brug af ovenstående resultat, kan løsningen til begyndelsesværdiproblemet
 \begin{minipage}\textwidth
 \begin{thmx} \textbf{Løsning til et lineært system af inhomogene første ordens differentialligninger} \label{sæt:løsning_til_inhomogen_system}%Ny sætning
 \newline
-Lad $A \in \R^{n \times n}$ og $\mathbf{b}(t) \in C^0(I,R^n)$. Lad $\textbf{f} = A\textbf{x}+\textbf{b}(t)$, hvorom det gælder, at $D_\textbf{f} \subseteq \I\times \R^n$ er en åben ikke-tom delmængde og $\textbf{f} \in C^0(D_\textbf{f}, \R^n)$. Da gælder det, at begyndelsesværdiproblemet for det inhomogene lineære system 
+Lad $A \in \R^{n \times n}$ og $\mathbf{b}(t) \in C^0(I,\R^n)$. Lad $\textbf{f} = A\textbf{x}+\textbf{b}(t)$, hvorom det gælder, at $D_\textbf{f} \subseteq \I\times \R^n$ er en åben ikke-tom delmængde og $\textbf{f} \in C^0(D_\textbf{f}, \R^n)$. Da gælder det, at begyndelsesværdiproblemet for det inhomogene lineære system 
 \begin{align}\label{eq:inhomogen_lineart_system}
     \frac{d\textbf{x}}{dt} = A\textbf{x}+\textbf{b}(t), \quad \mathbf{x}(t_0) = \mathbf{x}_0 
 \end{align}

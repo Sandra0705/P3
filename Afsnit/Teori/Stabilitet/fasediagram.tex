@@ -2,38 +2,49 @@
 
 Dette afsnit er baseret på \cite[s. 145]{"Ronald_Shone"}.
 
-For et system af to variable $x_1,x_2$, vil der for ethvert $t \in I$ eksisterer et punkt $(x_1,x_2)$ i $(x_1,x_2)$-planen, hvor \textit{løsningskurven} er entydigt bestemt for en begyndelsesbetingelse $(x_{0_1},x_{0_2})$. Altså eksisterer der en entydig bestemt funktion $x_2=\Phi(x_1)$, som opfylder begyndelsesbetingelsen $\Phi(x_{0_1})=x_{0_2}$. 
+%For et autonomt system, $\displaystyle \frac{d\textbf{x}}{dt} =  A\textbf{x}$, vil der for ethvert $t\in I$ eksistere et $\textbf{x}(t)$, hvor løsningskurven er entydigt bestemt for begyndelsesbetingelsen $\textbf{x}(t_0)=\textbf{x}_0$.
 
-Ved brug af fasediagrammer er det muligt at visualisere denne løsningskurve i $(x_1,x_2)$-planet. Fasediagrammet er en sammensætning af et forskellige elementer, som introduceres. 
+For begyndelsesværdiproblemet til det autonome system
+\begin{align*}
+    \frac{d\textbf{x}}{dt}= \textbf{f}(\textbf{x}), \quad \textbf{x}(t_0)=\textbf{x}_0 
+\end{align*}
+%
+hvor $\textbf{x}\in \R^2$, vil der for ethvert $t \in I$ eksistere et punkt $\left(x_1(t),x_2(t)\right)$ i $(x_1,x_2)$-planen. Løsningskurven består af mængden af alle disse punkter, altså mængden $\left\{\left(x_1(t),x_2(t)\right)\hspace{-1.4pt}\big|t\in I\right\}$.                                                   % 300 iq ^
 
-Løsningskurven kaldes også for systemets \textit{bane}, og $x_1,x_2$-planen, hvor banen er defineret kaldes for \textit{faseplanet}. Mængden af alle løsningskurver kaldes for \textit{faseportrættet}. \textit{Retningsfeltet} for systemet er udgjort af tangentvektorer til løsningskurver i et passende antal punkter i $(x_1,x_2)$-planet.
+%For et system af to variable, $x_1$ og $x_2$, vil der for ethvert $t \in I$ eksistere et punkt $(x_1,x_2)$ i $(x_1,x_2)$-planen, hvor løsningskurven er entydigt bestemt for begyndelsesbetingelsen $\left(x_1(t_0),x_2(t_0)\right)=(x_{2_0},x_{2_0})$. Altså eksisterer der en entydig bestemt funktion $x_2=\Phi(x_1)$, som opfylder begyndelsesbetingelsen $\Phi(x_{1_0})=x_{2_0}$. 
+
+Fasediagrammer kan anvendes til at visualisere løsningskurven i $(x_1,x_2)$-planen.
+Løsningskurven kaldes for systemets \textit{bane}, og $(x_1,x_2)$-planen, hvor banen er defineret, kaldes for \textit{faseplanen}. Mængden af alle løsningskurver kaldes for \textit{faseportrættet}. \textit{Retningsfeltet} for systemet er udgjort af tangentvektorer til løsningskurver i et passende antal punkter i $(x_1,x_2)$-planen.
 
 I nedenstående eksempel visualiseres de ovenstående begreber.
 \begin{eks}\textbf{}
 \newline
-Lad følgende begyndelsesværdiproblem for det autonome system være givet. 
+Lad følgende begyndelsesværdiproblem for det autonome system være givet.
+\begin{align*}
+    \frac{d\textbf{x}}{dt}=\begin{bmatrix} 1 & -4 \\ 2 & -5 \end{bmatrix}\textbf{x}, \quad \textbf{x}(0)=\begin{bmatrix} 1 \\ 0 \end{bmatrix}
+\end{align*}
+% \begin{align*}
+%     \frac{dx_1}{dt}&=x_1-4x_2, \phantom{2}\quad  x_{1}(0)=1 \\
+%     \frac{dx_2}{dt}&=2x_1-5x_2, \quad x_{2}(0)=0
+% \end{align*}
+Da dette er et autonomt lineært system af første ordens differentialligninger, kan løsningen bestemmes jævnfør \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger} og \autoref{sæt:løsning_2_x_2_ved_egenværdier_etA_beregning}.
 %
 \begin{align*}
-    \frac{dx_1}{dt}&=x_1-4x_2, \phantom{2}\quad  x_{0_1}(t_0)=1 \\
-    \frac{dx_2}{dt}&=2x_1-5x_2, \quad x_{0_2}(t_0)=0
+    \textbf{x}(t)  = \begin{bmatrix} 2e^{-t}-e^{-3t} \\ e^{-t}-e^{-3t} \end{bmatrix}
 \end{align*}
-%
-Da dette er et autonomt lineært system af første ordens differentialligninger, kan løsningen bestemmes jævnfør \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger} og \autoref{sæt:putzers_algoritme}.
-%
-\begin{align*}
-    x_1 = e^{-t}-e^{-3t} \\
-    x_2 = 2e^{-t}-e^{-3t}
-\end{align*}
-%
-Løsningenskurven illustreres i $(x_1,x_2)$-planet.
+% \begin{align*}
+%     x_1 &= e^{-t}-e^{-3t} \\
+%     x_2 &= 2e^{-t}-e^{-3t}
+% \end{align*}
+Løsningenskurven illustreres i $(x_1,x_2)$-planen.
 %
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Billeder/faseportræt_eksempel.png}
-    \caption{Faseportræt for systemet.}
+    \caption{Fasediagram for systemet}
     \label{fig:faseportræt_eksempel}
 \end{figure}
 %
-I \autoref{fig:faseportræt_eksempel} udgør de røde pile retningsfeltet, og den blå kurve udgør løsningen til systemets begyndelsesværdiproblem.
-
+I \autoref{fig:faseportræt_eksempel} udgør de røde pile retningsfeltet, og den blå kurve udgør systemets bane. Eftersom figuren kun visualiserer løsningen for én begyndelsesbetingelse, vil løsningskurven også udgøre faseportrættet. Ud fra retningsfeltet, kan man redegøre for, hvordan andre løsninger i faseplanen vil opføre sig.
+%
 \end{eks}

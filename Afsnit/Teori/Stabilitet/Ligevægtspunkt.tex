@@ -1,19 +1,33 @@
 \section{Ligevægtspunkt}
-Dette afsnit er baseret på \cite[]{"Arne"}\\
-Lad $D_f \subseteq \R$ og $f \in C^0(D_f,R^n)$ så kan
+Dette afsnit er baseret på \cite[]{"Arne"}.
+
+Lad et autonomt lineært system af første ordensdifferentialigninger være givet ud fra \autoref{def:definition_lineært_autonomt_system}.
+%
 \begin{align*}
-    \frac{dx_1}{dt} &= f_1(x_1,x_2)\\
-    \frac{dx_2}{dt} &= f_2(x_1,x_2)
+    \frac{d\textbf{x}}{dt} = \textbf{f}(\textbf{x})
 \end{align*}
-hvor $t \in I$ og $\textbf{x} \in C^1(I,D_f)$, betragtes som følgende autonomt system
-\begin{align}\label{Ligevægtspunkt_autonome_differentialligning}
-    \frac{d\textbf{x}}{dt} = \textbf{f}(\textbf{x}) \quad \textbf{x}(t_0) = \textbf{x}_0. 
-\end{align}
-Ud fra ovenstående informationer af det autonome differentialligningssystem, er det muligt at finde et \textit{ligevægtspunkt}. 
-\begin{defn}\textbf{ligevægtspunkt}\label{ligevægtspunkt_defn}\\
-En begyndelsesbetingelse som $\textbf{x}(t_0) = x^*$ kaldes et ligevægtspunkt, såfremt følgende betingelse gælder
-\begin{equation}
-    \textbf{f}(\textbf{x}^*) =\textbf{ 0}
-\end{equation}
-Løsning til et ligevægtspunkt ses ud fra den konstante vektorfunktion $\textbf{x}(t) = \textbf{x}*$, som også er en løsning til begyndelsesværdiproblemet $\textbf{x}(0) = \textbf{x}^*$.
-\end{defn}
+%
+Da er begyndelsesværdiproblemet for det autonome system givet ved,
+\begin{align*}
+    \frac{d\textbf{x}}{dt} = \textbf{f}(\textbf{x}) \quad \textbf{x}(t_0) = \textbf{x}_0 
+\end{align*}
+%
+Lad $\textbf{f}(\textbf{x}_0) = \textbf{0}$. Da vil $\textbf{x}(t)= \textbf{x}_0$, for alle $t\in I$, være løsning til begyndelsesværdiproblemet, og $\textbf{x}_0$ kaldes et \textit{ligevægtspunkt}. Generelt defineres ligevægtspunktet som følgende. 
+
+%Et ligevægtspunkt til dette begyndelsesværdiproblem er en vektor, som opfylder nedenstående definition.
+
+
+%Lad $\textbf{x}(t_0)=\textbf{x}_0$ være begyndelsesbetingelsen for det autonome system. Hvis $f(\textbf{x}_0)=0$ så gælder, at den konstante vektorfunktion $\textbf{x}(t)=\textbf{x}_0$ for alle $t$ er løsning til begyndelsesværdiproblemet
+
+
+%Løsningen til et ligevægtspunkt ses ud fra den konstante vektorfunktion $\textbf{x}(t) = \textbf{x}^*$, som også er en løsning til begyndelsesværdiproblemet $\textbf{x}(0) = \textbf{x}^*$.
+
+
+
+\begin{defn} \textbf{Ligevægtspunkt for et autonomt system}\label{ligevægtspunkt_defn}\\
+    %$\textbf{x}^*$ er et ligevægtspunkt, såfremt det gælder, at
+    $\textbf{x}_0$ kaldes et ligevægtspunkt og noteres $\textbf{x}^*$, såfremt det gælder, at
+    \begin{align*}
+        \textbf{f}(\textbf{x}_0) = \textbf{0}
+    \end{align*}
+\end{defn} 

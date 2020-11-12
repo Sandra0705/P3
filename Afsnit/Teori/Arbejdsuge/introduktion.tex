@@ -33,7 +33,7 @@ hvor $\Phi(t)$ er en differentiabel funktion med værdier i $\R^{n \times n}$, o
     \Phi(t)=\begin{bmatrix}\mathbf{s}_1 & \mathbf{s}_2 & \cdots & \mathbf{s}_n\end{bmatrix}
 \end{align*}
 %
-hvor $s_j$ betegner den $j$'te søjle, $j=1, 2, \cdots, n$. Differentialligningen i \eqref{eq:begyndelsesværdiproblemet_med_phi} kan omskrives til
+hvor $\textbf{s}_j$ betegner den $j$'te søjle, $j=1, 2, \cdots, n$. Differentialligningen i \eqref{eq:begyndelsesværdiproblemet_med_phi} kan omskrives til
 \begin{align}
     \frac{d}{dt}\begin{bmatrix}\mathbf{s}_1 & \mathbf{s}_2 & \cdots & \mathbf{s}_n\end{bmatrix}=A\begin{bmatrix}\mathbf{s}_1 & \mathbf{s}_2 & \cdots & \mathbf{s}_n\end{bmatrix} \label{eq:omskrivning_begyndelsesværdiproblem}
 \end{align}
@@ -46,7 +46,7 @@ Begyndelsesværdiproblemet er ud fra \eqref{eq:omskrivning_begyndelsesværdiprob
     \frac{d \mathbf{s}_n}{dt}&=A\mathbf{s}_n, \quad \mathbf{s}_n(0)=\mathbf{e}_n
 \end{align*}
 %
-hvor begyndelsesbetingelsen $s_j(0)$ er givet ved enhedsvektorerne i $\R^n$, hvilket er ensbetydende med $I_{n}=\begin{bmatrix}\textbf{e}_1 & \textbf{e}_2 & \cdots & \textbf{e}_n\end{bmatrix}$.
+hvor begyndelsesbetingelsen $\textbf{s}_j(0)$ er givet ved enhedsvektorerne i $\R^n$, hvilket er ensbetydende med $I_{n}=\begin{bmatrix}\textbf{e}_1 & \textbf{e}_2 & \cdots & \textbf{e}_n\end{bmatrix}$.
 
 Herefter ønskes det at vise, at $\Phi(t)$ er en entydig løsning til \eqref{eq:begyndelsesværdiproblem_basic}. Dette gøres ved at anvende Lipschitz-betingelsen fra eksistens- og entydighedssætningen (se \autoref{sæt:eksistens_og_entydighed}).
 

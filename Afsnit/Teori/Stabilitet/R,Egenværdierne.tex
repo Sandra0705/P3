@@ -1,13 +1,13 @@
-\section{Reelle egenværdier}
+\subsection{Reelle egenværdier}
 
 \begin{thmx} \textbf{Reelle egenværdier} %Ny sætning
 \newline
 Lad $\frac{d\textbf{x}}{dt} = \textbf{f(x)}$, hvor $\textbf{f(x) = A\textbf{x}}$, være et autonomt lineært system. Lad $\lambda_1,\lambda_2\neq 0$ være egenværdier til $A$. Så gælder der, at hvis
 \begin{enumerate}
-    \item $\lambda_1<0<\lambda_2$, så er systemet ustabilt. 
-    \item $\lambda_1<\lambda_2<0$, så er systemet asymptotisk stabilt.
-    \item $0<\lambda_1<\lambda_2$, så er systemet ustabilt.
-    \item $0<\lambda_1=\lambda_2$, så er systemet ustabilt.
+    \item $\lambda_1<0<\lambda_2$, så er systemet ustabilt;
+    \item $\lambda_1<\lambda_2<0$, så er systemet asymptotisk stabilt;
+    \item $0<\lambda_1<\lambda_2$, så er systemet ustabilt;
+    \item $0<\lambda_1=\lambda_2$, så er systemet ustabilt;
     \item $\lambda_1=\lambda_2 < 0$, så er systemet asymptotisk stabilt.
 \end{enumerate}
 \end{thmx}
@@ -29,27 +29,50 @@ Først vil punkt 1-3 blive bevist, hvorom det gælder, at $\lambda_1 \neq \lambd
     Ved brug af egenværdierne kan udviklingen af systemet analyseres. Dette gøres ved at bestemme udviklingen for hver af koordinaterne i \eqref{eq:reelle_egenværdier_matrice}.
 \begin{itemize}
     \item [] \textbf{Bevis for punkt 1} \\
-    Lad $\lambda_1 < 0 < \lambda_2$. Da gælder der, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet, at 
+    Lad $\lambda_1 < 0 < \lambda_2$. Da gælder det, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$, og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet, at 
     \begin{align*}
-        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ \infty \end{bmatrix}
+        \textbf{x}(t) = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ \infty \end{bmatrix}
     \end{align*}
-    Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. Systemet er kun konvergent mod ligevægtspunktet såfremt, $c_2e^{t\lambda_2} = 0$. Da $e^{t\lambda_2} \neq 0$, gælder dette, når $c_2 = 0$. For et sådan system kaldes ligevægtspunktet for et \textit{saddelpunkt}. Nedenfor ses et \textbf{\textit{saddel-faseportræt}}.
+    Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. Systemet er kun konvergent mod ligevægtspunktet såfremt, $c_2e^{t\lambda_2} = 0$. Da $e^{t\lambda_2} \neq 0$, gælder dette, når $c_2 = 0$. For et sådan system kaldes ligevægtspunktet for et \textit{saddelpunkt}. Nedenfor ses et eksempel på et \textbf{\textit{saddel-fasediagram}}.
+    %
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{Billeder/saddelportræt.png}
+        \caption{Fasediagram af et saddelpunkt}
+        \label{fig:saddelportræt_bevis}
+    \end{figure}
+    %
     \item [] \textbf{Bevis for punkt 2}\\
-    Lad $\lambda_1<\lambda_2<0$. Da gælder der, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to 0$ for $t \to \infty$. Det må derfor gælde for systemet at 
+    Lad $\lambda_1<\lambda_2<0$. Da gælder det, at $c_1e^{t\lambda_1} \to 0$ for $t\to \infty$, og $c_2e^{t\lambda_2} \to 0$ for $t \to \infty$. Det må derfor gælde for systemet at 
     \begin{align*}
-        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ 0 \end{bmatrix}
+        \textbf{x}(t) = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix}0 \\ 0 \end{bmatrix}
     \end{align*}
     Systemet er dermed asymptotisk stabilt, og konvergerer derfor mod ligevægtspunktet. 
     Da $\lambda_1<\lambda_2$, konvergerer $\lambda_1$ hurtigere mod ligevægtspunktet end $\lambda_2$.
-    For et sådan system kaldes ligevægtspunktet for et \textit{vaskepunkt}. Nedenfor ses et \textbf{\textit{vaske-faseportræt}}.
+    For et sådan system kaldes ligevægtspunktet for et \textit{vaskepunkt}. Nedenfor ses et eksempel på et \textbf{\textit{vaske-fasediagram}}.
+    %
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{Billeder/vaskeportræt.png}
+        \caption{Fasediagram af et vaskepunkt}
+        \label{fig:vaskeportræt_bevis}
+    \end{figure}
     \item [] \textbf{Bevis for punkt 3}\\
-    Lad $0<\lambda_1<\lambda_2$. Da gælder der, at $c_1e^{t\lambda_1} \to \infty$ for $t\to \infty$ og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet at 
+    Lad $0<\lambda_1<\lambda_2$. Da gælder det, at $c_1e^{t\lambda_1} \to \infty$ for $t\to \infty$, og $c_2e^{t\lambda_2} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet at 
     \begin{align*}
-        \textbf{x(t)} = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix} \infty \\ \infty \end{bmatrix}
+        \textbf{x}(t) = \begin{bmatrix} c_1e^{t\lambda_1} \\ c_2e^{t\lambda_2}\end{bmatrix} \to \begin{bmatrix} \infty \\ \infty \end{bmatrix}
     \end{align*}
     Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. 
     Da $\lambda_1<\lambda_2$, divergerer $\lambda_2$ hurtigere væk fra ligevægtspunktet end $\lambda_1$.
-    For et sådan system kaldes ligevægtspunktet for en \textit{kilde}. Nedenfor ses et \textbf{\textit{kilde-faseportræt}}.
+    For et sådan system kaldes ligevægtspunktet for en \textit{kilde}. Nedenfor ses et eksempel på et \textbf{\textit{kilde-fasediagram}}.
+    %
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{Billeder/kildeportræt.png}
+        \caption{Fasediagram af et kildepunkt}
+        \label{fig:kildeportræt_bevis}
+    \end{figure}
+    %
 \end{itemize}
 Herefter vil punkt 4-5 blive bevist, hvorom det gælder, at $\lambda_1 = \lambda_2$. Fra \textbf{ref koordinatskifte} gælder der for $\frac{d\textbf{x}}{dt} = A\textbf{x}$, at
     \begin{align*}A=
@@ -58,16 +81,87 @@ Herefter vil punkt 4-5 blive bevist, hvorom det gælder, at $\lambda_1 = \lambda
         0 & \lambda
         \end{bmatrix}
     \end{align*}
-    I tilfældet, hvor $k=0$, gælder der, at $\lambda$ er egenværdi til $A$ med algebraisk multiplicitet 2. Derfor kan \eqref{eq:tilhørende_egenvektor} skrives som 
-    \begin{align*}
-        \textbf{x(t)} = c_1e^{t\lambda}\textbf{v} \quad \textit{for alle }  \textbf{v}\in\R^2 \backslash \{\textbf{0}\}
-    \end{align*}
-    Derfor ligger alle løsninger på en lige linje gennem ligevægtspunktet. Hvis $\lambda<0$, så er systemet asymptotisk stabilt og konvergere derfor mod ligevægtspunktet. Systemet er ustabilt og divergere derfor væk fra ligevægtspunktet, hvis $\lambda>0$.
 \begin{itemize}
-    \item [] \textbf{Bevis for punkt 4}\\
-    k=1
-    \item [] \textbf{Bevis for punkt 5}\\
-    k=1
+    \item [] \textbf{Bevis for punkt 4 og 5}\\
+    I tilfældet, hvor $k=0$, gælder der, at $\lambda$ er egenværdi til $A$ med algebraisk multiplicitet 2. Da $A\textbf{v}=\lambda\textbf{v}$ er opfyldt for alle ikke-nulvektorer $\textbf{v}\in \R^2$, kan \eqref{eq:tilhørende_egenvektor} skrives som 
+    \begin{align*}
+        \textbf{x}(t) = c_1e^{t\lambda}\textbf{v}, \quad   \forall\textbf{v}\in\R^2 \backslash \{\textbf{0}\}
+    \end{align*}
+    Derfor ligger alle løsningerne på en ret linje gennem ligevægtspunktet. Hvis $\lambda<0$, er systemet asymptotisk stabilt, og konvergerer derfor mod ligevægtspunktet. Systemet er ustabilt, og divergerer væk fra ligevægtspunktet, hvis $\lambda>0$. 
+    I tilfældet, hvor $k=1$, gælder der, at $\lambda$ er en egenværdi til $A$ med algebraisk multiplicitet 2. Denne egenværdi har egenvektoren $\textbf{v}_1 = \begin{bmatrix} 1\\0\end{bmatrix}$. Dette indsættes i \eqref{eq_x(t)_skrevet_lambda_egenvektorer}. 
+    \begin{align*}
+        \textbf{x}_1(t) = c_1e^{t\lambda} \begin{bmatrix} 1\\0\end{bmatrix} = \begin{bmatrix} c_1e^{t\lambda}\\0\end{bmatrix}
+    \end{align*}
+    Da der kun er en egenvektor, udspænder denne løsning ikke hele rummet. Derfor skal der bestemmes en anden løsningen, der udspænder hele løsningensrummet. Systemet skrives på følgende måde for at bestemme denne løsning.
+    
+    \begin{align}\label{eq:bevis_reelle_gentagende_egenværdier_x'_2(t)=phi_vektor}
+         \frac{d\textbf{x}_2}{dt} = A\textbf{x} = \begin{bmatrix}
+                            \phi'_1\\
+                            \phi'_2
+                        \end{bmatrix}
+    \end{align}
+    Hvorom det gælder, at 
+    \begin{align}\label{eq:bevis_reelle_gentagende_egenværdier_x_2(t)=phi_vektor}
+        \textbf{x}_2(t) = \begin{bmatrix}
+                        \phi_1\\
+                        \phi_2
+                    \end{bmatrix} 
+    \end{align}
+    For at bestemme en løsning til $\textbf{x}_2(t)$ omskrives systemet til følgende differentialligninger, hvor $\phi_1$ og $\phi_2$ løses hver for sig.
+    \begin{align*}
+        \phi'_1 &= \lambda\phi_1 + \phi_2\\
+        \phi'_2 &= \lambda\phi_2
+    \end{align*}
+    For $\phi_2 \neq 0$ gælder der fra \eqref{eq:løsning_til_homo_første_ordens}, at
+    \begin{align*}
+        \phi_2(t) = c_2e^{t\lambda}
+    \end{align*}
+    Altså gælder der, at
+    \begin{align*}
+       \phi'_1 = \lambda\phi_1 + c_2e^{t\lambda}
+    \end{align*}
+    Denne kan løses ved brug af \autoref{sæt:generel_løsning_første_ordens_diff}. 
+    \begin{align*}
+        \phi_1(t) &= c_1e^{t\lambda} + e^{t\lambda} \int e^{-t\lambda} c_2 e^{t\lambda} dt\\
+        &= c_1e^{t\lambda} + e^{t\lambda} \int c_2 dt\\
+        &= c_1e^{t\lambda} + e^{t\lambda}c_2t
+    \end{align*}
+    $\phi_1$ og $\phi_2$ indsættes i \eqref{eq:bevis_reelle_gentagende_egenværdier_x_2(t)=phi_vektor}.
+    \begin{align*}
+        \textbf{x}_2(t) =   \begin{bmatrix}
+                                c_1e^{t\lambda} + e^{t\lambda}c_2t\\
+                                c_2e^{t\lambda}
+                            \end{bmatrix} 
+                    = c_1e^{t\lambda} 
+                            \begin{bmatrix}
+                                1 \\ 0 
+                            \end{bmatrix} 
+                     + e^{t\lambda} c_2 
+                            \begin{bmatrix}
+                                t \\ 1
+                            \end{bmatrix}
+    \end{align*}
+    Da de to vektorer er lineært uafhængige, gælder det, at de udspænder hele løsningsrummet, og dermed er dette en løsning til \eqref{eq:bevis_reelle_gentagende_egenværdier_x'_2(t)=phi_vektor}. For dette system må der derfor gælde, at hvis $\lambda < 0$, vil $c_1e^{t\lambda} + e^{t\lambda}c_2t \to 0$ og $c_2e^{t\lambda} \to 0$ for $t \to \infty$, se \autoref{bilag:Hospital}. Det må derfor gælde for systemet, at 
+    \begin{align*}
+        \textbf{x}(t)   =     \begin{bmatrix}
+                                c_1e^{t\lambda} + e^{t\lambda}c_2t\\
+                                c_2e^{t\lambda}
+                            \end{bmatrix} 
+                            \to \begin{bmatrix}
+                                0\\0
+                            \end{bmatrix}
+    \end{align*}
+    Systemet er dermed asymptotisk stabilt, og konvergerer derfor mod ligevægtspunktet. 
+    For $\lambda > 0$, vil $c_1e^{t\lambda} + e^{t\lambda}c_2t \to \infty$ og $c_2e^{t\lambda} \to \infty$ for $t \to \infty$. Det må derfor gælde for systemet, at 
+    \begin{align*}
+        \textbf{x}(t) = \begin{bmatrix}
+                                c_1e^{t\lambda} + e^{t\lambda}c_2t\\
+                                c_2e^{t\lambda}
+                            \end{bmatrix} \to \begin{bmatrix}
+                                \infty\\ \infty
+                            \end{bmatrix}
+    \end{align*}
+    Systemet er dermed ustabilt, og divergerer derfor væk fra ligevægtspunktet. 
 \end{itemize}
 \end{bev}
 

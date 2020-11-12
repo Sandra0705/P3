@@ -1,0 +1,53 @@
+\newpage
+\section{L'Hôpitals regel}\label{bilag:Hospital}
+Nedenstående sætning er baseret på \cite[s.125]{"ETP"}.
+%
+\begin{thmx}\textbf{L'Hôpitals regel om $\displaystyle\bm{\frac{\infty}{\infty}}$-udtryk, når $x$ går mod $\infty$}
+\newline
+Antag, at $f$ og $g$ er definerede på et interval $]a,\infty[$, og at der både gælder $f(x)\to \infty$ for $x \to \infty$ og $g(x) \to \infty$ for $x \to \infty$. 
+
+Hvis brøken $\displaystyle\frac{f'(x)}{g'(x)}$ har en grænseværdi for $x$ gående mod $\infty$,
+%
+\begin{align*}
+    \frac{f'(x)}{g'(x)} &\to c \quad \text{for } x \to \infty
+\intertext{så gælder det, at}
+    \frac{f(x)}{g(x)} &\to c \quad \text{for } x \to \infty
+\end{align*}
+Dette resultat gælder for $c \in \R \cup \{\pm\infty\}$.
+\end{thmx}
+Denne sætning vil ikke blive bevist i dette projekt.
+
+Det ønskes at bestemme grænseværdien for $\displaystyle\lim_{t \to \infty} c_1e^{t\lambda}+c_2e^{t\lambda}$ for $t \to \infty$, når $\lambda<0$.
+
+Antag, at $\lambda<0$. Da gælder det, at 
+%
+\begin{align*}
+    \lim_{t \to \infty} c_1e^{t\lambda} = 0
+\end{align*}
+%
+Dernæst skal grænseværdien for $c_2e^{t\lambda}$ bestemmes. Da $\lambda<0$ gælder følgende lighed.
+%
+\begin{align*}
+    \lim_{t \to \infty} c_2 te^{t\lambda}=c_2\lim_{t \to \infty}  te^{-t \ \abs{\lambda}}
+\end{align*}
+%
+Det bemærkes, at $\lambda$ er en skalar, hvoraf nedenstående lighed gælder.
+%
+\begin{align*}
+    c_2\lim_{t \to \infty}  te^{-t \ \abs{\lambda}} = c_2\lim_{t \to \infty}  te^{-t} = c_2 \lim_{t \to \infty}t\frac{1}{e^t}= c_2 \lim_{t \to \infty} \frac{t}{e^{t}}
+\end{align*}
+
+Herefter defineres funktionerne $f(t)=t$ og $g(t)=e^t$. L'Hopitals regel om $\displaystyle\frac{\infty}{\infty}$-udtryk anvendes.
+%
+\begin{align*}
+    c_2\lim_{t \to \infty}\frac{f(t)}{g(t)} = c_2\lim_{t \to \infty} \frac{f'(t)}{g'(t)} = c_2 \lim_{t \to \infty} \frac{1}{e^t}=0
+\end{align*}
+%
+Herefter bestemmes den fælles grænseværdi.
+%
+\begin{align*}
+    \lim_{t \to \infty} c_1e^{t\lambda} + \lim_{t \to \infty} c_2 te^{t\lambda} = 0 + 0 = 0
+\end{align*}
+
+
+

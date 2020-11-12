@@ -2,8 +2,9 @@ Til at beregne $e^{tA}$ kan \textit{Putzers algoritme} anvendes.
 %I et tidligere projekt blev der redegjort for, hvordan det var muligt at beregne eksponenter af matricer ved brug af \textit{diagonalisering}. For matricer, der ikke er diagonalisérbare, kan \textit{Putzers algoritme} anvendes til at beregne $e^{tA}$. 
 \textit{Cayley Hamilton} (\autoref{lem:Cayley_Hamilton_Sætning}) vil blive brugt til beviset af Putzers algoritme. 
 \begin{lem}\textbf{Cayley Hamilton}\label{lem:Cayley_Hamilton_Sætning}\\
-Lad $A \in \R^{n\times n}$ være en matrice med det karakteristiske polynomium $p_A(\lambda)$. Så gælder, at $p_A(A) = \textit{O}$.
+Lad $A \in \R^{n\times n}$ være en matrice med det karakteristiske polynomium $p_A(\lambda)$, se \autoref{bilag:det_karakteristiske_polynomium}. Så gælder, at $p_A(A) = \textit{O}$.
 \end{lem}
+\autoref{lem:Cayley_Hamilton_Sætning} vil ikke blive bevist i dette projekt. 
 
 Putzers algoritme er en metode, hvorved det er muligt at beregne $e^{tA}$ ved brug af egenværdierne for matricen $A$. Putzers algoritme opstilles som følgende sætning.
 
@@ -27,7 +28,7 @@ hvor
 Vektorfunktionen, $\textbf{r}(t)$,  med indgangene $r_k(t)$ for $k=1, 2, \cdots, n$ er den fuldstændige løsning til følgende begyndelsesværdiproblem
 %
 \begin{align} \label{eq:putzers_algoritme_r(t)_begyndelsesværdiproblem}
-    \textbf{r}'(t) = 
+    \frac{d\textbf{r}}{dt} = 
     \begin{bmatrix} 
         \lambda_1   &   0   & 0 & \cdots & 0\\
         1   & \lambda_2 & 0 & \cdots & 0\\
@@ -51,7 +52,7 @@ Vektorfunktionen, $\textbf{r}(t)$,  med indgangene $r_k(t)$ for $k=1, 2, \cdots,
         r_1'(t) &= \lambda_1 r_1(t)\\
         r_k'(t) &= r_{k-1}(t) + \lambda_k r_k(t), \quad 2\leq k \leq n
     %
-    \intertext{Lad $P_0$ være identitetsmatricen, og lad $P_k$ være et udsnit af det karakteristiske polynomium for $A$ således, at } 
+    \intertext{Lad $P_0$ være identitetsmatricen, og lad $P_k$ være et udsnit af det karakteristiske polynomium på faktoriseret form for $A$ således, at } 
     %
         P_0 &= I_n\\
         P_k &= (A-\lambda_k I_n) P_{k-1}, k=1,2,\cdots, n\\

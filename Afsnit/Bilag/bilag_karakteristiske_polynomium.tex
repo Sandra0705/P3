@@ -1,0 +1,23 @@
+\newpage
+\section{Det karakteristiske polynomium} \label{bilag:det_karakteristiske_polynomium}
+Dette er baseret på \cite{"Arne"}.\\
+\begin{minipage}\textwidth
+\begin{defn}\textbf{} %Ny definition
+\newline
+Lad $A \in \C^{n \times n}$ og lad $\lambda_1, \cdots, \lambda_m$ være entydige egenværdier af $A$. Så gælder det, at 
+\begin{align*}
+    det(A-\lambda I_n) = 0
+\end{align*}
+Dette er et $n$'te grads polynomium, hvorom det gælder at $\lambda^n$ har koefficienten $(-1)^n$. Dette polynomium kaldes for det karakteristiske polynomium for A og skrives som følgende.
+\begin{align*}
+    p_A(\lambda) &= det(A-\lambda I_n) \\
+\end{align*}
+På faktoriseret form skrives det karakteristiske polynomium på følgende måde. 
+\begin{align}\label{træls}
+    p_A(\lambda) &= (-1)^n(\lambda-\lambda_1)^{n_1}\cdots(\lambda-\lambda_m)^{n_m}
+\end{align}
+hvor $n_1+\cdots + n_m=n$
+\end{defn}
+\end{minipage}
+
+Bemærk at i \eqref{træls} er det muligt at indsætte en matrice, hvorom det karakteristiske polynomium giver en matrice. 

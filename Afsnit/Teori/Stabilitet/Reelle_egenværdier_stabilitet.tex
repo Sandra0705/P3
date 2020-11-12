@@ -1,13 +1,16 @@
-\newpage
 \section{Stabilitet ved egenværdier}
 Dette afsnit er baseret på \cite[s. 30-35]{"Morris_and_Stephen"}
-\begin{thmx}\textbf{}
+\begin{thmx}\textbf{}\label{sæt:Løsning_for_komplekse_egenværdier}
 \newline
-Lad $A\in \R^{2\times 2}$ og $\lambda\in \C$ være en egenværdi til A med tilhørende egenvektor $\textbf{v}\in \R^2$. Så gælder det, at
+Lad $A\in \R^{2\times 2}$ og $\lambda\in \C$ være en egenværdi til A med tilhørende egenvektor $\textbf{v}\in \C^2$. Så gælder det, at
 \begin{align}\label{eq:tilhørende_egenvektor}
     x(t) = e^{t\lambda}\textbf{v}
 \end{align}
-er en løsning til differentialligningen (\textbf{ref til en differentialligning}), og $t\in \R$.
+er en løsning til 
+\begin{align}\label{eq:diff_ligning_stabilitet_ved_egenværdi}
+    \frac{d\textbf{x}}{dt} = A\textbf{x}
+\end{align}
+hvor $t\in \I$ og $\textbf{x}\in C^1(I, \R^2)$.
 \end{thmx}
 
 \begin{bev} \textbf{}
@@ -18,7 +21,7 @@ Dette vises ved at differentiere $\textbf{x}(t) = e^{t\lambda}\textbf{v}$.
     \frac{dx}{dt} = \lambda e^{t\lambda} \textbf{v} = e^{t\lambda} (\lambda\textbf{v}) =  e^{t\lambda} (A\textbf{v}) = Ae^{t\lambda} \textbf{v} = A\textbf{x}
 \end{align*}
 
-Det er hermed bevist, at $\textbf{x}(t) = e^{t\lambda}\textbf{v}$ er en løsning til differentialligningen (\textbf{ref til en differentialligning}).
+Det er hermed bevist, at $\textbf{x}(t) = e^{t\lambda}\textbf{v}$ er en løsning til \eqref{eq:diff_ligning_stabilitet_ved_egenværdi}.
 \end{bev}
 
 
@@ -28,13 +31,18 @@ Lad $A\in \R^{2\times 2}$ og $\lambda_1\neq \lambda_2 \in \R$ være egenværdier
 \begin{align}\label{eq_x(t)_skrevet_lambda_egenvektorer}
     \textbf{x}(t) = c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2
 \end{align}
-er en løsning til begyndelsesværdiporblemet (\textbf{ref til et begyndelsesværdiproblem}), hvor $t,c_1,c_2 \in \R$ og $\textbf{x}\in C^1(\R,\R^2)$.
+er en løsning til 
+\begin{align}\label{eq:begyndelsesværdiproblem_stabilitet_ved_egenværdi}
+    \frac{d\textbf{x}}{dt} = A\textbf{x}, \quad \mathbf{x}(t_0) = \mathbf{x}_0
+\end{align}
+
+hvor $t,c_1,c_2 \in \R$ og $\textbf{x}\in C^1(\R,\R^2)$.
 
 \end{thmx}
 
 \begin{bev} \textbf{}
 \newline
-Først vises, at \eqref{eq_x(t)_skrevet_lambda_egenvektorer} er en løsning til \textbf{begyndelsesværdiproblem og noget ref}. Ud fra eksistens- og entydighedssætning (\autoref{sæt:eksistens_og_entydighed} vides det, at der er en entydig løsning til \textbf{Ref begyndelseværdi problem}. Derfor er det nok at vise eksistens af løsningen. 
+Ud fra eksistens- og entydighedssætning (\autoref{sæt:eksistens_og_entydighed} vides det, at der er en entydig løsning til \eqref{eq:begyndelsesværdiproblem_stabilitet_ved_egenværdi}. Derfor er det nok at vise eksistens af løsningen. 
 $\textbf{x}(t) = c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2$ differentieres.
 
 \begin{align*}
@@ -47,7 +55,7 @@ $\textbf{x}(t) = c_1e^{t\lambda_1}\textbf{v}_1 + c_2e^{t\lambda_2}\textbf{v}_2$ 
     &=A\textbf{x}
 \end{align*}
 
-Dernæst verificeres begyndelsesbetingelsen. $x(0)=x_0$ kan opstilles som en linearkombination af de to egenvektorer, da $\lambda_1\neq\lambda_2$ medfører, at $\textbf{v}_1$ og $\textbf{v}_2$ er lineært uafhængige, og dermed er basis for $\R^2$. Dette kan altså opstilles på følgende måde.
+Begyndelsesbetingelsen verificeres. $x(0)=x_0$ kan opstilles som en linearkombination af de to egenvektorer, da $\lambda_1\neq\lambda_2$ medfører, at $\textbf{v}_1$ og $\textbf{v}_2$ er lineært uafhængige, og dermed er basis for $\R^2$. Dette kan altså opstilles på følgende måde.
 \begin{align*}
     x_0 = \alpha \textbf{v}_1 + \beta \textbf{v}_2
 \end{align*}

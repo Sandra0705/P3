@@ -11,7 +11,7 @@
 \nomenclature[B,01]{$\R^n$}{De reelle tal med $n$ dimensioner}
 \nomenclature[B,01]{$\R^{n \times n}$}{De reelle tal, men med et sejt kryds}
 %Funktioner
-\nomenclature[B,02]{$\langle \m,\m \rangle$}{Prikprodukt}
+\nomenclature[B,02]{$\langle \m,\m \rangle$}{Indre produkt}
 \nomenclature[B,02]{$\norm{\m}$}{Normen af en vektor}
 \nomenclature[B,02]{$\textbf{x}$}{Funktionsvektor i $\R^n$}
 \nomenclature[B,02]{$\norm{\m}_F$}{Frobeniusnormen af en reel matrice}
@@ -19,19 +19,22 @@
 \nomenclature[B,03]{$\textbf{u},\textbf{v}, \textbf{w}$}{Vektorer i $V$}
 \nomenclature[B,03]{$\textbf{0}$}{Nulvektoren i $V$}
 \nomenclature[B,03]{$\textbf{a}_i$}{$i$'te række i $A$}
-\nomenclature[B,03]{$\textbf{a}_j$}{$j$'te række i $A$}
-\nomenclature[B,03]{$\textbf{b}_j$}{$j$'te række i $B$}
+\nomenclature[B,03]{$\textbf{a}_j$}{$j$'te søjle i $A$}
+\nomenclature[B,03]{$\textbf{b}_j$}{$j$'te søjle i $B$}
 
 \nomenclature[B,03]{$x_k$}{$k$'te element i \textbf{x}}
-\nomenclature[B,03]{$\textbf{a}_k$}{$k$'te række i $A$}
+\nomenclature[B,03]{$\textbf{a}_k$}{$k$'te søjle i $A$}
 \nomenclature[B,03]{$c$}{Skalar i $\R$}
 \nomenclature[B,03]{$A,B$}{Matrice i $\R^{n \times n}$}
 \nomenclature[B,03]{$\abs{\textbf{x}}$}{Absolutværdi af hver indgang i \textbf{x}}
+\nomenclature[B,04]{$a_{ij}$}{Element i A, i $i$'te række og $j$'te søjle}
+
 %Diverse
 
 
 % C = Differentialligninger
 \nomenclature[C,01]{$\frac{d^nx}{dt^n}$}{Leibniz' notation for $n$'te afledte af $x$ med hensyn til $t$}
+\nomenclature[C,01]{$\displaystyle\lim_{t\to\infty}$}{Grænseværdi}
 \nomenclature[C,01]{$x^{(n)}$}{Lagrange notation for $n$'te afledte af $x$ med hensyn til $t$}
 % Mængder
 \nomenclature[C,02]{$I,J$}{Intervaller i $\R$}
@@ -39,12 +42,11 @@
 \nomenclature[C,02]{$C^0$}{Et rum med kontinuerte funktioner}
 \nomenclature[C,02]{$D_f$}{Definitionsmængde}
 \nomenclature[C,02]{$V_f$}{Værdimængde}
-\nomenclature[C,02]{$\R$}{De reelle tal}
-\nomenclature[C,02]{$\R^n$}{De reelle tal med $n$ dimensioner}
+\nomenclature[C,02]{$x(t)$}{Generel løsning til en differentialligning}
 % Funktioner
 \nomenclature[C,03]{$a(t), b(t)$}{Variable koefficienter i $\R$}
 \nomenclature[C,03]{$a,b$}{Konstante koefficienter i $\R$}
-\nomenclature[C,03]{$A(t)$}{Stamfunktion til $a(t)$}
+\nomenclature[C,03]{$A, G, H$}{Stamfunktioner}
 % Tal
 \nomenclature[C,03]{$t$}{Element i $I$}
 \nomenclature[C,03]{$f,g,h,q$}{Funktion}
@@ -55,21 +57,39 @@
 %Diverse
 \nomenclature[C,04]{$x(t_0)=x_0$}{Begyndelsesbetingelse}
 \nomenclature[C,04]{$\phi(t)$}{Løsning til separabel differentialligning}
-\nomenclature[C,04]{$\textbf{x}(t)$}{Funktionsvektor }
-\nomenclature[C,04]{$A$}{Matrice i $\R^{n \times n}$}
-\nomenclature[C,04]{$\textbf{y}_1,\textbf{y}_2$}{Løsning til et inhomogent lineært system af differentialligninger}
-\nomenclature[B,04]{$\norm{A}_F$}{Frobeniusnormen af $A$}
+%\nomenclature[B,04]{$\norm{A}_F$}{Frobeniusnormen af $A$}
 
-% D = Beregning a e^tA
+% D = System af differentialligninger --- HFEJL HER
+\nomenclature[D,01]{$A(t)$}{Matricefunktion}
+\nomenclature[D,01]{$\textbf{b}(t), \textbf{f}, \textbf{g}$}{Vektorfunktion}
+\nomenclature[D,01]{$a_1(t), a_0(t)$}{Variable koefficienter i $\R$}
+\nomenclature[D,01]{$a_1, a_0$}{Konstante koefficienter i $\R$}
+\nomenclature[D,01]{$e^{tA}$}{Matriceeksponential}
+\nomenclature[D,01]{$\textbf{x}(t), \Phi(t), \E(t), \Psi(t)$}{Løsning til et system af differentialligninger}
+\nomenclature[D,01]{$A$}{Matrice i $\R^{n \times n}$}
+\nomenclature[D,01]{$\textbf{x}(t_0)=\textbf{x}_0$}{Begyndelsesbetingelse}
+\nomenclature[D,01]{$F$}{Matrice funktion}
+\nomenclature[D,01]{$\textbf{s}_j$}{Den j'te søjle}
+\nomenclature[D,01]{$I_n$}{Identitetsmatricen\\ i $\R^{n \times n}$}
+\nomenclature[D,01]{$\textbf{y}_1,\textbf{y}_2$}{Løsning til et inhomogent lineært system af differentialligninger}
+\nomenclature[D,01]{$\textbf{c}$}{Konstant vektor}
+\nomenclature[D,01]{$\mathcal{N}_A$}{Løsningsrummet\\ for $\frac{d\textbf{x}}{dt} = A\textbf{x}$}
+\nomenclature[D,01]{$dim()$}{Dimensionen af et vektorrum}
+\nomenclature[D,01]{$span()$}{Spannet af et vektorrum}
+%------
 
-
-
-
-
-
-
-
-
+% D = Beregning af e^tA
+\nomenclature[E,01]{$p_A()$}{Det karakteristiske polynomium}
+\nomenclature[E,01]{$\lambda$}{Egenværdi}
+\nomenclature[E,01]{$O$}{Nulmatricen}
+\nomenclature[E,01]{$P_0, P_k$}{Udsnit af det karakteristiske polynomium for $A$}
+\nomenclature[E,01]{\textbf{r}(t)}{Vektorfunktion}
+\nomenclature[E,01]{$r_k(t)$}{Den k'te indgang i \textbf{r}(t)}
+\nomenclature[E,01]{$tr()$}{Sporet af en matrice i $\R^{2\times 2}$}
+\nomenclature[E,01]{$det()$}{Determinanten af en matrice i $\R^{2\times 2}$}
+\nomenclature[E,01]{$z$}{Skalar i $\R^{2}$}
+\nomenclature[E,01]{$\C$}{De komplekse tal}
+\nomenclature[E,01]{$i$}{Den imaginære enhed}
 
 
 

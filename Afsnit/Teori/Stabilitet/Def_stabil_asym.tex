@@ -1,30 +1,30 @@
 \section{Stabilitets definitioner}
 Dette afsnit er baseret på \cite[s. 492-494]{"Edwards_and_Penney"}.
 
-Når man kender ligevægtspunktet er det interessant at analysere \textit{stabiliteten}. Stabiliteten af et system beskriver, hvordan systemet opfører sig i forhold til ligevægtspunktet, og beskriver systemets opførsel, når $t \rightarrow \infty$.
+Når ligevægtspunktet er bestemt er det muligt at analysere \textit{stabiliteten} for et system. Stabiliteten af et system beskriver, hvordan systemet opfører sig i forhold til ligevægtspunktet, samt systemets opførsel, når $t \rightarrow \infty$. 
 
 \begin{minipage}\textwidth
 \begin{defn}\textbf{Stabilitet} %Ny definition
 \newline
-For et autonomt system $\frac{d\textbf{x}}{dt}=\textbf{f(x)}$, gælder det, at ligevægtspunktet $\textbf{x}^*$ er stabilt, hvis der for alle $\textbf{x}_0$ gælder, at
+For et autonomt system $\displaystyle\frac{d\textbf{x}}{dt}=\textbf{f}(\textbf{x})$ gælder det, at ligevægtspunktet $\textbf{x}^*$ er stabilt, hvis der for ethvert $\textbf{x}_0\in \R^n$ gælder, at
 \begin{align*}
-\abs{\textbf{x}_0 - \textbf{x}^*} < \delta \Rightarrow \abs{\textbf{x(t)}- \textbf{x}^*} < \varepsilon
+\norm{\textbf{x}_0 - \textbf{x}^*} < \delta \Rightarrow \norm{\textbf{x}(t)- \textbf{x}^*} < \varepsilon
 \end{align*}
 hvor $\delta, \varepsilon>0$. Ligevægtspunktet kaldes ustabilt, hvis det ikke er stabilt.
 \end{defn}
 \end{minipage}
 
-Det vil sige, at ligevægtspunktet $\textbf{x}^*$ er stabilt, hvis begyndelsesbetingelsen $\textbf{x}_0$ er indenfor en $\delta$-afstand af ligevægtspunktet, $\textbf{x}^*$, og $\textbf{x}(t)$ forbliver indenfor en $\varepsilon$-afstand af ligevægtpunktet $\textbf{x}^*$ for $t>0$. Hvis ligevægtspunktet $\textbf{x}^*$ er ustabilt, gælder der, at $x(t)$ ikke forbliver indenfor en $\varepsilon$-afstand af ligevægtpunktet.
+Det vil sige, at ligevægtspunktet $\textbf{x}^*$ er stabilt, hvis begyndelsesbetingelsen $\textbf{x}_0$ er indenfor en $\delta$-afstand af ligevægtspunktet, $\textbf{x}^*$, og $\textbf{x}(t)$ forbliver indenfor en $\varepsilon$-afstand af ligevægtpunktet $\textbf{x}^*$ for alle $t\in I$. Hvis ligevægtspunktet $\textbf{x}^*$ er ustabilt, gælder der, at $\textbf{x}(t)$ ikke forbliver indenfor en $\varepsilon$-afstand af ligevægtpunktet.
 
 \begin{minipage}\textwidth
 \begin{defn}\textbf{Asymptotisk stabilitet} %Ny definition
 \newline
-For et autonomt system $\frac{d\textbf{x}}{dt}=\textbf{f(x)}$, så gælder det, at ligevægtspunktet $\textbf{x}^*$ er asymptotisk stabilt, hvis der for alle $\textbf{x}_0$ gælder
+For et autonomt system $\displaystyle\frac{d\textbf{x}}{dt}=\textbf{f}(\textbf{x})$ gælder det, at ligevægtspunktet $\textbf{x}^*$ er asymptotisk stabilt, hvis der for alle $\textbf{x}_0 \in \R^n$ gælder, at ligevægtspunktet både er stabilt og der gælder, at
 \begin{align*}
-\abs{\textbf{x}_0 - \textbf{x}^*} < \delta \Rightarrow \lim_{t\rightarrow \infty} \textbf{x(t)} = \textbf{x}^*
+\norm{\textbf{x}_0 - \textbf{x}^*} < \delta \Rightarrow \lim_{t\rightarrow \infty} \textbf{x}(t) = \textbf{x}^*
 \end{align*}
-hvor $\delta, \varepsilon>0$
+hvor $\delta>0$.
 \end{defn}
 \end{minipage}
 
-Altså er ligevægtspunktet asymptotisk stabilt, hvis det er stabilt, og hvis der derudover gælder, at $\textbf{x}(t)$ nærmer sig ligevægtspunktet, når $t \rightarrow \infty$.
+Altså er ligevægtspunktet asymptotisk stabilt, hvis det både er stabilt, og der gælder, at $\textbf{x}(t)$ nærmer sig ligevægtspunktet, når $t \rightarrow \infty$.

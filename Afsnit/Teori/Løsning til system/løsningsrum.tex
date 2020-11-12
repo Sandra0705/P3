@@ -86,20 +86,20 @@ Dernæst skal det vises, at søjlerne er lineært uafhængige i $\mathcal{N}_A$.
 
 Det vides fra \autoref{sæt:egenskaber_for_eta}, at $e^{tA}$ er invertibel for alle $t\in I$. Derfor er søjlerne i $e^{tA}$ lineært uafhængige i $\R^n$ for alle $t\in I$. Da $\mathcal{N}_A \subseteq \R^n$ og $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots,n$, vil søjlerne også være lineært uafhængige i $\mathcal{N}_A$. 
 
-Herefter vises det, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)=\mathcal{N}_A$. \\
+Herefter vises det, at $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)=\mathcal{N}_A$. \\
 For at dette er gældende, skal 
 \begin{enumerate}
-    \item span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$
-    \item $\mathcal{N}_A\subseteq \text{span}(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$
+    \item $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$
+    \item $\mathcal{N}_A\subseteq span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$
 \end{enumerate}
 
 \begin{itemize}
 \item [] \textbf{Bevis for punkt 1}\\
-Først vises, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$. \\
-Det vides, at $\mathcal{N}_A$ er et underrum, samt at $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots,n$. Da $\mathcal{N}_A$ er lukket under addition og multiplikation, må enhver linearkombination af søjlerne ligge i $\mathcal{N}_A$. Det må derfor gælde, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) \subseteq \mathcal{N}_A$.
+Først vises, at $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)\subseteq \mathcal{N}_A$. \\
+Det vides, at $\mathcal{N}_A$ er et underrum, samt at $\textbf{s}_j \in \mathcal{N}_A$ for $j=1,2,\cdots,n$. Da $\mathcal{N}_A$ er lukket under addition og multiplikation, må enhver linearkombination af søjlerne ligge i $\mathcal{N}_A$. Det må derfor gælde, at $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) \subseteq \mathcal{N}_A$.
 
 \item [] \textbf{Bevis for punkt 2}\\
-Dernæst vises det, at $\mathcal{N}_A \subseteq \text{span}(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$. \\
+Dernæst vises det, at $\mathcal{N}_A \subseteq span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$. \\
 Følgende begyndelsesværdiproblem opstilles ud fra \autoref{sæt:løsning_til_homogen_system_af_første_ordens_differentialligninger}, hvor det gælder, at $t_0=0$.
 \begin{align*}
     \frac{d\textbf{x}}{dt} &= A\textbf{x}, \quad \textbf{x}(0) = \textbf{x}_0
@@ -109,11 +109,11 @@ Følgende begyndelsesværdiproblem opstilles ud fra \autoref{sæt:løsning_til_h
     &= \textbf{s}_1 x_{0_1} + \textbf{s}_2 x_{0_2} + \cdots + \textbf{s}_nx_{0_n}
 \end{align*}
 Ud fra ovenstående bemærkes det, at en vilkårlig vektor $\textbf{x} \in \mathcal{N}_A$ kan opskrives som en linearkombination af $\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n$.
-Da må det gælde, at $\mathcal{N}_A \subseteq \text{span}(\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n)$.
+Da må det gælde, at $\mathcal{N}_A \subseteq span(\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n)$.
 
-Det er hermed vist, at span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$.
+Det er hermed vist, at $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$.
 
-Eftersom $\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n$ er lineært uafhængige i $\mathcal{N}_A$, samt span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$, udgør span$(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$ en basis for $\mathcal{N}_A$. Da basen har længden $n$, vil $dim (\mathcal{N}_A) = n$. 
+Eftersom $\textbf{s}_1, \textbf{s}_2, \cdots, \textbf{s}_n$ er lineært uafhængige i $\mathcal{N}_A$, samt $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n) = \mathcal{N}_A$, udgør $span(\textbf{s}_1, \textbf{s}_2,\cdots, \textbf{s}_n)$ en basis for $\mathcal{N}_A$. Da basen har længden $n$, vil $dim (\mathcal{N}_A) = n$. 
 \end{itemize}
 Dermed er \autoref{sæt:egenskab_for_søjler_i_eta} bevist.
 \end{bev}

@@ -1,4 +1,6 @@
-\section{djlkhlkjhlkhjgkjhgkgfkjhgæiejfo}
+%\section{Beregning af $e^{tA}$ for $2 \times 2$}
+\section[Beregning af  \texorpdfstring{$e^{tA}$ for $2 \times 2$}{exp(tA)} matricer]{Beregning af \bm{$e^{tA}$} for \bm{$2\times 2$} matricer}
+
 For en matrice i $\R^{2\times 2}$ er det muligt at bestemme udtrykket for $e^{tA}$ ved brug af egenværdierne og \textit{sporet} af matricen $A$. Udledningen af denne vil blive præsenteret i dette afsnit. Sporet er defineret som følgende 
 
 \begin{minipage}\textwidth
@@ -10,8 +12,18 @@ Lad $A \in \R^{n\times n}$. Sporet af $A$ er defineret som
 \end{align*}
 \end{defn}
 \end{minipage}
+
+Til nogle af de følgende resultater skal det karakteristiske polynomium anvendes, se \autoref{bilag:det_karakteristiske_polynomium}. Det karakteristiske polynomium omskrives ved brug af sporet og determinanten.
+
+Matricen $A$ kan udtrykkes på følgende måde
 %
-Til nogle af de følgende resultater skal det karakteristiske polynomium anvendes. Det karakteristiske polynomium omskrives ved brug af sporet og determinanten. 
+\begin{align*}
+    A=
+    \begin{bmatrix}
+    a_{11} & a_{12}\\
+    a_{21} & a_{22}
+    \end{bmatrix}
+\end{align*}
 %
 \begin{align}
     p_A(\lambda) &= det(A-\lambda I) \nonumber\\
@@ -115,8 +127,6 @@ I hvert punkt i dette bevis vil Putzers algoritme (\autoref{sæt:putzers_algorit
         &= e^{-t\cdot \sqrt{-det(A)}}\cdot \left(\frac{1}{2\cdot\sqrt{-det(A)}}\cdot e^{2t\cdot \sqrt{-det(A)}} - \frac{1}{2\cdot\sqrt{-det(A)}}\right)\\
         &= \frac{1}{2 \cdot \sqrt{-det(A)}}\cdot e^{t\cdot\sqrt{-det(A)}} - \frac{1}{2 \cdot \sqrt{-det(A)}}\cdot e^{-t\cdot\sqrt{-det(A)}}\\
         &=\frac{e^{t\cdot\sqrt{-det(A)}}-e^{-t\cdot\sqrt{-det(A)}}}{2 \sqrt{-det(A)}}
-        \intertext{Ved at anvende \autoref{bilag:cos_og_sin} fås følgende}
-        r_2(t)&=\frac{sinh\left(t\cdot \sqrt{-det(A)}\right)}{\sqrt{-det(A)}}
         \intertext{Herefter vil $P_0$ og $P_1$ blive bestemt.}
         P_0 &= I_2\\
         P_1 &= (A-\lambda_1I_2) = \left(A - \sqrt{-det(A)}I_2\right) 
